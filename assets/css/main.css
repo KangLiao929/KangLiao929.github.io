@@ -1,0 +1,70 @@
+body{
+	font-size:16px;
+	line-height:1.6;
+}
+.container{
+  padding-left: 100px;
+  padding-right: 15px;
+  min-width: 1170px;
+  margin-right:auto;
+  margin-left:auto
+}
+.logo-image { max-width:75%; height:auto; overflow:hidden;}
+
+.abstract-text { color: #606060; }
+
+li {list-style-type:none;}
+
+ .media{
+	 border-left: 6px #D26900 solid;
+ }
+ .media-body{
+	 padding-left:20px;
+ }
+.projectheader{
+	text-align:center;
+}
+.projectimg{
+	text-align:center;
+}
+.projectimg img{
+	width: 100%;
+}
+.researchInt{
+	 padding-top: 10px;
+}
+.researchInt ul li{
+	 list-style-type:disc;
+	 line-height:30px;
+}
+.award ul li{
+	 list-style-type:disc;
+	 line-height:30px;
+}
+.news ul li{
+	 font-size:16px;
+	 list-style-type:none;
+	 line-height:30px;
+	 padding:0;
+	 margin:0;
+}
+.news ul{
+	margin:0px;
+	padding:0px;
+}
+.fa-flag{
+	color:#FF2D2D;
+	padding-right:10px;
+}
+.photo{
+	float:left;
+	width:100%;
+	padding-top:10px;
+}
+.photo img{
+	width: 95%;
+}
+.introduction{
+	float:right;
+	width:80%;
+}
