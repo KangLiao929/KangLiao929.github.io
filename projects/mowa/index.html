@@ -282,7 +282,7 @@
 
       <!-- wide_angle2 -->
       <div class="has-text-centered" id="wide_angle2">
-        <p class="prompt">"Rectified Wide-Angle Image"</p>
+        <p class="prompt"></p>
       </div>
       <div class="flex">
         <div class="flexWrapper">
@@ -315,6 +315,49 @@
             <div class="insideWrapper">
               <img src="static/examples/wide_angle/output2.jpg" class="canvasBGImage">
               <canvas class="viz wide_angle2 gen" width="512" height="512"></canvas>
+            </div>
+          </div>
+          <div class="has-text-centered">
+            <p><b>Warped Result</b></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- wide_angle3 -->
+      <div class="has-text-centered" id="wide_angle3">
+        <p class="prompt"></p>
+      </div>
+      <div class="flex">
+        <div class="flexWrapper">
+          <div class="outsideWrapper">
+            <div class="insideWrapper">
+              <img src="static/examples/wide_angle/flow3.jpg" class="canvasBGImage">
+              <canvas class="viz wide_angle3 flow" width="512" height="512"
+                data-json-path="./static/examples/wide_angle/flow3.json"></canvas>
+            </div>
+          </div>
+          <div class="has-text-centered">
+            <p><b>Warping Flow</b></p>
+            <p style="font-size: 10pt;" class="hoverMe">(Hover over me)</p>
+          </div>
+        </div>
+        <div class="flexWrapper">
+          <div class="outsideWrapper">
+            <div class="insideWrapper">
+              <img src="static/examples/wide_angle/input3.jpg" class="canvasBGImage">
+              <canvas class="viz wide_angle3 src" width="512" height="512"></canvas>
+            </div>
+          </div>
+          <div class="has-text-centered">
+            <p><b>Input Image</b></p>
+            <p style="font-size: 10pt;" class="hoverMe">(Hover over me)</p>
+          </div>
+        </div>
+        <div class="flexWrapper">
+          <div class="outsideWrapper">
+            <div class="insideWrapper">
+              <img src="static/examples/wide_angle/output3.jpg" class="canvasBGImage">
+              <canvas class="viz wide_angle3 gen" width="512" height="512"></canvas>
             </div>
           </div>
           <div class="has-text-centered">
