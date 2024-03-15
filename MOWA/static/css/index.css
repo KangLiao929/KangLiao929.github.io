@@ -1,0 +1,125 @@
+/* Enable smooth scrolling on the whole document */
+ html {
+	scroll-behavior: smooth;
+}
+
+/* Disable smooth scrolling when users have prefers-reduced-motion enabled */
+ @media screen and (prefers-reduced-motion: reduce) {
+	html {
+		scroll-behavior: auto;
+	}
+}
+
+body {
+  font-family: 'Noto Sans', sans-serif;
+}
+
+.link-block a {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.publication-title {
+  font-family: 'Google Sans', sans-serif;
+}
+
+.publication-authors {
+  font-family: 'Google Sans', sans-serif;
+}
+
+.publication-authors a {
+  color: hsl(204, 86%, 53%) !important;
+}
+
+.publication-authors a:hover {
+  text-decoration: underline;
+}
+
+.author-block {
+  display: inline-block;
+}
+
+/* Thanks John Denero! */
+span.rev {
+  unicode-bidi: bidi-override;
+  direction: rtl;
+}
+
+
+
+/* css for viz + videos + images */
+.outsideWrapper {
+  width: 100%;
+  /*min-width: 224px;*/
+  max-width: 384px;
+  height: 0;
+  padding-bottom: 100%; /* Maintain a 1:1 aspect ratio */
+  position: relative;
+}
+
+.insideWrapper {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  margin: auto;
+  border: 1px solid black;
+  width: 100%;
+  height: 100%;
+}
+
+.viz {
+  width: 100%;
+  height: 100%;
+}
+
+.canvasBGImage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  margin: auto;
+  width: 100%;
+  height: 100%;
+  max-width: 512px;
+  max-height: 512px;
+}
+
+.flex {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 30px;
+}
+
+.flexWrapper {
+  display: block;
+  flex-basis: 0;
+  flex-grow: 1;
+  flex-shrink: 1;
+}
+
+.prompt {
+  font-family: 'Maison Mono', monospace;
+  font-weight: 500;
+  font-size: 18px;
+}
+
+figcaption {
+  text-align: center;
+  font-size: 9pt;
+  text-align: left;
+  margin: 0px 5%;
+}
+
+.ui {
+  border-radius: 10px;
+  border: 2px solid black;
+}
