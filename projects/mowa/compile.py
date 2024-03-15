@@ -9,7 +9,7 @@ component = '''<div class="has-text-centered" {{ id }}>
     <div class="outsideWrapper">
       <div class="insideWrapper">
         <img src="static/examples/{{ dirName }}/flow.png" class="canvasBGImage">
-        <canvas class="viz {{ clsName }} flow" width="512" height="512"
+        <canvas class="viz {{ clsName }} flow" width="512" height="384"
           data-json-path="./static/examples/{{ dirName }}/flow.json"></canvas>
       </div>
     </div>
@@ -22,7 +22,7 @@ component = '''<div class="has-text-centered" {{ id }}>
     <div class="outsideWrapper">
       <div class="insideWrapper">
         <img src="static/examples/{{ dirName }}/src.png" class="canvasBGImage">
-        <canvas class="viz {{ clsName }} src" width="512" height="512"></canvas>
+        <canvas class="viz {{ clsName }} src" width="512" height="384"></canvas>
       </div>
     </div>
     <div class="has-text-centered">
@@ -34,7 +34,7 @@ component = '''<div class="has-text-centered" {{ id }}>
     <div class="outsideWrapper">
       <div class="insideWrapper">
         <img src="static/examples/{{ dirName }}/gen.png" class="canvasBGImage">
-        <canvas class="viz {{ clsName }} gen" width="512" height="512"></canvas>
+        <canvas class="viz {{ clsName }} gen" width="512" height="384"></canvas>
       </div>
     </div>
     <div class="has-text-centered">
