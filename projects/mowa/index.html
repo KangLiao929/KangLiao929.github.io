@@ -1606,8 +1606,11 @@
       <div class="has-text-centered content">
         <h2 class="title is-3" id="additional">More Warping Results</h2>
       </div>
-      <p style="text-align: left;">
+      <p style="text-align: center; font-size: 16px;">
         <b>More Results on Test Datasets.</b>
+      </p>
+      <p style="text-align: center; font-size: 12px;">
+        <b>Stitch Image.</b>
       </p>
       <div style="text-align: center;">
        <img src="static/images/cp_stitch.jpg" style="padding: 2rem 0rem 0rem 0rem; width: 1000px;">
@@ -1641,73 +1644,26 @@
 
   <section class="section">
     <div class="container is-max-desktop">
-      <div class="has-text-centered content">
-        <h2 class="title is-3" id="warping_results">Warping Results</h2>
-          <p style="text-align: left;">
-            <b>Results on Test Datasets.</b> Qualitative comparison of our multiple-in-one framework MOWA to the SOTA image warping models. The red dotted lines mark the horizon. The arrows highlight the inferior warped parts such as the irregular boundaries and distorted semantics. 
-          </p>
-          <div style="text-align: center;">
-           <img src="static/images/cp_all.jpg" style="padding: 2rem 0rem 3rem 0rem; width: 1300px;">
-          </div>
-          <p style="text-align: left;">
-            <b>Cross-Domain and Zero-Shot Evaluations.</b> Generalization evaluation of the proposed MOWA: cross-domain evaluation (top) and zero-shot evaluation (bottom). In image retargeting results, the red dotted lines measure the stretch extent of the face or body by warping operations. 
-          </p>
-          <div style="text-align: center;">
-           <img src="static/images/generalization_all.jpg" style="padding: 2rem 0rem 0rem 0rem; width: 1000px;">
-          </div>
-        <div class="has-text-centered content">
-          <h5>
-            <em><b>See <a href="#additional">below</a> for <a href="#additional">more warping results</a>.</b></em>
-          </h5>
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-  <section class="section">
-    <div class="container is-max-desktop">
       <div class="columns is-centered has-text-justified">
         <div class="column is-four-fifths">
           <h2 class="title is-3" id="additional">References</h2>
-          <p id="ref1">[1] Dhariwal, Nichol, “<a href="https://arxiv.org/abs/2105.05233" target="_blank">Diffusion Models Beat GANs on Image Synthesis</a>”, NeurIPS, 2021. <a href="#ref1back">↩</a></p>
-          <p id="ref2">[2] Teed, Deng, “<a href="https://arxiv.org/abs/2003.12039" target="_blank">RAFT: Recurrent All-Pairs Field Transforms for Optical Flow</a>”, ECCV, 2020. <a href="#ref2back">↩</a></p>
-          <p id="ref3">[3] Ho <em>et al.</em>, “<a href="https://arxiv.org/abs/2204.03458" target="_blank">Video Diffusion Models</a>”, arXiv, June 2022. <a href="#ref3back">↩</a></p>
-          <p id="ref4">[4] Bansal <em>et al.</em>, “<a href="https://arxiv.org/abs/2302.07121" target="_blank">Universal Guidance for Diffusion Models</a>”, ICLR, 2024. <a href="#ref4back">↩</a></p>
+          <p id="ref1">[1] Daniel Geng, Andrew Owens, “<a href="https://dangeng.github.io/motion_guidance/" target="_blank">Motion Guidance: Diffusion-Based Image Editing with Differentiable Motion Estimators</a>”, ICLR, 2024. <a href="#ref1back">↩</a></p>
+
         </div>
       </div>
     </div>
   </section>
 
-  <section class="section">
-    <div class="container is-max-desktop content">
-      <div class="columns is-centered has-text-justified">
-        <div class="column is-four-fifths">
-          <h2 class="title is-3">Real Image Attribution</h2>
-          <ul>
-            <li>"Dark Haired Woman" by <a href="https://unsplash.com/photos/selective-focus-photo-of-woman-wearing-white-top-and-black-choker-necklace-k_4A59MzZTY" target="_blank">Binh Ly</a></li>
-            <li>"Waterfall" by <a href="https://unsplash.com/photos/waterfalls-surrounded-with-green-leafed-trees-during-daytime-NWrye3NRrKw" target="_blank">Ben Guerin</a></li>
-            <li>"Black and White Cat" by <a href="https://unsplash.com/photos/black-and-white-cat-lying-on-brown-bamboo-chair-inside-room-gKXKBY-C-Dk" target="_blank">Manja Vitolic</a></li>
-            <li>"Orange and White Cat" by <a href="https://unsplash.com/photos/short-haired-white-and-brown-cat-G7kUPmzi80E" target="_blank">Zoë Gayah Jonker</a></li>
-            <li>"Panda" by <a href="https://unsplash.com/photos/a-panda-bear-in-the-grass-ScHhzUSG2x8" target="_blank">Marian Baciu</a></li>
-            <li>"Pug" by <a href="https://unsplash.com/photos/a-small-pug-dog-sitting-on-a-wooden-floor-2s2TPxBIxGc" target="_blank">Mykyta Telenkov</a></li>
-            <li>"Windows" by <a href="https://unsplash.com/photos/low-angle-photo-of-closed-building-windows-3vQBb4C1eHE" target="_blank">Marc Kleen</a></li>
-            <li>"Two Windows" by <a href="https://unsplash.com/photos/two-gray-frame-glass-windows-74LNap6czbo" target="_blank">Evelina Friman</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
 
   <section class="section" id="BibTeX">
     <div class="container is-max-desktop content">
       <div class="columns is-centered has-text-justified">
         <div class="column is-four-fifths">
           <h2 class="title">BibTeX</h2>
-          <pre><code>@article{geng2024motion,
-  author    = {Geng, Daniel and Owens, Andrew},
-  title     = {Motion Guidance: Diffusion-Based Image Editing with Differentiable Motion Estimators},
-  journal   = {International Conference on Learning Representations},
+          <pre><code>@article{liao2024mowa,
+  author    = {Kang, Liao and Zongsheng, Yue and Zhonghua, Wu and Chen Change Loy},
+  title     = {MOWA: Multiple-in-One Image Warping Model},
+  journal   = {arXiv},
   year      = {2024},
 }</code></pre>
         </div>
