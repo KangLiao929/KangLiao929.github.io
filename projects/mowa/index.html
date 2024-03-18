@@ -135,7 +135,7 @@
       </div>
       <p style="text-align: left; padding: 0rem 0rem 2rem 0rem;">
         Warping flow bridges the geometric gap between the input and target images. It can typically be visualized using a colormap, where the color hue represents the <em>flow direction</em> and the saturation signifies the <em>flow magnitude</em>.
-        We provide an interactive visualization to show the estimated displacement of each pixel by MOWA. Please <b>hover over</b> the warping flows or input images and see how the arrow changes. For mobile users, please try to tag and drag the pixels.
+        We provide an interactive visualization to show the MOWA's estimated displacement of each pixel Please <b>hover over</b> the warping flows or input images and see how the arrow changes. For mobile users, please try to tag and drag the pixels.
         All examples are resized into the same resolution of 512x512 for compact display.
       </p>
 
@@ -1040,6 +1040,39 @@
         </div>
       </div>
 
+    </div>
+  </section>
+
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="has-text-centered content">
+        <h2 class="title is-3" id="warping_results">Control Points</h2>
+          <p style="text-align: left;">
+            <b>Results on Test Datasets.</b> Qualitative comparison of our multiple-in-one framework MOWA to the SOTA image warping models. The red dotted lines mark the horizon. The arrows highlight the inferior warped parts such as the irregular boundaries and distorted semantics. 
+          </p>
+          <div style="display: flex;">
+            <div style="margin: 1rem 2% 1rem 0px; width: 32%;">
+              <video playsinline autoplay muted loop class="ui">
+                <source src="./static/videos/stitch1.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+            <div style="margin: 1rem 2% 1rem 0px; width: 32%;">
+              <video playsinline autoplay muted loop class="ui">
+                <source src="./static/videos/stitch2.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+            <div style="margin: 1rem 0% 1rem 0px; width: 32%;">
+              <video playsinline autoplay muted loop class="ui">
+                <source src="./static/videos/stitch3.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          </div>
+
+      </div>
     </div>
   </section>
   
