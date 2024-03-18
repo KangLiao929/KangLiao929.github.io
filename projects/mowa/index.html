@@ -105,17 +105,26 @@
 
   <section class="section">
     <div class="container is-max-desktop">
-      <div class="columns is-centered has-text-justified">
-        <div class="column is-four-fifths">
-          <h2 class="title is-3" id="warping_results">Warping Results</h2>
-          <div style="text-align: center;">
-           <img src="static/images/cp_all.jpg" style="padding: 2rem 0rem 0rem 2rem; width: 1000px;">
+      <div class="has-text-centered content">
+        <h2 class="title is-3" id="warping_results">Warping Results</h2>
+          <div class="column is-four-fifths">
+            <h2 class="title is-3" id="res">Results on Test Datasets</h2>
+            <p>Qualitative comparison of our multiple-in-one framework MOWA to the SOTA image warping models. The red dotted lines mark the horizon. 
+              The arrows highlight the inferior warped parts such as the irregular boundaries and distorted semantics. 
+            </p>
           </div>
           <div style="text-align: center;">
-           <img src="static/images/generalization_all.jpg" style="padding: 2rem 0rem 0rem 0rem; width: 1000px;">
+           <img src="static/images/cp_all.jpg" style="padding: 2rem 0rem 0rem 2rem; width: 1300px;">
           </div>
-
-        </div>
+          <div class="column is-four-fifths">
+            <h2 class="title is-3" id="res">Cross-Domain and Zero-Shot Evaluations</h2>
+            <p>Generalization evaluation of the proposed MOWA: cross-domain evaluation (top) and zero-shot evaluation (bottom). The visualized flow and control points are both predicted by MOWA. 
+              In image retargeting results, the red dotted lines measure the stretch extent of the face or body by warping operations. 
+            </p>
+          </div>
+          <div style="text-align: center;">
+           <img src="static/images/generalization_all.jpg" style="padding: 2rem 0rem 0rem 0rem; width: 1100px;">
+          </div>
       </div>
     </div>
   </section>
@@ -1621,7 +1630,6 @@
           <h2 class="title is-3" id="additional">Limitations</h2>
           <p>Our method suffers from various limitations that would benefit from further research. Below, we show examples of failure cases. (a) Because we use an off-the-shelf optical flow network, some flow prompts are severely out-of-distribution, such as a vertical flip, and fail. (b) Because we optimize a soft objective, seeking to achieve a likely sample under the diffusion model as well as a sample that minimizes the guidance energy, we sometimes see loss of identity in our generations. (c) The one-step approximation is sometimes unstable, and can diverge catastrophically. Additionally, we inherit the limitations of diffusion models and Universal Guided Diffusion <a id="ref4back" href="#ref4">[4]</a>, such as slow sampling speeds.
 
-          <img src="static/images/failures.png" style="padding: 2rem 0rem 0rem 0rem;">
         </div>
       </div>
     </div>
