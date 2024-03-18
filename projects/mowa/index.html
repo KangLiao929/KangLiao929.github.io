@@ -114,7 +114,7 @@
            <img src="static/images/cp_all.jpg" style="padding: 2rem 0rem 3rem 0rem; width: 1300px;">
           </div>
           <p style="text-align: left;">
-            <b>Cross-Domain and Zero-Shot Evaluations.</b> Generalization evaluation of the proposed MOWA: cross-domain evaluation (top) and zero-shot evaluation (bottom). The visualized flow and control points are both predicted by MOWA. In image retargeting results, the red dotted lines measure the stretch extent of the face or body by warping operations. 
+            <b>Cross-Domain and Zero-Shot Evaluations.</b> Generalization evaluation of the proposed MOWA: cross-domain evaluation (top) and zero-shot evaluation (bottom). In image retargeting results, the red dotted lines measure the stretch extent of the face or body by warping operations. 
           </p>
           <div style="text-align: center;">
            <img src="static/images/generalization_all.jpg" style="padding: 2rem 0rem 0rem 0rem; width: 1000px;">
@@ -1604,37 +1604,61 @@
   <section class="section">
     <div class="container is-max-desktop">
       <div class="has-text-centered content">
-        <h2 class="title is-3" id="additional">Additional Warping Results</h2>
+        <h2 class="title is-3" id="additional">More Warping Results</h2>
       </div>
-
+      <p style="text-align: left;">
+        <b>More Results on Test Datasets.</b>
+      </p>
+      <div style="text-align: center;">
+       <img src="static/images/cp_stitch.jpg" style="padding: 2rem 0rem 0rem 0rem; width: 1000px;">
+      </div>
+      <div style="text-align: center;">
+       <img src="static/images/cp_rotation.jpg" style="padding: 2rem 0rem 0rem 0rem; width: 1000px;">
+      </div>
+      <div style="text-align: center;">
+       <img src="static/images/cp_rec_rs_fisheye.jpg" style="padding: 2rem 0rem 0rem 0rem; width: 1000px;">
+      </div>
+      <div style="text-align: center;">
+       <img src="static/images/cp_portrait.jpg" style="padding: 2rem 0rem 0rem 0rem; width: 1000px;">
+      </div>
+      <p style="text-align: left;">
+        <b>More Results on Cross-Domain and Zero-Shot Evaluations.</b> 
+      </p>
+      <div style="text-align: center;">
+       <img src="static/images/cp_stitch_real.jpg" style="padding: 2rem 0rem 0rem 0rem; width: 1000px;">
+      </div>
+      <div style="text-align: center;">
+       <img src="static/images/cp_portrait_real.jpg" style="padding: 2rem 0rem 0rem 0rem; width: 1000px;">
+      </div>
+      <div style="text-align: center;">
+       <img src="static/images/zero_shot.jpg" style="padding: 2rem 0rem 0rem 0rem; width: 1000px;">
+      </div>
      
 
       </div>
     </div>
   </section>
 
-
   <section class="section">
     <div class="container is-max-desktop">
-      <div class="columns is-centered has-text-justified">
-        <div class="column is-four-fifths">
-          <h2 class="title is-3" id="additional">Limitations</h2>
-          <p>Our method suffers from various limitations that would benefit from further research. Below, we show examples of failure cases. (a) Because we use an off-the-shelf optical flow network, some flow prompts are severely out-of-distribution, such as a vertical flip, and fail. (b) Because we optimize a soft objective, seeking to achieve a likely sample under the diffusion model as well as a sample that minimizes the guidance energy, we sometimes see loss of identity in our generations. (c) The one-step approximation is sometimes unstable, and can diverge catastrophically. Additionally, we inherit the limitations of diffusion models and Universal Guided Diffusion <a id="ref4back" href="#ref4">[4]</a>, such as slow sampling speeds.
-
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-  <section class="section">
-    <div class="container is-max-desktop">
-      <div class="columns is-centered has-text-justified">
-        <div class="column is-four-fifths">
-          <h2 class="title is-3" id="additional">Related Works</h2>
-          <p><a href="https://vcai.mpi-inf.mpg.de/projects/DragGAN/" target="_blank">DragGAN</a> enables drag-based editing of images using pretrained GANs. Users select a point on an image, and indicate where it should move to.</p><br>
-          <p>Inspired by DragGAN, <a href="https://yujun-shi.github.io/projects/dragdiffusion.html" target="_blank">Drag Diffusion</a> and <a href="https://mc-e.github.io/project/DragonDiffusion/" target="_blank">Dragon Diffusion</a> port the drag-based editing capabilities of DragGAN to more versatile diffusion models.</p><br>
-          <p>Related works have proposed guidance on various objectives, including on <a href="https://arxiv.org/abs/2306.05178" target="_blank">an LPIPS loss</a>, <a href="https://arxiv.org/abs/2312.02150" target="_blank">"readout heads"</a>, <a href="https://arxiv.org/abs/2306.00986" target="_blank">the internal features of the diffusion network itself</a>, and <a href="https://arxiv.org/abs/2302.07121" target="_blank">segmentation, detection, and facial recognition networks</a>.</p>
+      <div class="has-text-centered content">
+        <h2 class="title is-3" id="warping_results">Warping Results</h2>
+          <p style="text-align: left;">
+            <b>Results on Test Datasets.</b> Qualitative comparison of our multiple-in-one framework MOWA to the SOTA image warping models. The red dotted lines mark the horizon. The arrows highlight the inferior warped parts such as the irregular boundaries and distorted semantics. 
+          </p>
+          <div style="text-align: center;">
+           <img src="static/images/cp_all.jpg" style="padding: 2rem 0rem 3rem 0rem; width: 1300px;">
+          </div>
+          <p style="text-align: left;">
+            <b>Cross-Domain and Zero-Shot Evaluations.</b> Generalization evaluation of the proposed MOWA: cross-domain evaluation (top) and zero-shot evaluation (bottom). In image retargeting results, the red dotted lines measure the stretch extent of the face or body by warping operations. 
+          </p>
+          <div style="text-align: center;">
+           <img src="static/images/generalization_all.jpg" style="padding: 2rem 0rem 0rem 0rem; width: 1000px;">
+          </div>
+        <div class="has-text-centered content">
+          <h5>
+            <em><b>See <a href="#additional">below</a> for <a href="#additional">more warping results</a>.</b></em>
+          </h5>
         </div>
       </div>
     </div>
