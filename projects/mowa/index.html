@@ -1021,15 +1021,16 @@
         <h2 class="title is-3" id="warping_results">Method</h2>
           <p style="text-align: left;">
             <b>Framework.</b> To mitigate the difficulty of multi-task learning, we propose to decouple the motion estimation in both the region level (TPS control points with increasing refined numbers) and pixel level (residual flow).
+            Additionally, a prompt learning module, guided by a lightweight point-based classifier, is designed to facilitate task-aware image warpings.
           </p>
 
           <div style="text-align: center;">
-           <img src="static/images/framework.jpg" style="padding: 2rem 0rem 0rem 0rem; width: 800px;">
+           <img src="static/images/framework.jpg" style="padding: 2rem 0rem 2rem 0rem; width: 800px;">
           </div>
 
           <p style="text-align: left;">
             <b>TPS Control Point.</b> The TPS transformation stands out for its remarkable flexibility to model complex motions. It is adept at performing image warping based on two sets of region-level control points. 
-            We visualize the estimation results of control points and progressive warping results as follows.
+            We visualize the estimation results of control points from different levels and progressive warping results as follows.
           </p>
         
           <div style="display: flex;">
@@ -1128,6 +1129,16 @@
             <div style="margin: 1rem 0% 1rem 0px; width: 32%;">
               <img src="static/images/portrait3_img.gif" alt="GIF Image" style="border: 2px solid #000;">
             </div>
+          </div>
+
+          <p style="text-align: left;">
+            <b>Prompt Learning.</b> To dynamically boost the task-aware image warping in a single model, a prompt learning module is presented in MOWA.
+            The performance conflicts of different tasks can be relieved by the proposed prompt learning. All tasks show a similar improvement trend as the training epoch increases, without dramatic performance degradation in certain individual tasks. 
+            More importantly, the multiple-in-one framework achieves the unified and best warping performance on all tasks at the end of training epochs.
+          </p>
+          
+          <div style="text-align: center;">
+           <img src="static/images/prompt.jpg" style="padding: 2rem 0rem 1rem 0rem; width: 800px;">
           </div>
 
 
