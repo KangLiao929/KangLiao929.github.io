@@ -1013,44 +1013,25 @@
       </div>
     </div>
   </section>
-
-
-  <section class="section">
-    <div class="container is-max-desktop">
-      <div class="has-text-centered content">
-        <h2 class="title is-3">Method</h2>
-      </div>
-      <div class="columns is-centered has-text-justified">
-        <div class="column is-two-thirds">
-          <p>
-            To achieve <em>motion-based editing</em>, we propose using <em>guidance</em> <a id="ref1back" href="#ref1">[1]</a> during sampling in a diffusion model. At each time step in the reverse process, we perturb the noisy estimate in the direction that minimizes some loss function. As a loss function, we propose using the difference between the <em>desired motion</em> and the <em>current motion</em> of the noisy sample, with respect to the original image, as estimated by an off-the-shelf (differentiable) optical flow network <a id="ref2back" href="#ref2">[2]</a>. Effectively, we find a sample that is likely under the diffusion model, while attaining a low loss. 
-          </p>
-          <video controls playsinline autoplay muted loop style="margin: 2rem 0rem;">
-            <source src="./static/videos/method_half.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-          <br>
-          <p>
-            In order to achieve good results, we find we also need to use a few tricks, including <em>color regularization, reconstruction guidance</em> <a id="ref3back" href="#ref3">[3]</a> <a id="ref4back" href="#ref4">[4]</a><em>, occlusion masking, and edit masking</em>. Please see the paper for additional details.
-          </p>
-          <br><br>
-
-          </div>
-          
-        </div>
-      </div>
-
-    </div>
-  </section>
-
+  
 
   <section class="section">
     <div class="container is-max-desktop">
       <div class="has-text-centered content">
-        <h2 class="title is-3" id="warping_results">Control Points</h2>
+        <h2 class="title is-3" id="warping_results">Method</h2>
           <p style="text-align: left;">
-            <b>Results on Test Datasets.</b> Qualitative comparison of our multiple-in-one framework MOWA to the SOTA image warping models. The red dotted lines mark the horizon. The arrows highlight the inferior warped parts such as the irregular boundaries and distorted semantics. 
+            <b>Framework.</b> To mitigate the difficulty of multi-task learning, we propose to decouple the motion estimation in both the region level (TPS control points with increasing refined numbers) and pixel level (residual flow).
           </p>
+
+          <div style="text-align: center;">
+           <img src="static/images/framework.jpg" style="padding: 2rem 0rem 0rem 0rem; width: 800px;">
+          </div>
+
+          <p style="text-align: left;">
+            <b>TPS Control Point.</b> The TPS transformation stands out for its remarkable flexibility to model complex motions. It is adept at performing image warping based on two sets of region-level control points. 
+            We visualize the estimation results of control points and progressive warping results as follows.
+          </p>
+        
           <div style="display: flex;">
             <div style="margin: 1rem 2% 0.5rem 0px; width: 32%;">
               <img src="static/images/stitch1_mesh.gif" alt="GIF Image" style="border: 2px solid #000;">
