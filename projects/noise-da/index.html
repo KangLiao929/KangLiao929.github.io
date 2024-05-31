@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="description"
-        content="ResShift is an efficient diffusion model specifically designed for image restoration.">
-  <meta name="keywords" content="Image Super-resolution, Diffusion Model, image restoration">
+        content="Denoising as Adaptation: Noise-Space Domain Adaptation for Image Restoration.">
+  <meta name="keywords" content="Image Restoration, Diffusion Model, Domain Adaptation">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>ResShift | MMLab@NTU</title>
+  <title>Noise-DA</title>
 
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
         rel="stylesheet">
@@ -47,25 +47,11 @@
   </div>
   <div class="navbar-menu">
     <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
-      <a class="navbar-item" href="https://zsyoaoa.github.io">
+      <a class="navbar-item" href="https://kangliao929.github.io">
       <span class="icon">
           <i class="fas fa-home"></i>
       </span>
       </a>
-
-      <div class="navbar-item has-dropdown is-hoverable">
-        <a class="navbar-link">
-          More Research
-        </a>
-        <div class="navbar-dropdown">
-          <a class="navbar-item" href="https://github.com/IceClear/StableSR">
-            StableSR
-          </a>
-          <a class="navbar-item" href="https://github.com/zsyOAOA/DifFace">
-            DifFace
-          </a>
-        </div>
-      </div>
     </div>
 
   </div>
@@ -77,13 +63,16 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title">ResShift: Efficient Diffusion Model for Image Super-Resolution by Residual Shifting</h1>
+          <h1 class="title is-1 publication-title">Denoising as Adaptation: Noise-Space Domain Adaptation for Image Restoration</h1>
           <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://kangliao929.github.io">JKang Liao</a>, </span>
+            </span>
             <span class="author-block">
               <a href="https://zsyoaoa.github.io">Zongsheng Yue</a>, </span>
             <span class="author-block">
-              <a href="https://iceclear.github.io">Jianyi Wang</a>, </span>
-            </span>
+            <span class="author-block">
+              <a href="https://scholar.google.com.hk/citations?user=JWds_bQAAAAJ&hl=zh-CN">Zhouxia Wang</a>, </span>
             <span class="author-block">
               <a href="https://www.mmlab-ntu.com/person/ccloy/index.html">Chen Change Loy</a>,
             </span>
@@ -94,14 +83,14 @@
           </div>
 
           <div class="is-size-5 publication-conference">
-              <span class="author-block"><b>NeurIPS 2023, <i>Spotlight</i></b></span>
+              <span class="author-block"><b>Arxiv 2024</b></span>
           </div>
 
           <div class="column has-text-centered">
             <div class="publication-links">
               <!-- PDF Link. -->
               <span class="link-block">
-                <a href="https://arxiv.org/pdf/2307.12348.pdf"
+                <a href=""
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fas fa-file-pdf"></i>
@@ -110,7 +99,7 @@
                 </a>
               </span>
               <span class="link-block">
-                <a href="https://arxiv.org/abs/2307.12348"
+                <a href=""
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="ai ai-arxiv"></i>
@@ -120,7 +109,7 @@
               </span>
               <!-- Code Link. -->
               <span class="link-block">
-                <a href="https://github.com/zsyOAOA/ResShift"
+                <a href=""
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fab fa-github"></i>
@@ -220,7 +209,7 @@
       <div class="column is-four-fifths">
         <h2 class="title is-3">Video</h2>
         <div class="publication-video">
-          <iframe src="https://www.youtube.com/embed/8DB-6Xvvl5o"
+          <iframe src=""
                   frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
         </div>
       </div>
@@ -232,7 +221,7 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-          Diffusion-based image super-resolution (SR) methods are mainly limited by the low inference speed due to the requirements of hundreds or even thousands of sampling steps. Existing acceleration sampling techniques inevitably sacrifice performance to some extent, leading to over-blurry SR results. To address this issue, we propose a novel and efficient diffusion model for SR that significantly reduces the number of diffusion steps, thereby eliminating the need for post-acceleration during inference and its associated performance deterioration. Our method constructs a Markov chain that transfers between the high-resolution image and the low-resolution image by shifting the residual between them, substantially improving the transition efficiency. Additionally, an elaborate noise schedule is developed to flexibly control the shifting speed and the noise strength during the diffusion process. Extensive experiments demonstrate that the proposed method obtains superior or at least comparable performance to current state-of-the-art methods on both synthetic and real-world datasets, even only with 15 sampling steps.
+           TBD.
           </p>
         </div>
       </div>
@@ -245,13 +234,13 @@
         <div class="content has-text-justified">
       <!-- <h3 class="title is-4">Overview of the AlignFormer</h3> -->
       <div style="text-align: center; vertical-align:middle">
-        <img src="images/framework-v3.png" width="800">
+        <img src="" width="800">
       </div>
       <div align="center">
-        <b>An overview of the proposed ResShift</b>
+        <b>An overview of the proposed method</b>
       </div>
       <p>
-      The motivation of this work is derived from an intuitive observation of that the transition from an high-resolution (HR) image to its low-resolution (LR) counterpart displays enhanced efficiency, characterized by a reduced number of diffusion steps, in comparison to the transition from the HR image to a Gaussian noise in existing works (e.g., DDPM, LDM). Based on such a motivation, we innovately design a diffusion model that enables a seamless transition between the HR-LR image pairs to achieve this goal. Besides, a more flexible noise schedule is also proposed to better control the perception-distortion trade-off. More detailed mathmatical formulations can be found in our paper.
+      TBD.
       </p>
     </div>
   </div>
@@ -262,10 +251,10 @@
         <h2 class="title is-3">Results</h2>
         <div class="content has-text-justified">
         <div style="text-align: center; vertical-align:middle">
-          <img src="images/realdata_v2.svg" width="800">
+          <img src="" width="800">
         </div>
         <div align="center">
-          <b>Visual results on real-world images (4x).</b>
+          <b>Visual results.</b>
         </div>
     </div>
   </div>
@@ -278,10 +267,10 @@
   <div class="container is-max-desktop content">
     <h2 class="title">BibTeX</h2>
     <pre><code>@InProceedings{yue2023resshift,
-  author    = {Zongsheng Yue, Jianyi Wang, and Chen Change Loy},
-  title     = {ResShift: Efficient Diffusion Model for Image Super-resolution by Residual Shifting},
-  booktitle = {Advances in Neural Information Processing Systems (NeurIPS)},
-  year      = {2023},
+  author    = {Kang Liao, Zongsheng Yue, Zhouxia Wang, and Chen Change Loy},
+  title     = {Denoising as Adaptation: Noise-Space Domain Adaptation for Image Restoration},
+  booktitle = {arXiv},
+  year      = {2024},
 }</code></pre>
   </div>
 </section>
@@ -290,10 +279,10 @@
   <div class="container">
     <div class="content has-text-centered">
       <a class="icon-link"
-         href="https://arxiv.org/pdf/2307.12348.pdf">
+         href="">
         <i class="fas fa-file-pdf"></i>
       </a>
-      <a class="icon-link" href="https://github.com/zsyOAOA" class="external-link" disabled>
+      <a class="icon-link" href="" class="external-link" disabled>
         <i class="fab fa-github"></i>
       </a>
     </div>
@@ -301,7 +290,7 @@
       <div class="column is-8">
         <div class="content">
           <p>
-            If you have any question, please contact us at <strong>zsyzam@gmail.com</strong>.
+            If you have any question, please contact us at <strong>kang.liao@ntu.edu.sg</strong>.
           </p>
           <p>
             This website is licensed under a <a rel="license"
