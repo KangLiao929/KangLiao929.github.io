@@ -133,7 +133,7 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-           Although learning-based image restoration methods have made significant progress, they still struggle with limited generalization to real-world scenarios due to the substantial domain gap caused by training on synthetic data. In this paper, we show that it is possible to perform domain adaptation via the noise space using diffusion models. In particular, by leveraging the unique property of how auxiliary conditional inputs influence the multi-step denoising process, we derive a meaningful <b><i>diffusion loss</i></b> that guides the restoration model in progressively aligning both restored synthetic and real-world outputs with a target clean distribution. We refer to this method as denoising as adaptation. To prevent shortcuts during joint training, we present crucial strategies such as channel-shuffling layer and residual-swapping contrastive learning in the diffusion model. They implicitly blur the boundaries between conditioned synthetic and real data and prevent the reliance of the model on easily distinguishable features. Experimental results on three classical image restoration tasks, namely denoising, deblurring, and deraining, demonstrate the effectiveness of the proposed method.
+           In this work, we show the first attempt at addressing domain adaptation in the noise space for image restoration. In particular, by leveraging the unique property of how auxiliary conditional inputs influence the multi-step denoising process, we derive a meaningful <b><i>diffusion loss</i></b> that guides the restoration model in progressively aligning both restored synthetic and real-world outputs with a target clean distribution. We refer to this method as denoising as adaptation. To prevent shortcuts during joint training, we present crucial strategies such as channel-shuffling layer and residual-swapping contrastive learning in the diffusion model. They implicitly blur the boundaries between conditioned synthetic and real data and prevent the reliance of the model on easily distinguishable features. Experimental results on three classical image restoration tasks, namely denoising, deblurring, and deraining, demonstrate the effectiveness of the proposed method.
           </p>
         </div>
       </div>
@@ -150,6 +150,9 @@
       <div align="center">
         <b>An overview of the proposed denoising as adaptation framework</b>
       </div>
+      <p>
+        
+      </p>
       <p>
       Our main idea stems from the observation in the above figure (a). Here, we measure the noise prediction error of a diffusion model conditioned on a noisy version of the target image. The trend shows that conditions with fewer corruption levels facilitate lower prediction errors of the diffusion model. In other words, ``good'' conditions give low diffusion loss, and ``bad'' conditions lead to high diffusion loss. While such a behavior may be expected, it reveals an interesting property of how conditional inputs could influence the prediction error of a diffusion model. Our method leverages this phenomenon by taming a diffusion model conditioned on both the restored synthetic image and restored real image from the restoration network, as shown in the above figure (b). Both networks are jointly trained, with the restoration network optimized to provide good conditions to minimize the diffusion model's noise prediction error, aiming for a clean target distribution. After training, the diffusion model is discarded, leaving only the trained restoration network for inference.
       </p>
@@ -172,6 +175,9 @@
       </p>
       <p>
       The joint training of the restoration model and diffusion model, however, could lead to trivial solutions or shortcuts. For example, it is easy to distinguish the synthetic and real-world conditions by the pixel similarity or the channel index. Consequently, the restoration network will cheat the diffusion network by roughly degrading the high-frequency information in real-world images. As illustrated in the above figure (bottom), we identify three stages in this training process: (I) Diffusion network struggles to recognize which conditions aid denoising as both are heavily degraded, promoting the restoration network to enhance both; (II) Synthetic image is clearly restored and is easy to discriminate from its appearance; (III) The diffusion model tends to distinguish between the conditions, leading it to focus on the synthetic data while ignoring the real-world data.
+      </p>
+      <p>
+        To mitigate this issue, we propose crucial strategies to fool the diffusion model, making it hard to discriminate between these two conditions. Specifically, we incorporate a channel-shuffling layer into the diffusion model and design a residual-swapping contrastive learning strategy to ensure the model genuinely learns to restore images accurately, rather than relying on easily distinguishable features. These strategies implicitly blur the boundaries between synthetic and real data, ensuring that both contribute effectively during joint training and facilitating their alignment with the target distribution.
       </p>
     </div>
   </div>
