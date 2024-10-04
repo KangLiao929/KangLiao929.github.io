@@ -162,11 +162,14 @@
         <h2 class="title is-3">Eliminating Shortcut Learning in Diffusion</h2>
         <div class="content has-text-justified">
       <div style="text-align: center; vertical-align:middle">
-        <img src="images/shortcut" width="800">
+        <img src="images/shortcut.png" width="800">
       </div>
       <div align="center">
-        <b>Example of the shortcut learning occurred in diffusion</b>
+        <b>An example of the shortcut learning occurred in diffusion</b>
       </div>
+      <p>
+        
+      </p>
       <p>
       The joint training of the restoration model and diffusion model, however, could lead to trivial solutions or shortcuts. For example, it is easy to distinguish the synthetic and real-world conditions by the pixel similarity or the channel index. Consequently, the restoration network will cheat the diffusion network by roughly degrading the high-frequency information in real-world images. As illustrated in the above figure (bottom), we identify three stages in this training process: (I) Diffusion network struggles to recognize which conditions aid denoising as both are heavily degraded, promoting the restoration network to enhance both; (II) Synthetic image is clearly restored and is easy to discriminate from its appearance; (III) The diffusion model tends to distinguish between the conditions, leading it to focus on the synthetic data while ignoring the real-world data.
       </p>
