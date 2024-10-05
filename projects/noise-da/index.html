@@ -174,10 +174,31 @@
         
       </p>
       <p>
-      The joint training of the restoration model and diffusion model, however, could lead to trivial solutions or shortcuts. For example, it is easy to distinguish the synthetic and real-world conditions by the pixel similarity or the channel index. Consequently, the restoration network will cheat the diffusion network by roughly degrading the high-frequency information in real-world images. As illustrated in the above figure (bottom), we identify three stages in this training process: (I) Diffusion network struggles to recognize which conditions aid denoising as both are heavily degraded, promoting the restoration network to enhance both; (II) Synthetic image is clearly restored and is easy to discriminate from its appearance; (III) The diffusion model tends to distinguish between the conditions, leading it to focus on the synthetic data while ignoring the real-world data.
+      The joint training of the restoration model and diffusion model, however, could lead to trivial solutions or shortcuts. For example, it is easy to distinguish the synthetic and real-world conditions by the pixel similarity or the channel index. Consequently, the restoration network will cheat the diffusion network by roughly degrading the high-frequency information in real-world images.
       </p>
       <p>
-        To mitigate this issue, we propose crucial strategies to fool the diffusion model, making it hard to discriminate between these two conditions. Specifically, we incorporate a channel-shuffling layer into the diffusion model and design a residual-swapping contrastive learning strategy to ensure the model genuinely learns to restore images accurately, rather than relying on easily distinguishable features. These strategies implicitly blur the boundaries between synthetic and real data, ensuring that both contribute effectively during joint training and facilitating their alignment with the target distribution.
+        To mitigate this issue, we propose crucial strategies to fool the diffusion model, making it hard to discriminate between these two conditions. Specifically, we incorporate a channel-shuffling layer into the diffusion model and design a residual-swapping contrastive learning strategy to ensure the model genuinely learns to restore images accurately, rather than relying on easily distinguishable features. These strategies implicitly blur the boundaries between synthetic and real data, ensuring that both contribute effectively during joint training and facilitating their alignment with the target distribution. More details can be found in Section 3.2 of the paper.
+      </p>
+    </div>
+  </div>
+</div>
+
+    <!--=================Discussion==========================-->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Discussion to Previous Domain Adaptation</h2>
+        <div class="content has-text-justified">
+      <div style="text-align: center; vertical-align:middle">
+        <img src="images/da.png" width="800">
+      </div>
+      <div align="center">
+        <b>Overview of three domain adaptation strategies</b>
+      </div>
+      <p>
+        
+      </p>
+      <p>
+      We compare different domain adaptation (DA) strategies here: (a) Feature-space DA aligns the intermediate features across source and target domains. (b) Pixel-space DA translates source data to the ``style" of the target domain through adversarial learning. (c) The proposed noise-space DA is specifically designed for low-level vision. It gradually adapts the results from both source and target domains to the target clean image distribution, via multi-step denoising in the pixel-wise noise space. Particularly, the function network represents a restoration network in the context of image restoration.
       </p>
     </div>
   </div>
