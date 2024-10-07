@@ -125,123 +125,6 @@
   </div>
 </section>
 
-<section class="section">
-  <div class="container is-max-desktop">
-    <!-- Abstract. -->
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Abstract</h2>
-        <div class="content has-text-justified">
-          <p>
-           In this work, we show the first attempt at addressing domain adaptation in the noise space for image restoration. In particular, by leveraging the unique property of how auxiliary conditional inputs influence the multi-step denoising process, we derive a meaningful <b><i>diffusion loss</i></b> that guides the restoration model in progressively aligning both restored synthetic and real-world outputs with a target clean distribution. We refer to this method as denoising as adaptation. To prevent shortcuts during joint training, we present crucial strategies such as channel-shuffling layer and residual-swapping contrastive learning in the diffusion model. They implicitly blur the boundaries between conditioned synthetic and real data and prevent the reliance of the model on easily distinguishable features. Experimental results on three classical image restoration tasks, namely denoising, deblurring, and deraining, demonstrate the effectiveness of the proposed method.
-          </p>
-        </div>
-      </div>
-    </div>
-    <!--/ Abstract. -->
-    <!--=================Motivation and Method==========================-->
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Motivation and Framework</h2>
-        <div class="content has-text-justified">
-      <div style="text-align: center; vertical-align:middle">
-        <img src="images/framework.png" width="800">
-      </div>
-      <div align="center">
-        <b>An overview of the proposed denoising as adaptation framework</b>
-      </div>
-      <p>
-        
-      </p>
-      <p>
-      Our main idea stems from the observation in the above figure (a). Here, we measure the noise prediction error of a diffusion model conditioned on a noisy version of the target image. The trend shows that conditions with fewer corruption levels facilitate lower prediction errors of the diffusion model. In other words, ``good'' conditions give low diffusion loss, and ``bad'' conditions lead to high diffusion loss. While such a behavior may be expected, it reveals an interesting property of how conditional inputs could influence the prediction error of a diffusion model. Our method leverages this phenomenon by taming a diffusion model conditioned on both the restored synthetic image and restored real image from the restoration network, as shown in the above figure (b). Both networks are jointly trained, with the restoration network optimized to provide good conditions to minimize the diffusion model's noise prediction error, aiming for a clean target distribution. After training, the diffusion model is discarded, leaving only the trained restoration network for inference.
-      </p>
-    </div>
-  </div>
-</div>
-    <!--=================Shortcut==========================-->
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Eliminating Shortcut Learning in Diffusion</h2>
-        <div class="content has-text-justified">
-      <div style="text-align: center; vertical-align:middle">
-        <img src="images/shortcut.png" width="800">
-      </div>
-      <div align="center">
-        <b>An example of the shortcut learning occurred in diffusion</b>
-      </div>
-      <p>
-        
-      </p>
-      <p>
-      The joint training of the restoration model and diffusion model, however, could lead to trivial solutions or shortcuts. For example, it is easy to distinguish the synthetic and real-world conditions by the pixel similarity or the channel index. Consequently, the restoration network will cheat the diffusion network by roughly degrading the high-frequency information in real-world images.
-      </p>
-      <p>
-        To mitigate this issue, we propose crucial strategies to fool the diffusion model, making it hard to discriminate between these two conditions. Specifically, we incorporate a channel-shuffling layer into the diffusion model and design a residual-swapping contrastive learning strategy to ensure the model genuinely learns to restore images accurately, rather than relying on easily distinguishable features. These strategies implicitly blur the boundaries between synthetic and real data, ensuring that both contribute effectively during joint training and facilitating their alignment with the target distribution. More details can be found in Section 3.2 of the paper.
-      </p>
-    </div>
-  </div>
-</div>
-
-    <!--=================Discussion==========================-->
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Discussion to Previous Domain Adaptation</h2>
-        <div class="content has-text-justified">
-      <div style="text-align: center; vertical-align:middle">
-        <img src="images/da.png" width="800">
-      </div>
-      <div align="center">
-        <b>Overview of three domain adaptation strategies</b>
-      </div>
-      <p>
-        
-      </p>
-      <p>
-      We compare different domain adaptation (DA) strategies here: (a) Feature-space DA aligns the intermediate features across source and target domains. (b) Pixel-space DA translates source data to the ``style" of the target domain through adversarial learning. (c) The proposed noise-space DA is specifically designed for low-level vision. It gradually adapts the results from both source and target domains to the target clean image distribution, via multi-step denoising in the pixel-wise noise space. Particularly, the function network represents a restoration network in the context of image restoration.
-      </p>
-    </div>
-  </div>
-</div>
-
-    <!--=================Scalability==========================-->
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Scalability</h2>
-        <div class="content has-text-justified">
-      <div style="text-align: center; vertical-align:middle">
-        <img src="images/scalability.png" width="450">
-      </div>
-      <div align="center">
-        <b>Scalability of the proposed method on different restoration network architectures</b>
-      </div>
-      <p>
-        
-      </p>
-      <p>
-      Our work serves as a general domain adaptation strategy for various image restoration tasks, which is scalable and friendly to any restoration network. It is also interesting that for each type of architecture, our method can facilitate better performance as the complexity of the restoration network increases, demonstrating its effectiveness in addressing the overfitting problem of large models.
-      </p>
-    </div>
-  </div>
-</div>
-
-    <!--=================Results==========================-->
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Results</h2>
-        <div class="content has-text-justified">
-        <div style="text-align: center; vertical-align:middle">
-          <img src="" width="800">
-        </div>
-        <div align="center">
-          <b>Visual results.</b>
-        </div>
-    </div>
-  </div>
-</div>
-</div>
-</section>
-
 
 <!--=================Teasers==========================-->
 <section class="hero is-small">
@@ -306,6 +189,141 @@
       </div>
     </div>
   </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+           In this work, we show the first attempt at addressing domain adaptation in the noise space for image restoration. In particular, by leveraging the unique property of how auxiliary conditional inputs influence the multi-step denoising process, we derive a meaningful <b><i>diffusion loss</i></b> that guides the restoration model in progressively aligning both restored synthetic and real-world outputs with a target clean distribution. We refer to this method as denoising as adaptation. To prevent shortcuts during joint training, we present crucial strategies such as channel-shuffling layer and residual-swapping contrastive learning in the diffusion model. They implicitly blur the boundaries between conditioned synthetic and real data and prevent the reliance of the model on easily distinguishable features. Experimental results on three classical image restoration tasks, namely denoising, deblurring, and deraining, demonstrate the effectiveness of the proposed method.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+    <!--=================Motivation and Method==========================-->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Motivation and Framework</h2>
+        <div class="content has-text-justified">
+      <div style="text-align: center; vertical-align:middle">
+        <img src="images/framework.png" width="800">
+      </div>
+      <div align="center">
+        <b>An overview of the proposed denoising as adaptation framework</b>
+      </div>
+      <p>
+        
+      </p>
+      <p>
+      Our main idea stems from the observation in the above figure (a). Here, we measure the noise prediction error of a diffusion model conditioned on a noisy version of the target image. The trend shows that conditions with fewer corruption levels facilitate lower prediction errors of the diffusion model. In other words, ``good'' conditions give low diffusion loss, and ``bad'' conditions lead to high diffusion loss. Our method leverages this phenomenon by taming a diffusion model conditioned on both the restored synthetic image and restored real image from the restoration network, as shown in the above figure (b). Both networks are jointly trained, with the restoration network optimized to provide good conditions to minimize the diffusion model's noise prediction error, aiming for a clean target distribution. After training, the diffusion model is discarded, leaving only the trained restoration network for inference.
+      </p>
+    </div>
+  </div>
+</div>
+    <!--=================Shortcut==========================-->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Eliminating Shortcut Learning in Diffusion</h2>
+        <div class="content has-text-justified">
+      <div style="text-align: center; vertical-align:middle">
+        <img src="images/shortcut.png" width="800">
+      </div>
+      <div align="center">
+        <b>An example of the shortcut learning occurred in diffusion</b>
+      </div>
+      <p>
+        
+      </p>
+      <p>
+      The joint training of the restoration model and diffusion model, however, could lead to trivial solutions or shortcuts. For example, it is easy to distinguish the synthetic and real-world conditions by the pixel similarity or the channel index. Consequently, the restoration network will cheat the diffusion network by roughly degrading the high-frequency information in real-world images.
+      </p>
+      <p>
+        To mitigate this issue, we propose crucial strategies to fool the diffusion model, making it hard to discriminate between these two conditions. Specifically, we incorporate a channel-shuffling layer into the diffusion model and design a residual-swapping contrastive learning strategy to ensure the model genuinely learns to restore images accurately, rather than relying on easily distinguishable features. These strategies implicitly blur the boundaries between synthetic and real data, ensuring that both contribute effectively during joint training and facilitating their alignment with the target distribution. More details can be found in Section 3.2 of the paper.
+      </p>
+    </div>
+  </div>
+</div>
+
+    <!--=================Discussion==========================-->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Discussion to Previous Domain Adaptation</h2>
+        <div class="content has-text-justified">
+      <div style="text-align: center; vertical-align:middle">
+        <img src="images/da.png" width="800">
+      </div>
+      <div align="center">
+        <b>Overview of three domain adaptation strategies</b>
+      </div>
+      <p>
+        
+      </p>
+      <p>
+      We compare different domain adaptation (DA) strategies here: (a) Feature-space DA aligns the intermediate features across source and target domains. (b) Pixel-space DA translates source data to the ``style" of the target domain through adversarial learning. (c) The proposed noise-space DA is specifically designed for low-level vision. It gradually adapts the results from both source and target domains to the target clean image distribution, via multi-step denoising in the pixel-wise noise space. Particularly, the function network represents a restoration network in the context of image restoration.
+      </p>
+    </div>
+  </div>
+</div>
+
+    <!--=================Scalability==========================-->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Scalability</h2>
+        <div class="content has-text-justified">
+      <div style="text-align: center; vertical-align:middle">
+        <img src="images/scalability.png" width="410">
+      </div>
+      <div align="center">
+        <b>Scalability of the proposed method on different restoration network architectures</b>
+      </div>
+      <p>
+        
+      </p>
+      <p>
+      Our work serves as a general domain adaptation strategy for various image restoration tasks, which is scalable and friendly to any restoration network. It is also interesting that for each type of architecture, our method can facilitate better performance as the complexity of the restoration network increases, demonstrating its effectiveness in addressing the overfitting problem of large models.
+      </p>
+    </div>
+  </div>
+</div>
+
+    <!--=================Results==========================-->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">More Visual Comparison Results</h2>
+        <div class="content has-text-justified">
+        <div style="text-align: center; vertical-align:middle">
+          <img src="images/denoise_sp.png" width="800">
+        </div>
+        <div align="center">
+          <b>Visual results on SIDD denoising dataset</b>
+        </div>
+        <p>
+          
+        </p>
+        <div style="text-align: center; vertical-align:middle">
+          <img src="images/derain_sp.png" width="800">
+        </div>
+        <div align="center">
+          <b>Visual results on SPA deraining dataset</b>
+        </div>
+        <p>
+          
+        </p>
+        <div style="text-align: center; vertical-align:middle">
+          <img src="images/deblur_sp.png" width="800">
+        </div>
+        <div align="center">
+          <b>Visual results on RealBlur-J deblurring dataset</b>
+        </div>
+    </div>
+  </div>
+</div>
+</div>
 </section>
 
 
