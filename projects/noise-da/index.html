@@ -169,22 +169,22 @@
       <!-- The grid: four columns -->
       <div class="tab_row">
         <div class="tab_column">
-          <img src="images/0030_lq.png" onclick="tab_gallery_click('0030');">
+          <img src="images/denoise1_lq.png" onclick="tab_gallery_click('denoise1');">
         </div>
         <div class="tab_column">
-          <img src="images/oldphoto6_lq.png" onclick="tab_gallery_click('oldphoto6');">
+          <img src="images/denoise4_lq.png" onclick="tab_gallery_click('denoise4');">
         </div>
         <div class="tab_column">
-          <img src="images/OST_120_lq.png" onclick="tab_gallery_click('OST_120');">
+          <img src="images/denoise3_lq.png" onclick="tab_gallery_click('denoise3');">
         </div>
         <div class="tab_column">
-          <img src="images/hongkong1_lq.png" onclick="tab_gallery_click('hongkong1');">
+          <img src="images/derain0_lq.png" onclick="tab_gallery_click('derain0');">
         </div>
         <div class="tab_column">
-          <img src="images/butterfly_lq.png" onclick="tab_gallery_click('butterfly');">
+          <img src="images/derain1_lq.png" onclick="tab_gallery_click('derain1');">
         </div>
         <div class="tab_column">
-          <img src="images/frog_lq.png" onclick="tab_gallery_click('frog');">
+          <img src="images/derain2_lq.png" onclick="tab_gallery_click('derain2');">
         </div>
       </div>
     </div>
@@ -398,10 +398,10 @@
   function tab_gallery_click(name) {
     // Get the expanded image
     let inputImage = {
-      label: "Zoomed LQ",
+      label: "Input",
     };
     let outputImage = {
-      label: "ResShift",
+      label: "Ours",
     };
 
     inputImage.src = "images/".concat(name, "_lq", ".png")
