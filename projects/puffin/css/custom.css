@@ -1,0 +1,105 @@
+/* your styles go here */
+/* body {
+  background-color: #333;
+} */
+html {
+  scroll-behavior: smooth;
+}
+
+h1 {
+  font-size: 2rem;
+}
+
+a {
+  text-decoration: underline;
+}
+
+.heading-light h1:after, .panel-heading-light h1:after, .heading-light h2:after, .panel-heading-light h2:after, .heading-light h3:after, .panel-heading-light h3:after, .heading-light h4:after, .panel-heading-light h4:after, .heading-light h5:after, .panel-heading-light h5:after, .heading-light h6:after, .panel-heading-light h6:after {
+  background: #fff;
+}
+
+.bg-gray {
+  background: #FBFAF8 !important;
+}
+
+footer.main-footer .copyrights {
+  margin-top: 0px;
+}
+
+footer.main-footer {
+  background: #ebf1f3;
+  padding: 0;
+}
+
+footer.main-footer .copyrights a {
+    color: #44687D;
+}
+
+footer.main-footer .copyrights {
+  padding: 30px 0;
+  background: #ebf1f3;
+  color: #495057;
+}
+
+.text-dark-red {
+  color: #872434
+}
+
+.mb-half {
+  margin-bottom: 0.5rem;
+}
+
+.mb-medium {
+  margin-bottom: 30px !important;
+}
+
+.mt-small {
+  margin-top: 20px !important;
+}
+
+.mt-medium {
+  margin-top: 30px !important;
+}
+
+hr.line-small-light {
+  width: 20%;
+  border-top: 2px solid #fff;
+}
+
+
+/* START push footer to the bottom */
+html, body {
+  height: 100%;
+}
+
+.buttons a {
+    margin: 3px 3px;
+}
+
+#all {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* This class makes the object fill all the remaining height */
+.filler {
+  flex: 1;
+}
+/* END push footer to the bottom */
+
+.embed-responsive-8by1::before {
+  padding-top: 12.5%;
+}
+
+.embed-responsive-4by1::before {
+  padding-top: 25%;
+}
+
+.embed-responsive-32by9::before {
+  padding-top: 28.125%;
+}
+
+.embed-responsive-16by7::before {
+  padding-top: 43.75%;
+}

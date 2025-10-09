@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+  
+  <url>
+    <loc>https://kangliao929.github.io/projects/puffin/</loc>
+    <lastmod>2025-10-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+    
+    <!-- Important images -->
+    <image:image>
+      <image:loc>https://kangliao929.github.io/projects/puffin/imgs/tesear.webp</image:loc>
+      <image:title>Puffin Overview</image:title>
+      <image:caption>Illustration of the versatile capabilities of our Puffin model.
+</image:caption>
+    </image:image>
+    
+    <image:image>
+      <image:loc>https://kangliao929.github.io/projects/puffin/imgs/crop_framework.webp</image:loc>
+      <image:title>Framework</image:title>
+      <image:caption> Puffin learns the camera-centric understanding and generation tasks in a unified multimodal framework.</image:caption>
+    </image:image>
+    
+    <image:image>
+      <image:loc>https://kangliao929.github.io/projects/puffin/imgs/paper_montage.webp</image:loc>
+      <image:title>Puffin Research Paper</image:title>
+      <image:caption>Puffin research paper preview - arXiv 2025</image:caption>
+    </image:image>
+
+    <!-- Video content -->
+    <video:video>
+      <video:thumbnail_loc>https://kangliao929.github.io/projects/puffin/imgs/think_cam1.webp</video:thumbnail_loc>
+      <video:title>VMem Quick Explanation Video</video:title>
+      <video:description>Quick explanation of Puffin</video:description>
+      <video:content_loc>https://kangliao929.github.io/projects/puffin/imgs/quick_explanation.mp4</video:content_loc>
+      <video:duration>188</video:duration>
+    </video:video>
+    
+  </url>
+  
+</urlset> 

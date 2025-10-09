@@ -1,0 +1,13 @@
+User-agent: *
+Allow: /
+
+# Disallow crawling of vendor files and assets that don't need indexing
+Disallow: /vendor/
+Disallow: /js/
+Disallow: /css/
+
+# Allow important assets for preview
+Allow: /imgs/
+
+# Sitemap location (update this URL when you have a sitemap)
+Sitemap: https://kangliao929.github.io/projects/puffin/sitemap.xml 

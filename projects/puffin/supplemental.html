@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Thinking with Camera: A Unified Multimodal Model for Camera-Centric Understanding and Generation | Arxiv 2025</title>
+    <meta name="description" content="We make the first attempt to unify camera-centric understanding and generation in a cohesive multimodal framework.">
+    <meta name="keywords" content="Spatial Intelligence, Unified Multimodal Model, Camera-Centric Understanding and Generation">
+    <meta name="author" content="Kang Liao, Size Wu, Zhonghua Wu, Linyi Jin, Chao Wang, Yikai Wang, Fei Wang, Wei Li, Chen Change Loy">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://kangliao929.github.io/projects/puffin">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://kangliao929.github.io/projects/puffin">
+    <meta property="og:title" content="Thinking with Camera: A Unified Multimodal Model for Camera-Centric Understanding and Generation">
+    <meta property="og:description" content="We make the first attempt to unify camera-centric understanding and generation in a cohesive multimodal framework.">
+    <meta property="og:image" content="imgs/Puffin.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:site_name" content="Puffin Project">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://kangliao929.github.io/projects/puffin">
+    <meta property="twitter:title" content="Thinking with Camera: A Unified Multimodal Model for Camera-Centric Understanding and Generation">
+    <meta property="twitter:description" content="We make the first attempt to unify camera-centric understanding and generation in a cohesive multimodal framework.">
+    <meta property="twitter:image" content="imgs/Puffin.png">
+    
+    <!-- Structured Data - Research Paper -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ScholarlyArticle",
+      "headline": "Thinking with Camera: A Unified Multimodal Model for Camera-Centric Understanding and Generation",
+      "description": "We make the first attempt to unify camera-centric understanding and generation in a cohesive multimodal framework.",
+      "author": [
+        {
+          "@type": "Person",
+          "name": "Kang Liao",
+          "url": "https://kangliao929.github.io/"
+        },
+        {
+          "@type": "Person",
+          "name": "Size Wu",
+          "url": "https://wusize.github.io/"
+        },
+        {
+          "@type": "Person",
+          "name": "Zhonghua Wu",
+          "url": "https://wu-zhonghua.github.io/"
+        },
+        {
+          "@type": "Person",
+          "name": "Linyi Jin",
+          "url": "https://jinlinyi.github.io/"
+        },
+        {
+          "@type": "Person",
+          "name": "Chao Wang",
+          "url": "https://hans1984.github.io/"
+        },
+        {
+          "@type": "Person",
+          "name": "Yikai Wang",
+          "url": "https://yikai-wang.github.io/"
+        },
+        {
+          "@type": "Person",
+          "name": "Fei Wang",
+          "url": "https://scholar.google.com/citations?user=ljt16JkAAAAJ&hl"
+        },
+        {
+          "@type": "Person",
+          "name": "Wei Li",
+          "url": "https://weivision.github.io/"
+        },
+        {
+          "@type": "Person",
+          "name": "Chen Change Loy",
+          "url": "https://www.mmlab-ntu.com/person/ccloy/index.html"
+        }
+      ],
+      "publisher": {
+        "@type": "Organization",
+        "name": "S-Lab, Nanyang Technological University"
+      },
+      "datePublished": "2025",
+      "isPartOf": {
+        "@type": "PublicationIssue",
+        "isPartOf": {
+          "@type": "PublicationVolume",
+          "isPartOf": {
+            "@type": "Periodical",
+            "name": "Arxiv 2025"
+          }
+        }
+      },
+      "url": "https://kangliao929.github.io/projects/puffin",
+      "sameAs": "http://arxiv.org/"
+    }
+    
+    </script>
+    
+    <!-- Theme Color -->
+    <meta name="theme-color" content="#ffffff">
+    
+    <!-- Bootstrap CSS-->
+    <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
+    <!-- Font Awesome CSS-->
+    <link rel="stylesheet" href="vendor/font-awesome/css/font-awesome.min.css">
+    <!-- Google fonts - Roboto-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap">
+    <!-- Bootstrap Select-->
+    <link rel="stylesheet" href="vendor/bootstrap-select/css/bootstrap-select.min.css">
+    <!-- owl carousel-->
+    <link rel="stylesheet" href="vendor/owl.carousel/assets/owl.carousel.css">
+    <link rel="stylesheet" href="vendor/owl.carousel/assets/owl.theme.default.css">
+    <!-- theme stylesheet-->
+    <link rel="stylesheet" href="css/style.oxfordblue.css" id="theme-stylesheet">
+    <!-- model-viewer -->
+    <link rel="stylesheet" href="css/model-viewer.css">
+    <!-- Custom stylesheet - for your changes-->
+    <link rel="stylesheet" href="css/custom.css">
+    <!-- Favicon and apple touch icons-->
+    <link rel="icon" type="image/png" href="imgs/Puffin_logo.png" sizes="96x88" />
+    <link rel="icon" type="image/svg+xml" href="imgs/Puffin_logo.svg" />
+    <link rel="shortcut icon" href="imgs/Puffin_logo.ico" />
+    <link rel="apple-touch-icon" sizes="180x168" href="imgs/Puffin_logo.png" />
+    <link rel="manifest" href="site.webmanifest" />
+    <!-- Tweaks for older IEs--><!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+    <style>
+      #demo-container {
+        width: 100%;
+        height: 500px;
+      }
+
+      .video-wrapper {
+        position: relative;
+        display: inline-block;
+        overflow: visible;
+      }
+
+      .overlay-badge {
+        position: absolute;
+        bottom: -10px;   
+        right: -20px;
+        width: 64px;
+        height: 48px;
+        pointer-events: none;
+        z-index: 10;
+      }
+      #thumbnailCarousel {
+
+        width: max-content;     
+        margin-left: auto;      
+        margin-right: auto;
+      }
+
+      .loading-spinner {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 20;
+        display: none;
+      }
+
+      .spinner {
+        border: 4px solid #f3f3f3;
+        border-top: 4px solid #007bff;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        animation: spin 1s linear infinite;
+      }
+
+      @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+
+    </style>
+  </head>
+  <body>
+    <div id="all">
+
+      <main>
+      <section class="bar bg-white no-mb padding-small">
+        <div data-animate="fadeInUpBig" class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <header class="heading-light text-center mb-medium">
+                <h1>
+                  <img src="imgs/Puffin.png" alt="Puffin" class="img-fluid d-inline-block align-middle" style="height: 3em; margin-right: 0px; margin-top: -0.46em;" loading="eager">Thinking with Camera: A Unified Multimodal Model for Camera-Centric Understanding and Generation
+                </h1>
+              </header>
+              <p class="lead text-md-center">
+                <strong>Supplementary Results</strong>
+              </p>
+              <div class="see-more text-center">
+                <p class="buttons lead">
+                  <a href="index.html" class="btn btn-template-outlined"><i class="fa fa-link"></i> Back to Main Page</a>
+                </p>
+                </p>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="bar bg-white mb-0 padding-small">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <h2>More Evaluations</h2>
+              <img src="imgs/quantitative_evaluation.png" alt="Quantitative Evaluation" class="img-fluid image1 mb-small" loading="lazy" style="width:90%; height:auto; display:block; margin:auto;">
+
+              <div style="width:86%; margin:auto;">
+                <p class="lead mb-small"> 
+                   Quantitative comparison with the state-of-the-art camera-centric generation and understanding methods. 
+                </p>
+              </div>
+
+              <img src="imgs/scatter_plot.png" alt="Scatter Plots" class="img-fluid image1 mb-small" loading="lazy">
+
+              <p class="lead mb-small"> 
+                We decouple the spatial distributions of the generated images with respect to three camera parameters: roll, pitch, and FoV, and then visualize scatter plots of the predicted <em>vs.</em> ground truth camera parameters across all generated samples. Compared with previous methods, our generated results well align with the distribution of the ground truth camera parameters.
+              </p>
+
+            </div>
+          </div>
+        </div>
+        <div class="container">
+       
+      </section>
+
+
+      <section class="bar bg-white mb-0 padding-small">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <h2>More Visualizations</h2>
+              <h3>Camera Understanding</h3>
+              <img src="imgs/cam_map_vis1.png" alt="Camera Understanding" class="img-fluid image1 mb-1" loading="lazy">
+              <img src="imgs/cam_map_vis2.png" alt="Camera Understanding" class="img-fluid image1 mb-small" loading="lazy">
+              <p 
+                class="lead mb-small"> Our camera understanding results with the camera map visualization: (left) AIGC images from GPT-4o; (right) real-world photographs. The camera maps are converted from our predicted camera parameters.
+              </p>
+
+              <h3>Camera-Controllable Generation</h3>
+              <img src="imgs/gen_vis1.png" alt="Camera-Controllable Generation" class="img-fluid image1 mb-1" loading="lazy">
+              <img src="imgs/gen_vis2.png" alt="Camera-Controllable Generation" class="img-fluid image1 mb-small" loading="lazy">
+              <p 
+                class="lead mb-small"> Our camera-controllable generation results with various camera configurations. The original size of the generated images is 512x512.
+              </p>
+              <img src="imgs/cam_gen_ctrl1.png" alt="Camera-Controllable Generation" class="img-fluid image1 mb-1" loading="lazy">
+              <img src="imgs/cam_gen_ctrl2.png" alt="Camera-Controllable Generation" class="img-fluid image1 mb-1" loading="lazy">
+              <img src="imgs/cam_gen_ctrl3.png" alt="Camera-Controllable Generation" class="img-fluid image1 mb-small" loading="lazy">
+              <p 
+                class="lead mb-small"> Text-to-image camera-controllable generation with specific controls for each camera parameter: roll, pitch, and FoV from top to bottom.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="container">
+       
+      </section>
+
+      <section class="bar bg-white mb-0 padding-small">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <h2>Captioning Prompt for Dataset Construction</h2>
+              <img src="imgs/dataset_prompt.png" alt="Scatter Plots" class="img-fluid image1 mb-small" loading="lazy">
+
+              <p class="lead mb-small"> 
+                Examples of the designed prompts for captioning our Puffin-4M dataset: (a) reasoning caption, (b) photographic aesthetic caption. For each sample, we visualize the input image, the prompt template for captioning, and the caption results from LMMs.
+              </p>
+
+            </div>
+          </div>
+        </div>
+        <div class="container">
+       
+      </section>
+
+
+      <section class="bar bg-white padding-small">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <h2>More Applications</h2>
+              <h3><img src="imgs/virtual_object.png" alt="Logo" style="height:3em; vertical-align:middle;"> Virtual 3D Object Insertion</h3>
+              <div class="img-fluid embed-responsive embed-responsive-16by9">
+                <video loop muted playsinline inline controls>
+                  <source src="imgs/virtual_object.mp4" type="video/mp4">
+                </video>
+              </div>
+              <p class="lead mb-small"> 
+              Similar to previous single-view camera calibration methods, Puffin can assist virtual 3D object insertion into in-the-wild images by accurately predicting their camera parameters.
+              </p>
+
+              <div class="see-more text-center">
+                <p class="buttons lead">
+                  <a href="index.html" class="btn btn-template-outlined"><i class="fa fa-link"></i> Back to Main Page</a>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <section class="bar bg-white mb-0 padding-small">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <h2>Why Puffin</h2>
+              <img src="imgs/story.png" alt="Scatter Plots" class="img-fluid image1 mb-small" loading="lazy">
+
+              <p class="lead mb-small"> 
+                Puffin is cute, but there is more behind it. Puffin's versatile capabilities across different domains and powerful vision system well coincides with our research topic.
+              </p>
+
+            </div>
+          </div>
+        </div>
+        <div class="container">
+       
+      </section>
+
+
+      <section class="bar bg-white no-mb padding-big text-center-sm filler">
+      </section>
+      </main>
+      <!-- FOOTER -->
+      <footer class="main-footer bg-white">
+        <div class="copyrights bg-white">
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-4 text-center-md">
+                <!-- <p>&copy; 2021. Tomas Jakab</p> -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <!-- Javascript files-->
+    <!-- Script for model-viewer helper-->
+    <script src="js/model-viewer-helper.js"></script>
+    <!-- Loads <model-viewer> for browsers: -->
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
+    <!-- Bootstrap JS-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/popper.js/umd/popper.min.js"> </script>
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="vendor/jquery.cookie/jquery.cookie.js"> </script>
+    <script src="vendor/waypoints/lib/jquery.waypoints.min.js"> </script>
+    <script src="vendor/jquery.counterup/jquery.counterup.min.js"> </script>
+    <script src="vendor/owl.carousel/owl.carousel.min.js"></script>
+    <script src="vendor/owl.carousel2.thumbs/owl.carousel2.thumbs.min.js"></script>
+    <script src="js/jquery.parallax-1.1.3.js"></script>
+    <script src="vendor/bootstrap-select/js/bootstrap-select.min.js"></script>
+    <script src="vendor/jquery.scrollto/jquery.scrollTo.min.js"></script>
+    <script src="js/front.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@3.4.0/dist/tf.min.js"></script>
+  </body>
+</html>
