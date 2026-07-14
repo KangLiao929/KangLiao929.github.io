@@ -1,0 +1,362 @@
+[
+  {
+    "id": 1,
+    "image": "/data/cam/samples/sample-01.jpg",
+    "source_hash": "605954179c3386e6",
+    "source_shard": "000050",
+    "category": "nature",
+    "camera_height": "Aerial shot",
+    "caption": "The image shows an aerial view of a lush, green forested area with a winding road cutting through it. A small structure with a red roof is visible near the center of the image, surrounded by dense vegetation and trees. In the background, there is a body of water, possibly a lake or river, nestled among the hills. The scene is bathed in sunlight, highlighting the vibrant greenery and the serene natural landscape. The camera parameters (roll, pitch, field-of-view, and radial distortion) are: -0.6114, -0.7435, 1.7173, 0.0000.",
+    "quality_score": 90.0
+  },
+  {
+    "id": 2,
+    "image": "/data/cam/samples/sample-02.jpg",
+    "source_hash": "e7de22d1c4fcb751",
+    "source_shard": "000050",
+    "category": "interior",
+    "camera_height": "Eye-level shot",
+    "caption": "The image depicts the interior of a grand, ornately decorated building with intricate ceiling designs, arched windows, and a decorative red and gold patterned wall. The architecture suggests a historical or religious significance, possibly a church or cathedral. The camera parameters (roll, pitch, field-of-view, and radial distortion) are: -0.7690, 0.4665, 1.6244, 0.0000.",
+    "quality_score": 90.0
+  },
+  {
+    "id": 3,
+    "image": "/data/cam/samples/sample-03.jpg",
+    "source_hash": "6d48bb5389dc17e0",
+    "source_shard": "000000",
+    "category": "nature",
+    "camera_height": "Eye-level shot",
+    "caption": "The image depicts a serene garden scene with a pond featuring lily pads and water lilies, bordered by a stone wall, and surrounded by lush greenery and trees. The camera parameters (roll, pitch, field-of-view, and radial distortion) are: 0.0795, -0.5113, 1.1236, 0.0000.",
+    "quality_score": 82.42
+  },
+  {
+    "id": 4,
+    "image": "/data/cam/samples/sample-04.jpg",
+    "source_hash": "64658757afb4db06",
+    "source_shard": "000000",
+    "category": "interior",
+    "camera_height": "Eye-level shot",
+    "caption": "The image depicts the interior of a rustic wooden cabin with a high, vaulted ceiling adorned with decorative elements such as woven tapestries and traditional Native American-inspired designs. The space is warmly lit by a central chandelier and additional lighting fixtures, creating a cozy and inviting atmosphere. The camera parameters (roll, pitch, field-of-view, and radial distortion) are: -0.7527, 0.5526, 1.5383, 0.0000.",
+    "quality_score": 81.72
+  },
+  {
+    "id": 5,
+    "image": "/data/cam/samples/sample-05.jpg",
+    "source_hash": "6da0556aeec8903b",
+    "source_shard": "000333",
+    "category": "nature",
+    "camera_height": "Eye-level shot",
+    "caption": "The image depicts a serene, lush forest scene with dense greenery surrounding a calm body of water that reflects the trees and sky above. The camera parameters (roll, pitch, field-of-view, and radial distortion) are: -0.1876, 0.1043, 1.3918, 0.0000.",
+    "quality_score": 91.88
+  },
+  {
+    "id": 6,
+    "image": "/data/cam/samples/sample-06.jpg",
+    "source_hash": "c8d0639f6325de82",
+    "source_shard": "000333",
+    "category": "interior",
+    "camera_height": "Eye-level shot",
+    "caption": "The image depicts a cozy dining area with a large ornate rug on the floor, a table set for a meal covered with a blue tablecloth, and floral decorations adorning the walls and windowsills. The room is warmly lit, creating a welcoming atmosphere. The camera parameters (roll, pitch, field-of-view, and radial distortion) are: -0.6895, -0.4438, 1.2821, 0.0000.",
+    "quality_score": 99.18
+  },
+  {
+    "id": 7,
+    "image": "/data/cam/samples/sample-07.jpg",
+    "source_hash": "5b0d14133a04cc41",
+    "source_shard": "000333",
+    "category": "nature",
+    "camera_height": "Aerial shot",
+    "caption": "The image shows an aerial view of a lush, green forested area with a winding path cutting through it. A small house is visible nestled among the trees on the left side of the image. In the background, there appears to be a body of water and more open land. The camera parameters (roll, pitch, field-of-view, and radial distortion) are: 0.1321, -0.6210, 1.5950, 0.0000.",
+    "quality_score": 98.81
+  },
+  {
+    "id": 8,
+    "image": "/data/cam/samples/sample-08.jpg",
+    "source_hash": "9fe0f14264cf96e1",
+    "source_shard": "000050",
+    "category": "interior",
+    "camera_height": "Eye-level shot",
+    "caption": "The image depicts an elegant interior space with a hexagonal tiled floor, arched doorways, and large windows allowing natural light to illuminate the area. The architecture suggests a historic or grand building, possibly a library or museum. The camera parameters (roll, pitch, field-of-view, and radial distortion) are: 0.5803, -0.3548, 1.6529, 0.0000.",
+    "quality_score": 90.0
+  },
+  {
+    "id": 9,
+    "image": "/data/cam/samples/sample-09.jpg",
+    "source_hash": "0b6235f93826e46d",
+    "source_shard": "000777",
+    "category": "nature",
+    "camera_height": "Eye-level shot",
+    "caption": "The image depicts the courtyard of the Jer\u00f3nimos Monastery in Lisbon, Portugal, under a bright blue sky with scattered clouds, showcasing its iconic Gothic architecture and lush green lawn. The camera parameters (roll, pitch, field-of-view, and radial distortion) are: 0.1009, 0.4223, 1.7199, 0.0000.",
+    "quality_score": 82.42
+  },
+  {
+    "id": 10,
+    "image": "/data/cam/samples/sample-10.jpg",
+    "source_hash": "8903d829044f1537",
+    "source_shard": "000333",
+    "category": "interior",
+    "camera_height": "Eye-level shot",
+    "caption": "The image shows a cozy living room with wooden floors, a patterned rug, and a small table adorned with a vase of flowers. The walls are decorated with framed pictures and a pumpkin decoration, creating a warm and inviting atmosphere. The camera parameters (roll, pitch, field-of-view, and radial distortion) are: -0.3161, -0.5482, 1.7349, 0.0000.",
+    "quality_score": 82.24
+  },
+  {
+    "id": 11,
+    "image": "/data/cam/samples/sample-11.jpg",
+    "source_hash": "31428fe3608ac179",
+    "source_shard": "000333",
+    "category": "nature",
+    "camera_height": "Eye-level shot",
+    "caption": "The image depicts a serene coastal scene with a clear blue sky dotted with scattered clouds, lush green trees lining the shore, and calm waters gently lapping against the rocky shoreline. The camera parameters (roll, pitch, field-of-view, and radial distortion) are: -0.5414, 0.6199, 1.5660, 0.0000.",
+    "quality_score": 84.04
+  },
+  {
+    "id": 12,
+    "image": "/data/cam/samples/sample-12.jpg",
+    "source_hash": "ef77babb38a6fd3e",
+    "source_shard": "000333",
+    "category": "interior",
+    "camera_height": "Eye-level shot",
+    "caption": "The image depicts a cozy dining area with wooden floors, patterned rugs, and tables adorned with blue tablecloths and floral decorations. The walls are decorated with framed pictures and garlands, creating a warm and inviting atmosphere. The camera parameters (roll, pitch, field-of-view, and radial distortion) are: -0.5657, -0.1765, 1.5462, 0.0000.",
+    "quality_score": 94.93
+  },
+  {
+    "id": 13,
+    "image": "/data/cam/samples/sample-13.jpg",
+    "source_hash": "8a0265264f1708fa",
+    "source_shard": "000050",
+    "category": "nature",
+    "camera_height": "Aerial shot",
+    "caption": "The image captures a serene mountain landscape with dense green forests and a winding river cutting through the valley, under a bright blue sky with the sun shining brightly in the upper left corner. The camera parameters (roll, pitch, field-of-view, and radial distortion) are: 0.7329, 0.0350, 1.6862, 0.0000.",
+    "quality_score": 90.0
+  },
+  {
+    "id": 14,
+    "image": "/data/cam/samples/sample-14.jpg",
+    "source_hash": "82680cd9194d7611",
+    "source_shard": "000777",
+    "category": "interior",
+    "camera_height": "Eye-level shot",
+    "caption": "The image depicts an ornate, intricately decorated interior space with detailed wall patterns and a large, circular stained glass window at the center of the ceiling. The room features elegant architectural elements, including arched doorways and a decorative column on the right side. The camera parameters (roll, pitch, field-of-view, and radial distortion) are: -0.2026, 0.2430, 1.6740, 0.0000.",
+    "quality_score": 94.17
+  },
+  {
+    "id": 15,
+    "image": "/data/cam/samples/sample-15.jpg",
+    "source_hash": "b211aadb5f67735c",
+    "source_shard": "000000",
+    "category": "nature",
+    "camera_height": "Eye-level shot",
+    "caption": "The image captures a scenic view of a turquoise river winding through a lush, green landscape under a partly cloudy sky. A metal railing on the left suggests a viewpoint from an elevated position, possibly a bridge or observation deck. The camera parameters (roll, pitch, field-of-view, and radial distortion) are: -0.6075, 0.1238, 1.3168, 0.0000.",
+    "quality_score": 67.35
+  },
+  {
+    "id": 16,
+    "image": "/data/cam/samples/sample-16.jpg",
+    "source_hash": "06fd80cb54b9fb9a",
+    "source_shard": "001400",
+    "category": "interior",
+    "camera_height": "Eye-level shot",
+    "caption": "The image shows a cozy bedroom with a modern design, featuring a bed covered in a black and white patterned blanket, a gray armchair, and a white desk with a chair. The room has light-colored walls and wooden flooring, creating a warm and inviting atmosphere. The camera parameters (roll, pitch, field-of-view, and radial distortion) are: 0.1338, -0.1592, 1.1393, 0.0000.",
+    "quality_score": 62.1
+  },
+  {
+    "id": 17,
+    "image": "/data/cam/samples/sample-17.jpg",
+    "source_hash": "949c07154b0d3dc2",
+    "source_shard": "000333",
+    "category": "nature",
+    "camera_height": "Aerial shot",
+    "caption": "The image shows an aerial view of a winding river surrounded by forested hills, with a road visible on the right side of the frame. The landscape appears to be in a natural, rural setting, possibly during late autumn or early spring as the trees are bare. The camera parameters (roll, pitch, field-of-view, and radial distortion) are: 0.2052, -0.5434, 1.7007, 0.0000.",
+    "quality_score": 76.45
+  },
+  {
+    "id": 18,
+    "image": "/data/cam/samples/sample-18.jpg",
+    "source_hash": "7a13b4460ade9c02",
+    "source_shard": "001400",
+    "category": "interior",
+    "camera_height": "Eye-level shot",
+    "caption": "The image shows a modern, open-plan living space with a sleek design featuring a marble floor and a wooden accent wall. The room includes a dining area with a table and chairs, a kitchenette, and a cozy seating area with a sofa and a coffee table. A sliding door leads to another room with a bed and a small desk. The camera parameters (roll, pitch, field-of-view, and radial distortion) are: 0.2124, -0.5825, 1.7617, 0.0000.",
+    "quality_score": 61.26
+  },
+  {
+    "id": 19,
+    "image": "/data/cam/samples/sample-19.jpg",
+    "source_hash": "64ea8f687da0983a",
+    "source_shard": "000333",
+    "category": "nature",
+    "camera_height": "Aerial shot",
+    "caption": "The image shows an aerial view of a lush, green landscape with a small settlement nestled among the trees, bordered by a large body of water on one side and a sandy area on the other. The camera parameters (roll, pitch, field-of-view, and radial distortion) are: 0.6748, -0.0675, 1.3021, 0.0000.",
+    "quality_score": 86.23
+  },
+  {
+    "id": 20,
+    "image": "/data/cam/samples/sample-20.jpg",
+    "source_hash": "0d139a43c8bfbbac",
+    "source_shard": "000333",
+    "category": "interior",
+    "camera_height": "Eye-level shot",
+    "caption": "The image depicts the interior of a grand cathedral, featuring a high arched ceiling with intricate designs and a central chandelier. The focal point is a richly decorated altar adorned with red drapery, flanked by tall columns and surrounded by rows of wooden pews. The camera parameters (roll, pitch, field-of-view, and radial distortion) are: 0.1596, 0.5582, 1.3910, 0.0000.",
+    "quality_score": 89.59
+  },
+  {
+    "id": 21,
+    "image": "/data/cam/samples/sample-21.jpg",
+    "source_hash": "8e69ec359a3536fb",
+    "source_shard": "000050",
+    "category": "nature",
+    "camera_height": "Eye-level shot",
+    "caption": "The image depicts a serene mountain lake with clear, shallow waters reflecting the surrounding rocky terrain and a partly cloudy sky. The foreground shows a sandy shore with some greenery, while the background features rugged, snow-dusted mountains. The camera parameters (roll, pitch, field-of-view, and radial distortion) are: 0.6156, -0.2207, 1.5119, 0.0000.",
+    "quality_score": 90.0
+  },
+  {
+    "id": 22,
+    "image": "/data/cam/samples/sample-22.jpg",
+    "source_hash": "8ff083613cb0368c",
+    "source_shard": "000000",
+    "category": "interior",
+    "camera_height": "Eye-level shot",
+    "caption": "The image depicts a cozy, vintage-style room with wooden flooring, green walls, and various pieces of furniture including a red armchair, an orange sofa, and a wooden cabinet. The room is decorated with framed pictures and a large window that allows natural light to fill the space. The camera parameters (roll, pitch, field-of-view, and radial distortion) are: -0.4795, -0.2665, 1.7256, 0.0000.",
+    "quality_score": 75.82
+  },
+  {
+    "id": 23,
+    "image": "/data/cam/samples/sample-23.jpg",
+    "source_hash": "53f89d2824a60307",
+    "source_shard": "000000",
+    "category": "nature",
+    "camera_height": "Low-position shot",
+    "caption": "The image depicts a serene outdoor scene featuring a pond with lily pads and flowers, surrounded by lush greenery and autumn-colored trees under a partly cloudy sky. The camera parameters (roll, pitch, field-of-view, and radial distortion) are: 0.5039, 0.1910, 1.4917, 0.0000.",
+    "quality_score": 93.7
+  },
+  {
+    "id": 24,
+    "image": "/data/cam/samples/sample-24.jpg",
+    "source_hash": "d6c4348bf7ad2825",
+    "source_shard": "000000",
+    "category": "nature",
+    "camera_height": "Eye-level shot",
+    "caption": "The image shows a small waterfall cascading down a rocky cliff into a pool below, surrounded by lush greenery and stone pathways. The camera parameters (roll, pitch, field-of-view, and radial distortion) are: -0.1943, -0.0931, 1.7787, 0.0000.",
+    "quality_score": 51.8
+  },
+  {
+    "id": 25,
+    "image": "/data/cam/samples/sample-25.jpg",
+    "source_hash": "9413dbcaa77641ac",
+    "source_shard": "000333",
+    "category": "nature",
+    "camera_height": "Eye-level shot",
+    "caption": "The image depicts a scenic view of a mountainous area with a clear blue sky dotted with fluffy white clouds. A paved road curves through the foreground, leading towards a small wooden structure nestled among lush green trees and vegetation. The camera parameters (roll, pitch, field-of-view, and radial distortion) are: -0.6580, 0.2883, 1.2176, 0.0000.",
+    "quality_score": 75.09
+  },
+  {
+    "id": 26,
+    "image": "/data/cam/samples/sample-26.jpg",
+    "source_hash": "6936e0372e9801b8",
+    "source_shard": "000050",
+    "category": "interior",
+    "camera_height": "Eye-level shot",
+    "caption": "The image shows the interior of a grand building, possibly a church or cathedral, featuring ornate wooden railings and intricate metalwork above a staircase. A rope barrier is set up at the bottom of the stairs, likely to control access or guide visitors. The camera parameters (roll, pitch, field-of-view, and radial distortion) are: -0.6528, -0.3463, 1.1834, 0.0000.",
+    "quality_score": 90.0
+  },
+  {
+    "id": 27,
+    "image": "/data/cam/samples/sample-27.jpg",
+    "source_hash": "4a80ddebe6bfa904",
+    "source_shard": "000333",
+    "category": "nature",
+    "camera_height": "Aerial shot",
+    "caption": "The image shows an aerial view of a river flowing through a lush, green landscape with trees and some buildings visible in the distance. There are boats docked along the riverbank on the left side. The camera parameters (roll, pitch, field-of-view, and radial distortion) are: 0.4627, -0.3249, 1.4963, 0.0000.",
+    "quality_score": 66.61
+  },
+  {
+    "id": 28,
+    "image": "/data/cam/samples/sample-28.jpg",
+    "source_hash": "0b8ce38be5d3d1a9",
+    "source_shard": "000333",
+    "category": "interior",
+    "camera_height": "Eye-level shot",
+    "caption": "The image depicts the interior of a grand, historic church with stone walls, arched ceilings, and wooden pews lining both sides of a central aisle. A chandelier hangs from the ceiling, adding to the architectural beauty of the space. The camera parameters (roll, pitch, field-of-view, and radial distortion) are: -0.5244, 0.3028, 1.6007, 0.0000.",
+    "quality_score": 91.79
+  },
+  {
+    "id": 29,
+    "image": "/data/cam/samples/sample-29.jpg",
+    "source_hash": "1c4a7dd0b6ec0fe7",
+    "source_shard": "000000",
+    "category": "interior",
+    "camera_height": "Eye-level shot",
+    "caption": "The image depicts a cozy, rustic living room with wooden beams and a stone fireplace, featuring a warm fire burning inside. The space is adorned with Native American-style textiles, artwork, and a stained glass clock hanging from the ceiling, creating a traditional and inviting atmosphere. The camera parameters (roll, pitch, field-of-view, and radial distortion) are: -0.4185, 0.1796, 1.4869, 0.0000.",
+    "quality_score": 63.74
+  },
+  {
+    "id": 30,
+    "image": "/data/cam/samples/sample-30.jpg",
+    "source_hash": "d3ca4bb5f6e76397",
+    "source_shard": "000777",
+    "category": "interior",
+    "camera_height": "Eye-level shot",
+    "caption": "The image depicts an intricately carved stone archway with detailed sculptures and statues, leading to a wooden door inside what appears to be a grand cathedral or church. The architectural style suggests a Gothic influence, with ornate carvings and a high vaulted ceiling. The camera parameters (roll, pitch, field-of-view, and radial distortion) are: -0.5920, 0.3299, 1.3794, 0.0000.",
+    "quality_score": 94.21
+  },
+  {
+    "id": 31,
+    "image": "/data/cam/samples/sample-31.jpg",
+    "source_hash": "f2ad0ed93c9d9702",
+    "source_shard": "001400",
+    "category": "interior",
+    "camera_height": "Eye-level shot",
+    "caption": "The image depicts a modern, well-lit dining area with a round table set for tea, featuring green chairs and a decorative hanging light. The room opens into a cozy living space and a bedroom, showcasing a clean and inviting design with neutral tones and minimalistic decor. The camera parameters (roll, pitch, field-of-view, and radial distortion) are: 0.0472, 0.0942, 1.0926, 0.0000.",
+    "quality_score": 43.27
+  },
+  {
+    "id": 32,
+    "image": "/data/cam/samples/sample-32.jpg",
+    "source_hash": "7ba32dfcbce37c1c",
+    "source_shard": "001400",
+    "category": "interior",
+    "camera_height": "Eye-level shot",
+    "caption": "The image shows a cozy bedroom with a neatly made bed featuring a beige headboard, yellow and white patterned pillows, and a green throw blanket draped over the side. The room has light wooden flooring and a minimalist design with a white wardrobe and a simple pendant light hanging above the bed. The camera parameters (roll, pitch, field-of-view, and radial distortion) are: 0.5228, -0.4968, 1.5932, 0.0000.",
+    "quality_score": 55.68
+  },
+  {
+    "id": 33,
+    "image": "/data/cam/samples/sample-33.jpg",
+    "source_hash": "437a6f173c4b4248",
+    "source_shard": "001400",
+    "category": "interior",
+    "camera_height": "Eye-level shot",
+    "caption": "The image shows a cozy bedroom with a wooden floor, a bed with beige bedding, and a small wooden shelf holding a decorative item and a cup. A window reveals a cityscape at night, and a mounted TV is visible on the wall. The camera parameters (roll, pitch, field-of-view, and radial distortion) are: 0.5119, -0.6748, 1.3669, 0.0000.",
+    "quality_score": 62.83
+  },
+  {
+    "id": 34,
+    "image": "/data/cam/samples/sample-34.jpg",
+    "source_hash": "af00437b9bbaf2ba",
+    "source_shard": "001400",
+    "category": "interior",
+    "camera_height": "Eye-level shot",
+    "caption": "The image showcases a modern, minimalist living room with a large sectional sofa, a round ottoman, and a patterned rug on a light gray floor. The background reveals a sleek kitchen area with white cabinetry and a dining table. The camera parameters (roll, pitch, field-of-view, and radial distortion) are: 0.4772, -0.5799, 1.1842, 0.0000.",
+    "quality_score": 55.35
+  },
+  {
+    "id": 35,
+    "image": "/data/cam/samples/sample-35.jpg",
+    "source_hash": "b54b73827e662fbd",
+    "source_shard": "001400",
+    "category": "interior",
+    "camera_height": "Eye-level shot",
+    "caption": "The image shows a modern, minimalist living room with a light pink armchair in the foreground, a dining area with a wooden table and chairs in the background, and a flat-screen TV mounted on a wall with a black and white striped rug beneath it. The camera parameters (roll, pitch, field-of-view, and radial distortion) are: -0.5401, -0.1142, 1.6841, 0.0000.",
+    "quality_score": 55.42
+  },
+  {
+    "id": 36,
+    "image": "/data/cam/samples/sample-36.jpg",
+    "source_hash": "00fdccdc2683d7d6",
+    "source_shard": "000777",
+    "category": "interior",
+    "camera_height": "Eye-level shot",
+    "caption": "The image showcases an ornate ceiling with intricate patterns and a central chandelier, illuminated by bright light that creates a sparkling effect. The architecture features detailed carvings and arched windows, contributing to the grandeur of the space. The camera parameters (roll, pitch, field-of-view, and radial distortion) are: 0.6247, 0.5338, 1.2510, 0.0000.",
+    "quality_score": 89.32
+  }
+]
