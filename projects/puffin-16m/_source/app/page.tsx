@@ -47,6 +47,7 @@ const capabilities = [
   {
     id: "understanding",
     number: "01",
+    tag: "PERCEIVE",
     title: "Camera Understanding",
     short: "Read the camera behind an image",
     description:
@@ -59,6 +60,7 @@ const capabilities = [
   {
     id: "generation",
     number: "02",
+    tag: "GENERATE",
     title: "Controllable Generation",
     short: "Compose with explicit camera control",
     description:
@@ -71,6 +73,7 @@ const capabilities = [
   {
     id: "world",
     number: "03",
+    tag: "EXPLORE",
     title: "World Exploration",
     short: "Move beyond the initial view",
     description:
@@ -807,15 +810,15 @@ export default function Home() {
                 role="tab"
                 aria-selected={activeCapability === index}
                 aria-controls="capability-panel"
-                className={activeCapability === index ? "is-active" : ""}
+                className={`capability-${item.id} ${activeCapability === index ? "is-active" : ""}`}
                 onClick={() => setActiveCapability(index)}
               >
-                <span>{item.number}</span>
-                <div>
+                <div className="capability-tab-heading">
+                  <span>{item.number}</span>
                   <strong>{item.title}</strong>
-                  <small>{item.short}</small>
                 </div>
-                <b aria-hidden="true">↗</b>
+                <small>{item.short}</small>
+                <b aria-hidden="true">{item.tag}</b>
               </button>
             ))}
           </div>
