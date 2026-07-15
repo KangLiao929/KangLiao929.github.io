@@ -11,7 +11,8 @@
     "sampled_frames": 15,
     "start_deg": 44.5,
     "end_deg": -44.5,
-    "video": "/data/traj/superres/roll/01.mp4"
+    "video": "/data/traj/superres/roll/01.mp4",
+    "video_mobile": "/data/traj/mobile/roll/01.mp4"
   },
   {
     "id": "roll-02",
@@ -25,7 +26,8 @@
     "sampled_frames": 15,
     "start_deg": -43.7,
     "end_deg": -42.7,
-    "video": "/data/traj/superres/roll/02.mp4"
+    "video": "/data/traj/superres/roll/02.mp4",
+    "video_mobile": "/data/traj/mobile/roll/02.mp4"
   },
   {
     "id": "roll-03",
@@ -39,7 +41,8 @@
     "sampled_frames": 15,
     "start_deg": -44.5,
     "end_deg": 44.5,
-    "video": "/data/traj/superres/roll/03.mp4"
+    "video": "/data/traj/superres/roll/03.mp4",
+    "video_mobile": "/data/traj/mobile/roll/03.mp4"
   },
   {
     "id": "roll-04",
@@ -53,7 +56,8 @@
     "sampled_frames": 15,
     "start_deg": 29.1,
     "end_deg": 28.1,
-    "video": "/data/traj/superres/roll/04.mp4"
+    "video": "/data/traj/superres/roll/04.mp4",
+    "video_mobile": "/data/traj/mobile/roll/04.mp4"
   },
   {
     "id": "roll-05",
@@ -67,7 +71,8 @@
     "sampled_frames": 15,
     "start_deg": -44.5,
     "end_deg": 44.5,
-    "video": "/data/traj/superres/roll/05.mp4"
+    "video": "/data/traj/superres/roll/05.mp4",
+    "video_mobile": "/data/traj/mobile/roll/05.mp4"
   },
   {
     "id": "roll-06",
@@ -81,7 +86,8 @@
     "sampled_frames": 15,
     "start_deg": 17.5,
     "end_deg": 16.5,
-    "video": "/data/traj/superres/roll/06.mp4"
+    "video": "/data/traj/superres/roll/06.mp4",
+    "video_mobile": "/data/traj/mobile/roll/06.mp4"
   },
   {
     "id": "roll-07",
@@ -95,7 +101,8 @@
     "sampled_frames": 15,
     "start_deg": 44.5,
     "end_deg": -44.5,
-    "video": "/data/traj/superres/roll/07.mp4"
+    "video": "/data/traj/superres/roll/07.mp4",
+    "video_mobile": "/data/traj/mobile/roll/07.mp4"
   },
   {
     "id": "roll-08",
@@ -109,7 +116,8 @@
     "sampled_frames": 15,
     "start_deg": -6.8,
     "end_deg": -5.8,
-    "video": "/data/traj/superres/roll/08.mp4"
+    "video": "/data/traj/superres/roll/08.mp4",
+    "video_mobile": "/data/traj/mobile/roll/08.mp4"
   },
   {
     "id": "pitch-01",
@@ -123,7 +131,8 @@
     "sampled_frames": 15,
     "start_deg": -30.3,
     "end_deg": -29.3,
-    "video": "/data/traj/superres/pitch/01.mp4"
+    "video": "/data/traj/superres/pitch/01.mp4",
+    "video_mobile": "/data/traj/mobile/pitch/01.mp4"
   },
   {
     "id": "pitch-02",
@@ -137,7 +146,8 @@
     "sampled_frames": 15,
     "start_deg": 24.1,
     "end_deg": 23.1,
-    "video": "/data/traj/superres/pitch/02.mp4"
+    "video": "/data/traj/superres/pitch/02.mp4",
+    "video_mobile": "/data/traj/mobile/pitch/02.mp4"
   },
   {
     "id": "pitch-03",
@@ -151,7 +161,8 @@
     "sampled_frames": 15,
     "start_deg": -44.5,
     "end_deg": 44.5,
-    "video": "/data/traj/superres/pitch/03.mp4"
+    "video": "/data/traj/superres/pitch/03.mp4",
+    "video_mobile": "/data/traj/mobile/pitch/03.mp4"
   },
   {
     "id": "pitch-04",
@@ -165,7 +176,8 @@
     "sampled_frames": 15,
     "start_deg": 44.5,
     "end_deg": -44.5,
-    "video": "/data/traj/superres/pitch/04.mp4"
+    "video": "/data/traj/superres/pitch/04.mp4",
+    "video_mobile": "/data/traj/mobile/pitch/04.mp4"
   },
   {
     "id": "pitch-05",
@@ -179,7 +191,8 @@
     "sampled_frames": 15,
     "start_deg": -44.5,
     "end_deg": 44.5,
-    "video": "/data/traj/superres/pitch/05.mp4"
+    "video": "/data/traj/superres/pitch/05.mp4",
+    "video_mobile": "/data/traj/mobile/pitch/05.mp4"
   },
   {
     "id": "pitch-06",
@@ -193,7 +206,8 @@
     "sampled_frames": 15,
     "start_deg": 36.4,
     "end_deg": 35.4,
-    "video": "/data/traj/superres/pitch/06.mp4"
+    "video": "/data/traj/superres/pitch/06.mp4",
+    "video_mobile": "/data/traj/mobile/pitch/06.mp4"
   },
   {
     "id": "pitch-07",
@@ -207,7 +221,8 @@
     "sampled_frames": 15,
     "start_deg": 21.5,
     "end_deg": 20.5,
-    "video": "/data/traj/superres/pitch/07.mp4"
+    "video": "/data/traj/superres/pitch/07.mp4",
+    "video_mobile": "/data/traj/mobile/pitch/07.mp4"
   },
   {
     "id": "pitch-08",
@@ -221,7 +236,8 @@
     "sampled_frames": 15,
     "start_deg": -1.3,
     "end_deg": -0.3,
-    "video": "/data/traj/superres/pitch/08.mp4"
+    "video": "/data/traj/superres/pitch/08.mp4",
+    "video_mobile": "/data/traj/mobile/pitch/08.mp4"
   },
   {
     "id": "yaw-01",
@@ -235,7 +251,8 @@
     "sampled_frames": 15,
     "start_deg": 142.2,
     "end_deg": 141.2,
-    "video": "/data/traj/superres/yaw/01.mp4"
+    "video": "/data/traj/superres/yaw/01.mp4",
+    "video_mobile": "/data/traj/mobile/yaw/01.mp4"
   },
   {
     "id": "yaw-02",
@@ -249,7 +266,8 @@
     "sampled_frames": 15,
     "start_deg": -144.2,
     "end_deg": -145.2,
-    "video": "/data/traj/superres/yaw/02.mp4"
+    "video": "/data/traj/superres/yaw/02.mp4",
+    "video_mobile": "/data/traj/mobile/yaw/02.mp4"
   },
   {
     "id": "yaw-03",
@@ -263,7 +281,8 @@
     "sampled_frames": 15,
     "start_deg": -117.5,
     "end_deg": -473.5,
-    "video": "/data/traj/superres/yaw/03.mp4"
+    "video": "/data/traj/superres/yaw/03.mp4",
+    "video_mobile": "/data/traj/mobile/yaw/03.mp4"
   },
   {
     "id": "yaw-04",
@@ -277,7 +296,8 @@
     "sampled_frames": 15,
     "start_deg": 47.3,
     "end_deg": 46.3,
-    "video": "/data/traj/superres/yaw/04.mp4"
+    "video": "/data/traj/superres/yaw/04.mp4",
+    "video_mobile": "/data/traj/mobile/yaw/04.mp4"
   },
   {
     "id": "yaw-05",
@@ -291,7 +311,8 @@
     "sampled_frames": 15,
     "start_deg": -52.7,
     "end_deg": -53.7,
-    "video": "/data/traj/superres/yaw/05.mp4"
+    "video": "/data/traj/superres/yaw/05.mp4",
+    "video_mobile": "/data/traj/mobile/yaw/05.mp4"
   },
   {
     "id": "yaw-06",
@@ -305,7 +326,8 @@
     "sampled_frames": 15,
     "start_deg": -5.1,
     "end_deg": -361.1,
-    "video": "/data/traj/superres/yaw/06.mp4"
+    "video": "/data/traj/superres/yaw/06.mp4",
+    "video_mobile": "/data/traj/mobile/yaw/06.mp4"
   },
   {
     "id": "yaw-07",
@@ -319,7 +341,8 @@
     "sampled_frames": 15,
     "start_deg": 126.7,
     "end_deg": -229.3,
-    "video": "/data/traj/superres/yaw/07.mp4"
+    "video": "/data/traj/superres/yaw/07.mp4",
+    "video_mobile": "/data/traj/mobile/yaw/07.mp4"
   },
   {
     "id": "yaw-08",
@@ -333,6 +356,7 @@
     "sampled_frames": 15,
     "start_deg": -110.6,
     "end_deg": -111.6,
-    "video": "/data/traj/superres/yaw/08.mp4"
+    "video": "/data/traj/superres/yaw/08.mp4",
+    "video_mobile": "/data/traj/mobile/yaw/08.mp4"
   }
 ]

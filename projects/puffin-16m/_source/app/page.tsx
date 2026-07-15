@@ -274,6 +274,7 @@ type TrajectorySample = {
   start_deg: number;
   end_deg: number;
   video: string;
+  video_mobile?: string;
 };
 
 const trajectoryTabs = [
@@ -740,7 +741,11 @@ export default function Home() {
             {visibleTrajectories.map((sample) => (
               <article className="trajectory-card" key={sample.id}>
                 <div className="trajectory-media">
-                  <ViewportVideo src={sample.video} label={`${sample.type} trajectory ${sample.order}`} />
+                  <ViewportVideo
+                    src={sample.video}
+                    mobileSrc={sample.video_mobile}
+                    label={`${sample.type} trajectory ${sample.order}`}
+                  />
                   <span>{sample.frame_count} FRAMES · V.FOV {sample.vfov_deg}°</span>
                 </div>
                 <div className={`motion-diagram motion-${sample.type} pattern-${sample.pattern}`}>

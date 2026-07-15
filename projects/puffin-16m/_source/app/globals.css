@@ -2238,6 +2238,14 @@ a {
   background: #141412;
 }
 
+.viewport-video {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  border-radius: inherit;
+  background: #141412;
+}
+
 .trajectory-media video {
   width: 100%;
   height: 100%;
@@ -2245,6 +2253,66 @@ a {
   border-radius: inherit;
   object-fit: cover;
   transition: transform 700ms cubic-bezier(.2,.7,.2,1), filter 300ms ease;
+}
+
+.video-play-button {
+  position: absolute;
+  z-index: 3;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 12px;
+  border: 0;
+  color: var(--cream);
+  background: linear-gradient(180deg, rgba(10, 10, 9, 0.34), rgba(10, 10, 9, 0.7));
+  font-family: ui-monospace, monospace;
+  font-size: 9px;
+  letter-spacing: 0.13em;
+  cursor: pointer;
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+}
+
+.video-play-button i {
+  width: 54px;
+  height: 54px;
+  position: relative;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(243, 235, 221, 0.55);
+  border-radius: 50%;
+  background: rgba(10, 10, 9, 0.5);
+  box-shadow: 0 0 28px rgba(115, 201, 255, 0.18);
+}
+
+.video-play-button i::after {
+  content: "";
+  width: 0;
+  height: 0;
+  margin-left: 4px;
+  border-top: 7px solid transparent;
+  border-bottom: 7px solid transparent;
+  border-left: 11px solid var(--blue);
+}
+
+.video-play-button.has-error i::after {
+  margin: 0;
+  width: 14px;
+  height: 14px;
+  border: 0;
+  border-top: 2px solid var(--coral);
+  border-right: 2px solid var(--coral);
+  border-radius: 50%;
+}
+
+.video-play-button:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: -4px;
 }
 
 .trajectory-card:hover .trajectory-media video {
