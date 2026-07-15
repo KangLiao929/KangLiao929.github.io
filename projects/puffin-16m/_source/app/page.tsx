@@ -322,6 +322,7 @@ const citation = `@article{liao2025puffin,
 export default function Home() {
   const [activeView, setActiveView] = useState(1);
   const [activeCapability, setActiveCapability] = useState(0);
+  const [mobileNavOpen, setMobileNavOpen] = useState(false);
   const [camSamples, setCamSamples] = useState<CamSample[]>([]);
   const [activeCamSample, setActiveCamSample] = useState(0);
   const [trajectorySamples, setTrajectorySamples] = useState<TrajectorySample[]>([]);
@@ -349,6 +350,14 @@ export default function Home() {
       setCamSamples(cam.map((sample: CamSample) => ({ ...sample, image: assetPath(sample.image) })));
       setTrajectorySamples(trajectories.map((sample: TrajectorySample) => ({ ...sample, video: assetPath(sample.video) })));
     });
+  }, []);
+
+  useEffect(() => {
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setMobileNavOpen(false);
+    };
+    window.addEventListener("keydown", closeOnEscape);
+    return () => window.removeEventListener("keydown", closeOnEscape);
   }, []);
 
   function moveCamSample(direction: number) {
@@ -418,16 +427,26 @@ export default function Home() {
   return (
     <main>
       <header className="site-header">
-        <a className="brand" href="#top" aria-label="Puffin-16M home">
+        <a className="brand" href="#top" aria-label="Puffin-16M home" onClick={() => setMobileNavOpen(false)}>
           <img src={assetPath("/images/puffin-logo.png")} alt="" aria-hidden="true" />
           <span className="brand-title">Puffin<em>−16M</em></span>
         </a>
-        <nav className="nav-links" aria-label="Main navigation">
-          <a href="#dataset">Dataset</a>
-          <a href="#gallery">Gallery</a>
-          <a href="#model">Model</a>
-          <a href="#scale-extension">Scale</a>
-          <a href="#resources">Resources</a>
+        <button
+          className={`nav-toggle ${mobileNavOpen ? "is-open" : ""}`}
+          type="button"
+          aria-label={mobileNavOpen ? "Close navigation" : "Open navigation"}
+          aria-expanded={mobileNavOpen}
+          aria-controls="site-navigation"
+          onClick={() => setMobileNavOpen((open) => !open)}
+        >
+          <span /><span /><span />
+        </button>
+        <nav id="site-navigation" className={`nav-links ${mobileNavOpen ? "is-open" : ""}`} aria-label="Main navigation">
+          <a href="#dataset" onClick={() => setMobileNavOpen(false)}>Dataset</a>
+          <a href="#gallery" onClick={() => setMobileNavOpen(false)}>Gallery</a>
+          <a href="#model" onClick={() => setMobileNavOpen(false)}>Model</a>
+          <a href="#scale-extension" onClick={() => setMobileNavOpen(false)}>Scale</a>
+          <a href="#resources" onClick={() => setMobileNavOpen(false)}>Resources</a>
         </nav>
       </header>
 
@@ -927,7 +946,7 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="scale-gallery-heading">
+        <div className="scale-gallery-heading" id="scale-datasets">
           <div>
             <span>CAMERA-LABELLED DATASETS</span>
             <h3>One model, twelve datasets.</h3>
@@ -980,7 +999,7 @@ export default function Home() {
           ))}
         </div>
 
-        <div className="scale-summary">
+        <div className="scale-summary" id="scale-summary">
           <div>
             <strong>48.8M<sup>+</sup></strong>
             <span>CAMERA-ANNOTATED SAMPLES</span>
@@ -1002,7 +1021,7 @@ export default function Home() {
           Conservative total from published dataset-card figures; the GPIC contribution uses only the public 4.9M-image profiled subset.
           Every release links camera labels back to its source image or frame.
         </p>
-        <div className="scale-update-note">
+        <div className="scale-update-note" id="scale-update">
           <span><i aria-hidden="true" /> CONTINUOUSLY UPDATED</span>
           <p>
             This camera-labelled collection will continue to grow. We will regularly
