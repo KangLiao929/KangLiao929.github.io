@@ -87,10 +87,10 @@ const capabilities = [
 
 const scaleDatasets = [
   {
-    name: "Puffin-16M",
-    scope: "16.47M samples",
-    image: assetPath("/data/scale-extension/datasets/puffin-16m.webp"),
-    href: "https://huggingface.co/datasets/KangLiao/Puffin-16M",
+    name: "SA-1B-Camera",
+    scope: "897,572 images",
+    image: assetPath("/data/scale-extension/datasets/sa-1b-camera.webp"),
+    href: "https://huggingface.co/datasets/KangLiao/SA-1B-Camera",
   },
   {
     name: "CC12M-Camera",
@@ -352,7 +352,11 @@ export default function Home() {
       fetch(assetPath("/data/traj/manifest.json")).then((response) => response.json()),
     ]).then(([cam, trajectories]) => {
       setCamSamples(cam.map((sample: CamSample) => ({ ...sample, image: assetPath(sample.image) })));
-      setTrajectorySamples(trajectories.map((sample: TrajectorySample) => ({ ...sample, video: assetPath(sample.video) })));
+      setTrajectorySamples(trajectories.map((sample: TrajectorySample) => ({
+        ...sample,
+        video: assetPath(sample.video),
+        video_mobile: sample.video_mobile ? assetPath(sample.video_mobile) : undefined,
+      })));
     });
   }, []);
 
@@ -996,9 +1000,7 @@ export default function Home() {
                 <em className={dataset.name.includes("Absolute-Camera") ? "is-absolute" : "is-camera"}>
                   {dataset.name.includes("Absolute-Camera")
                     ? "ABSOLUTE-CAMERA"
-                    : dataset.name === "Puffin-16M"
-                      ? "CAMERA + TRAJECTORY"
-                      : "CAMERA"}
+                    : "CAMERA"}
                 </em>
                 <strong>{dataset.name}</strong>
                 <small>{dataset.scope}</small>
@@ -1009,16 +1011,16 @@ export default function Home() {
 
         <div className="scale-summary" id="scale-summary">
           <div>
-            <strong>48.8M<sup>+</sup></strong>
+            <strong>33.3M<sup>+</sup></strong>
             <span>CAMERA-ANNOTATED SAMPLES</span>
           </div>
           <div>
-            <strong>15.34M</strong>
-            <span>SCENE–CAMERA CAPTIONS</span>
+            <strong>27.8M</strong>
+            <span>SINGLE-IMAGE CAMERA LABELS</span>
           </div>
           <div>
-            <strong>1.14M</strong>
-            <span>DENSE CAMERA TRAJECTORIES</span>
+            <strong>5.47M</strong>
+            <span>ABSOLUTE-CAMERA FRAMES</span>
           </div>
           <div>
             <strong>12</strong>
@@ -1026,7 +1028,7 @@ export default function Home() {
           </div>
         </div>
         <p className="scale-footnote">
-          Conservative total from published dataset-card figures; the GPIC contribution uses only the public 4.9M-image profiled subset.
+          Conservative total from published dataset-card figures; SA-1B uses the 897,572-image English subset and GPIC uses the public 4.9M-image profiled subset.
           Every release links camera labels back to its source image or frame.
         </p>
         <div className="scale-update-note" id="scale-update">

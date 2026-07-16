@@ -87,7 +87,7 @@ export default function ViewportVideo({ src, mobileSrc, label }: ViewportVideoPr
           if (videoRef.current?.paused) void attemptPlayback();
         }}
       >
-        {mobileSrc && <source media="(max-width: 720px)" src={mobileSrc} type="video/mp4" />}
+        {mobileSrc && <source src={mobileSrc} type="video/mp4" />}
         <source src={src} type="video/mp4" />
       </video>
       {needsInteraction && (
