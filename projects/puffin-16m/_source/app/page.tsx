@@ -123,6 +123,72 @@ const scaleDatasets = [
     href: "https://huggingface.co/datasets/KangLiao/COCO-Camera",
   },
   {
+    name: "Objects365-Camera",
+    scope: "1,718,776 images",
+    image: assetPath("/data/scale-extension/datasets/objects365-camera.webp"),
+    href: "https://huggingface.co/datasets/KangLiao/Objects365-Camera",
+  },
+  {
+    name: "HumanRef-Camera",
+    scope: "45,400 images",
+    image: assetPath("/data/scale-extension/datasets/humanref-camera.webp"),
+    href: "https://huggingface.co/datasets/KangLiao/HumanRef-Camera",
+  },
+  {
+    name: "WiderPerson-Camera",
+    scope: "13,382 images",
+    image: assetPath("/data/scale-extension/datasets/widerperson-camera.webp"),
+    href: "https://huggingface.co/datasets/KangLiao/WiderPerson-Camera",
+  },
+  {
+    name: "EgoObjects-Camera",
+    scope: "241,658 images",
+    image: assetPath("/data/scale-extension/datasets/egoobjects-camera.webp"),
+    href: "https://huggingface.co/datasets/KangLiao/EgoObjects-Camera",
+  },
+  {
+    name: "SKU110k-Camera",
+    scope: "19,127 images",
+    image: assetPath("/data/scale-extension/datasets/sku110k-camera.webp"),
+    href: "https://huggingface.co/datasets/KangLiao/SKU110k-Camera",
+  },
+  {
+    name: "APTv2-Camera",
+    scope: "41,569 images",
+    image: assetPath("/data/scale-extension/datasets/aptv2-camera.webp"),
+    href: "https://huggingface.co/datasets/KangLiao/APTv2-Camera",
+  },
+  {
+    name: "ADE20K-Camera",
+    scope: "27,574 images",
+    image: assetPath("/data/scale-extension/datasets/ade20k-camera.webp"),
+    href: "https://huggingface.co/datasets/KangLiao/ADE20K-Camera",
+  },
+  {
+    name: "DeepFashion-Camera",
+    scope: "13,679 images",
+    image: assetPath("/data/scale-extension/datasets/deepfashion-camera.webp"),
+    href: "https://huggingface.co/datasets/KangLiao/DeepFashion-Camera",
+  },
+  {
+    name: "AP-10K-Camera",
+    scope: "10,015 images",
+    image: assetPath("/data/scale-extension/datasets/ap-10k-camera.webp"),
+    href: "https://huggingface.co/datasets/KangLiao/AP-10K-Camera",
+  },
+  {
+    name: "Open-Images-Camera",
+    scope: "8,338,780 images",
+    image: assetPath("/data/scale-extension/datasets/open-images-camera.webp"),
+    href: "https://huggingface.co/datasets/KangLiao/Open-Images-Camera",
+  },
+  {
+    name: "Rexverse-2M-Camera",
+    scope: "415,857 images",
+    image: assetPath("/data/scale-extension/datasets/rexverse-2m-camera.webp"),
+    href: "https://huggingface.co/datasets/KangLiao/Rexverse-2M-Camera",
+  },
+  {
     name: "ScanNet-Absolute-Camera",
     scope: "2.32M frames",
     image: assetPath("/data/scale-extension/datasets/scannet-camera.webp"),
@@ -953,7 +1019,7 @@ export default function Home() {
           <i aria-hidden="true">→</i>
           <div>
             <span>04</span>
-            <strong>12 Public Releases</strong>
+            <strong>23 Public Releases</strong>
             <small>Ready for downstream research</small>
           </div>
         </div>
@@ -961,7 +1027,7 @@ export default function Home() {
         <div className="scale-gallery-heading" id="scale-datasets">
           <div>
             <span>CAMERA-LABELLED DATASETS</span>
-            <h3>One model, twelve datasets.</h3>
+            <h3>One model, twenty-three datasets.</h3>
           </div>
           <p>
             We use Puffin-World to label widely used image and video corpora with
@@ -988,7 +1054,7 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="scale-dataset-grid" aria-label="Twelve camera-labelled datasets">
+        <div className="scale-dataset-grid" aria-label="Twenty-three camera-labelled datasets">
           {scaleDatasets.map((dataset, index) => (
             <a key={dataset.name} href={dataset.href} target="_blank" rel="noreferrer">
               <div className="scale-dataset-image">
@@ -1011,11 +1077,11 @@ export default function Home() {
 
         <div className="scale-summary" id="scale-summary">
           <div>
-            <strong>33.3M<sup>+</sup></strong>
+            <strong>44.2M<sup>+</sup></strong>
             <span>CAMERA-ANNOTATED SAMPLES</span>
           </div>
           <div>
-            <strong>27.8M</strong>
+            <strong>38.7M</strong>
             <span>SINGLE-IMAGE CAMERA LABELS</span>
           </div>
           <div>
@@ -1023,19 +1089,19 @@ export default function Home() {
             <span>ABSOLUTE-CAMERA FRAMES</span>
           </div>
           <div>
-            <strong>12</strong>
+            <strong>23</strong>
             <span>PUBLIC DATASET RELEASES</span>
           </div>
         </div>
         <p className="scale-footnote">
-          Conservative total from published dataset-card figures; SA-1B uses the 897,572-image English subset and GPIC uses the public 4.9M-image profiled subset.
+          Conservative total from published dataset-card figures; SA-1B uses the 897,572-image English subset, GPIC uses the public 4.9M-image profiled subset, and Rexverse-2M uses the released 415,857-image subset.
           Every release links camera labels back to its source image or frame.
         </p>
         <div className="scale-update-note" id="scale-update">
           <span><i aria-hidden="true" /> CONTINUOUSLY UPDATED</span>
           <p>
             This camera-labelled collection will continue to grow. We will regularly
-            annotate and release additional datasets beyond the twelve currently available.
+            annotate and release additional datasets beyond the twenty-three currently available.
           </p>
         </div>
       </section>
