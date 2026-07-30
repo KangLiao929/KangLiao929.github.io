@@ -189,6 +189,36 @@ const scaleDatasets = [
     href: "https://huggingface.co/datasets/KangLiao/Rexverse-2M-Camera",
   },
   {
+    name: "APT-36K-Camera",
+    scope: "35,860 frames",
+    image: assetPath("/data/scale-extension/datasets/apt-36k-camera.webp"),
+    href: "https://huggingface.co/datasets/KangLiao/APT-36K-Camera",
+  },
+  {
+    name: "CrowdPose-Camera",
+    scope: "20,000 images",
+    image: assetPath("/data/scale-extension/datasets/crowdpose-camera.webp"),
+    href: "https://huggingface.co/datasets/KangLiao/CrowdPose-Camera",
+  },
+  {
+    name: "MPII-Camera",
+    scope: "24,984 images",
+    image: assetPath("/data/scale-extension/datasets/mpii-camera.webp"),
+    href: "https://huggingface.co/datasets/KangLiao/MPII-Camera",
+  },
+  {
+    name: "IRS-Camera",
+    scope: "188,348 images",
+    image: assetPath("/data/scale-extension/datasets/irs-camera.webp"),
+    href: "https://huggingface.co/datasets/KangLiao/IRS-Camera",
+  },
+  {
+    name: "InteriorVerse-Camera",
+    scope: "61,231 images",
+    image: assetPath("/data/scale-extension/datasets/interiorverse-camera.webp"),
+    href: "https://huggingface.co/datasets/KangLiao/InteriorVerse-Camera",
+  },
+  {
     name: "ScanNet-Absolute-Camera",
     scope: "2.32M frames",
     image: assetPath("/data/scale-extension/datasets/scannet-camera.webp"),
@@ -1019,7 +1049,7 @@ export default function Home() {
           <i aria-hidden="true">→</i>
           <div>
             <span>04</span>
-            <strong>23 Public Releases</strong>
+            <strong>28 Public Releases</strong>
             <small>Ready for downstream research</small>
           </div>
         </div>
@@ -1027,7 +1057,7 @@ export default function Home() {
         <div className="scale-gallery-heading" id="scale-datasets">
           <div>
             <span>CAMERA-LABELLED DATASETS</span>
-            <h3>One model, twenty-three datasets.</h3>
+            <h3>One model, twenty-eight datasets.</h3>
           </div>
           <p>
             We use Puffin-World to label widely used image and video corpora with
@@ -1054,7 +1084,7 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="scale-dataset-grid" aria-label="Twenty-three camera-labelled datasets">
+        <div className="scale-dataset-grid" aria-label="Twenty-eight camera-labelled datasets">
           {scaleDatasets.map((dataset, index) => (
             <a key={dataset.name} href={dataset.href} target="_blank" rel="noreferrer">
               <div className="scale-dataset-image">
@@ -1077,11 +1107,11 @@ export default function Home() {
 
         <div className="scale-summary" id="scale-summary">
           <div>
-            <strong>44.2M<sup>+</sup></strong>
+            <strong>44.5M<sup>+</sup></strong>
             <span>CAMERA-ANNOTATED SAMPLES</span>
           </div>
           <div>
-            <strong>38.7M</strong>
+            <strong>39.0M</strong>
             <span>SINGLE-IMAGE CAMERA LABELS</span>
           </div>
           <div>
@@ -1089,7 +1119,7 @@ export default function Home() {
             <span>ABSOLUTE-CAMERA FRAMES</span>
           </div>
           <div>
-            <strong>23</strong>
+            <strong>28</strong>
             <span>PUBLIC DATASET RELEASES</span>
           </div>
         </div>
@@ -1101,7 +1131,7 @@ export default function Home() {
           <span><i aria-hidden="true" /> CONTINUOUSLY UPDATED</span>
           <p>
             This camera-labelled collection will continue to grow. We will regularly
-            annotate and release additional datasets beyond the twenty-three currently available.
+            annotate and release additional datasets beyond the twenty-eight currently available.
           </p>
         </div>
       </section>
