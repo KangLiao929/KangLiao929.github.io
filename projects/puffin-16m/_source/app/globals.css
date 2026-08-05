@@ -129,10 +129,6 @@ a {
   transition: right 220ms ease;
 }
 
-.nav-toggle {
-  display: none;
-}
-
 .nav-links a:hover,
 .nav-links a:focus-visible {
   color: var(--cream);
@@ -141,6 +137,10 @@ a {
 .nav-links a:hover::after,
 .nav-links a:focus-visible::after {
   right: 0;
+}
+
+.nav-toggle {
+  display: none;
 }
 
 .hero {
@@ -2274,7 +2274,7 @@ a {
   isolation: isolate;
   margin-top: 34px;
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 12px;
 }
 
@@ -4097,6 +4097,7 @@ footer > a:last-child {
   .scale-dataset-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .trajectory-axis-intro { grid-template-columns: 100px 1fr; }
   .trajectory-axis-intro > p { grid-column: 2; justify-self: start; padding-bottom: 26px; }
+  .trajectory-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .trajectory-card { grid-template-columns: minmax(0, 1.16fr) minmax(140px, 0.84fr); }
   .resources-hero { grid-template-columns: 1fr 320px; }
   .resource-orbit { width: 250px; height: 250px; }

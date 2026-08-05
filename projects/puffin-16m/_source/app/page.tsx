@@ -431,7 +431,7 @@ export default function Home() {
   const view = views[activeView];
   const capability = capabilities[activeCapability];
   const currentCamSample = camSamples[activeCamSample];
-  const visibleTrajectories = trajectorySamples
+  const sortedTrajectories = trajectorySamples
     .filter((item) => item.type === trajectoryType)
     .sort((a, b) => {
       if (trajectoryType === "yaw") {
@@ -440,6 +440,12 @@ export default function Home() {
       }
       return a.order - b.order;
     });
+  const originalTrajectories = sortedTrajectories.filter((item) => item.order <= 8);
+  const addedTrajectories = sortedTrajectories.filter((item) => item.order > 8);
+  const visibleTrajectories = originalTrajectories.flatMap((item, index) => {
+    const rowAddition = index % 2 === 1 ? addedTrajectories[Math.floor(index / 2)] : undefined;
+    return rowAddition ? [item, rowAddition] : [item];
+  });
   const activeTrajectoryTab = trajectoryTabs.find((item) => item.id === trajectoryType)!;
 
   useEffect(() => {
@@ -793,7 +799,7 @@ export default function Home() {
             <span>B / 90-FRAME CAMERA TRAJECTORIES</span>
             <h3>Puffin-Traj-1M</h3>
           </div>
-          <p>24 sequences · 4× offline-enhanced previews · 8 per motion axis</p>
+          <p>36 sequences · 4× offline-enhanced previews · 12 per motion axis</p>
         </div>
 
         <div className="trajectory-gallery" id="trajectory-gallery">
@@ -808,7 +814,7 @@ export default function Home() {
               >
                 <span><i aria-hidden="true">{motionAxisShort[tab.id]}</i>{tab.label}</span>
                 <small>{tab.description}</small>
-                <b>{trajectorySamples.filter((sample) => sample.type === tab.id).length || 8} SEQS</b>
+                <b>{trajectorySamples.filter((sample) => sample.type === tab.id).length || 12} SEQS</b>
               </button>
             ))}
           </div>
