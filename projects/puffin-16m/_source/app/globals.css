@@ -4360,3 +4360,134 @@ footer > a:last-child {
     transition-duration: 0.01ms !important;
   }
 }
+
+/* Legibility pass: keep compact technical labels readable on every viewport. */
+.nav-links {
+  font-size: 14px;
+}
+
+.eyebrow,
+.view-counter,
+.section-kicker span,
+.section-kicker p,
+.block-index,
+.parameter-ranges span,
+.height-row > div p,
+.height-row > div span,
+.height-row li,
+.source-note,
+.capability-tab-heading > span,
+.lab-output p,
+.gallery-dataset-label p,
+.preview-counter,
+.caption-heading,
+.caption-source code,
+.trajectory-tabs button > span i,
+.trajectory-axis-intro > div:nth-child(2) span,
+.trajectory-axis-intro > p,
+.gallery-provenance p,
+.gallery-provenance a,
+.scale-overline,
+.benchmark-card figcaption,
+.radar-legend,
+.annotation-bridge > div small,
+.annotation-taxonomy p,
+.scale-update-note span,
+.resource-orbit,
+.resource-links p,
+.citation-block > div p,
+footer p,
+footer > a:last-child {
+  font-size: 13px;
+}
+
+.view-frame span,
+.camera-readout,
+.hero-source-credit,
+.metrics-rail small,
+.height-row li span,
+.capability-list button small,
+.capability-list button > b,
+.lab-toolbar,
+.overlay-label,
+.preview-badge,
+.capability-copy > span,
+.lab-output span,
+.model-variants span,
+.model-variants small,
+.gallery-dataset-label span,
+.mosaic-tile > span,
+.mosaic-tile > small,
+.mosaic-ratio-key,
+.sidebar-sample-heading span,
+.sidebar-sample-heading p,
+.cam-thumbnail-grid button > span,
+.caption-source,
+.trajectory-tabs small,
+.trajectory-tabs b,
+.axis-mapping span,
+.trajectory-axis-intro > p a,
+.video-play-button,
+.trajectory-media > span,
+.camera-coordinates > i > span,
+.motion-axis-name,
+.motion-diagram > small,
+.trajectory-meta,
+.trajectory-meta code,
+.gallery-provenance > span,
+.scale-gallery-heading span,
+.ranking-mark span,
+.scale-ranking > div:last-child > span,
+.ranking-mark small,
+.benchmark-card-heading,
+.annotation-bridge > div span,
+.annotation-taxonomy span,
+.scale-dataset-image span,
+.scale-dataset-grid small,
+.scale-summary span,
+.scale-footnote,
+.terminal-bar,
+.terminal-bar button,
+.resource-links span,
+.citation-block > div span,
+.citation-block > button,
+.license-line {
+  font-size: 11px;
+  line-height: 1.35;
+}
+
+.motion-axis-name::after,
+.motion-status,
+.scale-dataset-grid em {
+  font-size: 10px;
+}
+
+.view-controls button,
+.yaw-label,
+.capability-copy a,
+.model-variants strong,
+.gallery-title-row p,
+.scale-intro-copy p,
+.scale-ranking p,
+.scale-gallery-heading p,
+.scale-dataset-grid strong,
+.resources-hero p,
+.download-terminal code,
+.citation-block pre {
+  font-size: clamp(14px, 1vw, 16px);
+}
+
+.scale-dataset-grid em,
+.scale-dataset-grid small {
+  font-size: 12px;
+}
+
+.motion-diagram > b {
+  font-size: 11px;
+}
+
+.dataset-block > p,
+.capability-copy p,
+.section-heading p {
+  font-size: clamp(16px, 1.2vw, 18px);
+}
