@@ -876,11 +876,6 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="gallery-provenance">
-          <span>PROVENANCE</span>
-          <p>Source images, captions, and trajectory frames were sampled directly from the released Hugging Face shards; large image previews use offline 4× super-resolution enhancement.</p>
-          <a href="https://huggingface.co/datasets/KangLiao/Puffin-16M" target="_blank" rel="noreferrer">Open source dataset ↗</a>
-        </div>
       </section>
 
       <section className="model-section" id="model">
