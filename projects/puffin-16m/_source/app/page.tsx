@@ -560,13 +560,13 @@ export default function Home() {
         <div className="hero-copy">
           <p className="eyebrow"><span /> Camera-centric multimodal intelligence</p>
           <h1>
-            See the world.
+            See and build the world.
             <br />
-            From any <em>camera.</em>
+            From any <em>views.</em>
           </h1>
           <p className="hero-intro">
-            16.5 million samples with precise camera annotations—built for spatial
-            understanding, controllable generation, and world exploration.
+            16.5 million samples with precise camera-to-world annotations, built for
+            spatial intelligence and physical AI.
           </p>
           <div className="hero-actions">
             <a className="button button-primary" href="#dataset">
@@ -660,7 +660,7 @@ export default function Home() {
             <div className="block-index">A / SINGLE VIEW</div>
             <strong>15,338,221</strong>
             <h3>Puffin-Cam-15M</h3>
-            <p>Image–caption–camera triplets rendered from diverse indoor and outdoor panoramas.</p>
+            <p>Vision–language–camera triplets rendered from diverse indoor and outdoor panoramas.</p>
             <div className="parameter-ranges">
               <div><span>ROLL</span><b>−45°</b><i /><b>+45°</b></div>
               <div><span>PITCH</span><b>−45°</b><i /><b>+45°</b></div>
@@ -672,7 +672,7 @@ export default function Home() {
             <div className="block-index">B / TRAJECTORY</div>
             <strong>1,136,696</strong>
             <h3>Puffin-Traj-1M</h3>
-            <p>Continuous 90-frame sequences with dense per-frame intrinsics, Euler angles, and camera pose.</p>
+            <p>Continuous frame sequences with dense per-frame intrinsics, absolute and relative extrinsics.</p>
             <div className="trajectory-visual" aria-hidden="true">
               <div className="trajectory-path" />
               {[0, 1, 2, 3, 4].map((item) => <i key={item} />)}
@@ -695,12 +695,6 @@ export default function Home() {
           </ol>
         </div>
 
-        <div className="source-note">
-          <span>11.6 TB compressed download · 13 TB repository size</span>
-          <a href="https://huggingface.co/datasets/KangLiao/Puffin-16M" target="_blank" rel="noreferrer">
-            Inspect the dataset card <b>↗</b>
-          </a>
-        </div>
       </section>
 
       <section className="gallery-section" id="gallery">
@@ -721,7 +715,7 @@ export default function Home() {
             <span>A / IMAGE–CAPTION PAIRS</span>
             <h3>Puffin-Cam-15M</h3>
           </div>
-          <p>36 curated samples · 4× offline-enhanced previews · seven frame ratios</p>
+          <p>36 curated samples · 7 frame ratios</p>
         </div>
 
         <div className="cam-mosaic" aria-label="Scrolling Puffin-Cam-15M sample mosaic">
@@ -794,7 +788,7 @@ export default function Home() {
             <span>B / 90-FRAME CAMERA TRAJECTORIES</span>
             <h3>Puffin-Traj-1M</h3>
           </div>
-          <p>27 sequences · 4× offline-enhanced previews · 9 per motion axis</p>
+          <p>27 sequences · 9 per motion axis</p>
         </div>
 
         <div className="trajectory-gallery" id="trajectory-gallery">
