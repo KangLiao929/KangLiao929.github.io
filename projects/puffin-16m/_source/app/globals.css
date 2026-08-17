@@ -2584,11 +2584,8 @@ a {
   transform: rotate(-138deg);
 }
 
-.motion-pitch .coordinate-x,
 .axis-pitch .coordinate-x,
-.motion-yaw .coordinate-y,
 .axis-yaw .coordinate-y,
-.motion-roll .coordinate-z,
 .axis-roll .coordinate-z {
   height: 3px;
   opacity: 1;
@@ -2617,17 +2614,8 @@ a {
   animation: motion-orbit-breathe 2.2s ease-in-out infinite;
 }
 
-.motion-roll .motion-hud,
-.motion-roll .motion-orbit { display: none; }
-.motion-pitch .motion-orbit { --rotation-plane: rotate(90deg) scaleY(0.34); }
-.motion-yaw .motion-orbit { --rotation-plane: scaleY(0.34); }
-
-.motion-pitch .motion-coordinates .coordinate-y {
-  width: 38px;
-  height: 1px;
-  opacity: 0.22;
-  filter: none;
-}
+.motion-diagram .motion-hud,
+.motion-diagram .motion-orbit { display: none; }
 
 .motion-orbit i {
   position: absolute;
