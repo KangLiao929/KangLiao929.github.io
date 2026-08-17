@@ -864,7 +864,6 @@ export default function Home() {
                     <LazyTrajectoryCamera3D sample={sample} />
                   </div>
                   <span className="motion-axis-name">{sample.type.toUpperCase()} · {motionAxisLabels[sample.type]}</span>
-                  <span className="motion-status"><i /> FIXED OPTICAL CENTER</span>
                   <b>{patternLabels[sample.pattern] || sample.pattern}</b>
                   <small>{sample.start_deg > 0 ? "+" : ""}{sample.start_deg}° → {sample.end_deg > 0 ? "+" : ""}{sample.end_deg}°</small>
                 </div>
