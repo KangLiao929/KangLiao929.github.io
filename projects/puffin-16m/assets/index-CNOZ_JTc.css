@@ -68,12 +68,6 @@ footer > a:last-child {
 .axis-mapping span,
 .trajectory-axis-intro > p a,
 .video-play-button,
-.trajectory-media > span,
-.camera-coordinates > i > span,
-.motion-axis-name,
-.motion-diagram > small,
-.trajectory-meta,
-.trajectory-meta code,
 .gallery-provenance > span,
 .scale-gallery-heading span,
 .ranking-mark span,
@@ -96,8 +90,6 @@ footer > a:last-child {
   line-height: 1.35;
 }
 
-.motion-axis-name::after,
-.motion-status,
 .scale-dataset-grid em {
   font-size: 10px;
 }
@@ -122,9 +114,6 @@ footer > a:last-child {
   font-size: 12px;
 }
 
-.motion-diagram > b {
-  font-size: 11px;
-}
 
 .dataset-block > p,
 .capability-copy p,
