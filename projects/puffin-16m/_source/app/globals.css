@@ -2617,7 +2617,7 @@ a {
   animation: motion-orbit-breathe 2.2s ease-in-out infinite;
 }
 
-.motion-roll .motion-orbit { --rotation-plane: scale(0.92); }
+.motion-roll .motion-orbit { display: none; }
 .motion-pitch .motion-orbit { --rotation-plane: rotate(90deg) scaleY(0.34); }
 .motion-yaw .motion-orbit { --rotation-plane: scaleY(0.34); }
 
