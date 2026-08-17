@@ -75,30 +75,6 @@ function setAxisRotation(group: THREE.Group, type: MotionAxis, angleDeg: number)
   if (type === "roll") group.rotation.z = angle;
 }
 
-function addAxis(scene: THREE.Scene, type: MotionAxis) {
-  const color = type === "pitch" ? 0xff7062 : type === "yaw" ? 0x7ee59a : 0x73c9ff;
-  const direction = type === "pitch"
-    ? new THREE.Vector3(1, 0, 0)
-    : type === "yaw"
-      ? new THREE.Vector3(0, 1, 0)
-      : new THREE.Vector3(0, 0, 1);
-
-  scene.add(new THREE.ArrowHelper(direction, direction.clone().multiplyScalar(-0.84), 1.68, color, 0.16, 0.08));
-  if (type !== "roll") {
-    const ring = new THREE.Mesh(
-      new THREE.TorusGeometry(1.02, 0.009, 6, 96),
-      new THREE.MeshBasicMaterial({ color, transparent: true, opacity: 0.52 }),
-    );
-    if (type === "pitch") ring.rotation.y = Math.PI / 2;
-    if (type === "yaw") ring.rotation.x = Math.PI / 2;
-    scene.add(ring);
-  }
-  scene.add(new THREE.Mesh(
-    new THREE.SphereGeometry(0.035, 18, 18),
-    new THREE.MeshBasicMaterial({ color: 0xff6848 }),
-  ));
-}
-
 function configureSharedRenderer(host?: HTMLElement) {
   if (sharedRenderer) return sharedRenderer;
   if (webglUnavailable || !host) return null;
@@ -202,7 +178,6 @@ function makeScene(sample: TrajectoryPose) {
   const rimLight = new THREE.DirectionalLight(0x73c9ff, 3.4);
   rimLight.position.set(-4, 1, -3);
   scene.add(rimLight);
-  addAxis(scene, sample.type);
   const posePivot = new THREE.Group();
   scene.add(posePivot);
   return { scene, camera, posePivot };
