@@ -970,9 +970,9 @@ export default function Home() {
           <div className="scale-intro-copy">
             <strong>Top-1 physics perception, unlocked by scale.</strong>
             <p>
-              Training Puffin-World on Puffin-16M turns camera understanding into a
-              reliable physical perception capability—estimating roll, pitch, and
-              vertical field-of-view directly from an image.
+              Training Puffin-World on Puffin-16M turns camera-to-world understanding
+              into a reliable physical perception capability—estimating roll, pitch,
+              and vertical field-of-view directly from an image.
             </p>
           </div>
         </div>
@@ -985,7 +985,7 @@ export default function Home() {
           </div>
           <div>
             <span>FOUR AUTHORITATIVE PUBLIC BENCHMARKS</span>
-            <h3>Consistently stronger camera-parameter estimation.</h3>
+            <h3>Consistently stronger estimation of absolute camera parameters to the real world.</h3>
             <p>
               Across Stanford2D3D, MegaDepth, TartanAir, and LaMAR, our Puffin-World
               outperforms previous methods on all median error metrics and most AUC metrics.
@@ -1000,7 +1000,7 @@ export default function Home() {
               <b>HIGHER IS BETTER</b>
             </div>
             <BenchmarkRadar />
-            <figcaption>Roll · Pitch · FoV accuracy across four public benchmarks.</figcaption>
+            <figcaption>Roll · Pitch · FoV accuracy (AUC ▷ 5°) across four public benchmarks.</figcaption>
           </figure>
           <figure className="benchmark-card benchmark-table-card">
             <div className="benchmark-card-heading">
@@ -1113,10 +1113,6 @@ export default function Home() {
             <span>PUBLIC DATASET RELEASES</span>
           </div>
         </div>
-        <p className="scale-footnote">
-          Conservative total from published dataset-card figures; SA-1B uses the 897,572-image English subset, GPIC uses the public 4.9M-image profiled subset, and Rexverse-2M uses the released 415,857-image subset.
-          Every release links camera labels back to its source image or frame.
-        </p>
         <div className="scale-update-note" id="scale-update">
           <span><i aria-hidden="true" /> CONTINUOUSLY UPDATED</span>
           <p>
