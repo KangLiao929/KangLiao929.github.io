@@ -3,7 +3,6 @@
 import { useEffect, useRef } from "react";
 import * as THREE from "three";
 import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
-import { assetPath } from "./assetPath";
 
 type MotionAxis = "roll" | "pitch" | "yaw";
 
@@ -42,7 +41,7 @@ function loadCameraModel() {
   if (!cameraModelPromise) {
     cameraModelPromise = new Promise((resolve, reject) => {
       new GLTFLoader().load(
-        assetPath("/models/camera-01/Camera_01_1k.gltf"),
+        "/models/camera-01/Camera_01_1k.gltf",
         (gltf) => resolve(gltf.scene),
         undefined,
         reject,
@@ -85,13 +84,15 @@ function addAxis(scene: THREE.Scene, type: MotionAxis) {
       : new THREE.Vector3(0, 0, 1);
 
   scene.add(new THREE.ArrowHelper(direction, direction.clone().multiplyScalar(-0.84), 1.68, color, 0.16, 0.08));
-  const ring = new THREE.Mesh(
-    new THREE.TorusGeometry(1.02, 0.009, 6, 96),
-    new THREE.MeshBasicMaterial({ color, transparent: true, opacity: 0.52 }),
-  );
-  if (type === "pitch") ring.rotation.y = Math.PI / 2;
-  if (type === "yaw") ring.rotation.x = Math.PI / 2;
-  scene.add(ring);
+  if (type !== "roll") {
+    const ring = new THREE.Mesh(
+      new THREE.TorusGeometry(1.02, 0.009, 6, 96),
+      new THREE.MeshBasicMaterial({ color, transparent: true, opacity: 0.52 }),
+    );
+    if (type === "pitch") ring.rotation.y = Math.PI / 2;
+    if (type === "yaw") ring.rotation.x = Math.PI / 2;
+    scene.add(ring);
+  }
   scene.add(new THREE.Mesh(
     new THREE.SphereGeometry(0.035, 18, 18),
     new THREE.MeshBasicMaterial({ color: 0xff6848 }),
@@ -292,7 +293,7 @@ export default function TrajectoryCamera3D({ sample }: { sample: TrajectoryPose 
         role="img"
         aria-label={`${sample.type} camera pose rendered with a fixed optical center`}
       />
-      <img className="trajectory-camera-fallback" src={assetPath("/models/camera-01/camera-fallback.webp")} alt="" aria-hidden="true" />
+      <img className="trajectory-camera-fallback" src="/models/camera-01/camera-fallback.webp" alt="" aria-hidden="true" />
     </>
   );
 }
