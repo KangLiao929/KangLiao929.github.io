@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#111827">
+  <title>Puffin-World · Paper</title>
+  <link rel="icon" href="assets/puffin-world-logo.webp">
+  <style>
+    * { box-sizing: border-box; }
+    html, body { width: 100%; height: 100%; margin: 0; }
+    body { display: grid; grid-template-rows: 58px 1fr; color: #e8edf6; background: #111827; font: 14px/1.4 Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+    header { display: flex; align-items: center; gap: 14px; padding: 0 20px; border-bottom: 1px solid #2a3448; background: #151d2c; }
+    header img { width: 35px; height: 35px; object-fit: contain; border-radius: 7px; }
+    header strong { margin-right: auto; letter-spacing: -.01em; }
+    a, button { padding: 7px 11px; border: 1px solid #3b475e; border-radius: 8px; color: #dce5f4; background: #202a3c; font: inherit; text-decoration: none; cursor: pointer; }
+    a:hover, button:hover { border-color: #6386ba; background: #26344a; }
+    #download[hidden] { display: none; }
+    main { position: relative; min-height: 0; }
+    iframe { width: 100%; height: 100%; display: block; border: 0; background: #3b3f46; }
+    #status { position: absolute; inset: 0; display: grid; place-items: center; color: #aebbd0; background: #111827; }
+    #status span { display: inline-flex; align-items: center; gap: 11px; }
+    #status i { width: 16px; height: 16px; border: 2px solid #506079; border-top-color: #78bdff; border-radius: 50%; animation: spin .8s linear infinite; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    @media (max-width: 600px) { header { padding: 0 10px; } header span { display: none; } }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="assets/puffin-world-logo.webp" alt="">
+    <strong>Puffin-World <span>· Paper</span></strong>
+    <a href="./">Back to project</a>
+    <a id="download" href="#" download="Puffin-World.pdf" hidden>Download PDF</a>
+  </header>
+  <main>
+    <p id="status"><span><i></i>Preparing the 28-page paper…</span></p>
+    <iframe id="viewer" title="Puffin-World paper"></iframe>
+  </main>
+  <script>
+    (async () => {
+      const files = ["paper/part-00", "paper/part-01", "paper/part-02", "paper/part-03"];
+      const status = document.getElementById("status");
+      try {
+        const chunks = await Promise.all(files.map(async (file) => {
+          const response = await fetch(file);
+          if (!response.ok) throw new Error(`${file}: ${response.status}`);
+          return new Uint8Array(await response.arrayBuffer());
+        }));
+        const length = chunks.reduce((sum, chunk) => sum + chunk.length, 0);
+        const pdf = new Uint8Array(length);
+        let offset = 0;
+        chunks.forEach((chunk) => { pdf.set(chunk, offset); offset += chunk.length; });
+        const url = URL.createObjectURL(new Blob([pdf], { type: "application/pdf" }));
+        document.getElementById("viewer").src = `${url}#view=FitH`;
+        const download = document.getElementById("download");
+        download.href = url;
+        download.hidden = false;
+        status.remove();
+      } catch (error) {
+        status.textContent = "The paper could not be loaded. Please return to the project page and try again.";
+        console.error(error);
+      }
+    })();
+  </script>
+</body>
+</html>

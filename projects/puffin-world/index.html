@@ -1,0 +1,321 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="description" content="Puffin-World scales a unified multimodal model with native physics, geometry, and appearance world states.">
+  <meta property="og:title" content="Puffin-World">
+  <meta property="og:description" content="Scaling a Unified Multimodal Model with Native 3D World States">
+  <meta property="og:image" content="assets/teaser-perception.webp">
+  <title>Puffin-World · Native 3D World States</title>
+  <link rel="icon" href="assets/puffin-world-logo.webp">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav-shell" aria-label="Primary navigation">
+      <a class="brand" href="#top" aria-label="Puffin-World home">
+        <img src="assets/puffin-world-logo.webp" alt="" width="42" height="42">
+        <span>Puffin-World</span>
+      </a>
+      <div class="nav-links">
+        <a href="#overview">Overview</a>
+        <a href="#explore">3D World</a>
+        <a href="#method">Method</a>
+        <a href="#results">Results</a>
+        <a href="#data">Data</a>
+      </div>
+      <a class="nav-paper" href="paper.html">Paper <span aria-hidden="true">↗</span></a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero section-shell">
+      <img class="hero-logo" src="assets/puffin-world-logo.webp" alt="Puffin-World puffin mascot holding a globe" width="123" height="126">
+      <p class="eyebrow">A unified multimodal world model</p>
+      <h1>Puffin-World</h1>
+      <p class="subtitle">Scaling a Unified Multimodal Model<br class="desktop-break"> with Native 3D World States</p>
+
+      <div class="authors" aria-label="Authors">
+        <a href="https://kangliao929.github.io/">Kang Liao</a><sup>1</sup>,
+        <span>Yihang Luo</span><sup>1</sup>,
+        <span>Xiao-Ming Wu</span><sup>2</sup>,
+        <span>Linyi Jin</span><sup>1</sup>,
+        <span>Size Wu</span><sup>1</sup>,
+        <span>Chunyu Lin</span><sup>3</sup>,
+        <span>Yao Zhao</span><sup>3</sup>,
+        <span>Fei Wang</span><sup>4</sup>,
+        <span>Wei Li</span><sup>1</sup>,
+        <span>Chen Change Loy</span><sup>1</sup>
+      </div>
+      <p class="affiliations">
+        <span><sup>1</sup>S-Lab, Nanyang Technological University</span>
+        <span><sup>2</sup>University of Michigan</span>
+        <span><sup>3</sup>Beijing Jiaotong University</span>
+        <span><sup>4</sup>ACE Robotics</span>
+      </p>
+      <p class="venue">Preprint · 2026</p>
+
+      <div class="hero-actions" aria-label="Project resources">
+        <a class="pill primary" href="paper.html">
+          <span class="pill-icon" aria-hidden="true">▤</span> Paper
+        </a>
+        <a class="pill" href="https://huggingface.co/datasets/KangLiao/Puffin-16M">
+          <span class="pill-icon" aria-hidden="true">🤗</span> Puffin-16M
+        </a>
+        <a class="pill" href="https://kangliao929.github.io/projects/puffin/">
+          <span class="pill-icon" aria-hidden="true">◉</span> Puffin
+        </a>
+        <span class="pill muted" title="To be released">
+          <span class="pill-icon" aria-hidden="true">⌘</span> Code · Soon
+        </span>
+        <span class="pill muted" title="To be released">
+          <span class="pill-icon" aria-hidden="true">◫</span> Models · Soon
+        </span>
+      </div>
+    </section>
+
+    <section id="overview" class="section-shell teaser-section">
+      <figure class="paper-figure hero-figure teaser-stack">
+        <img src="assets/teaser-perception.webp" alt="Puffin-World physical-world perception and free-viewpoint spatial simulation" width="1800" height="772">
+        <img src="assets/teaser-generation.webp" alt="Puffin-World long-trajectory, extreme-rotation and text-driven world generation" width="1800" height="886">
+        <img src="assets/teaser-world-states.webp" alt="Puffin-World native appearance, geometry and physics states with 3D reconstruction" width="1800" height="780">
+      </figure>
+      <div class="lead-copy">
+        <p class="section-kicker">Beyond pixels, toward worlds</p>
+        <h2>One model that can perceive, simulate, and build the 3D world</h2>
+        <p>Puffin-World represents the physical world through three complementary native states—<strong>physics</strong>, <strong>geometry</strong>, and <strong>appearance</strong>. A single unified model connects physical-world perception, free-viewpoint spatial simulation, 3D world modeling, and closed-loop interaction.</p>
+      </div>
+
+      <div class="state-grid" aria-label="Native world states">
+        <article class="state-card physics-card">
+          <div class="state-symbol" aria-hidden="true">↧</div>
+          <p class="state-number">01 · Physics</p>
+          <h3>Physics World State</h3>
+          <p>Gravity-aware camera understanding and physically consistent trajectory propagation across long-horizon motion.</p>
+        </article>
+        <article class="state-card geometry-card">
+          <div class="state-symbol" aria-hidden="true">◇</div>
+          <p class="state-number">02 · Geometry</p>
+          <h3>Geometry World State</h3>
+          <p>Dense spatial structure for view synthesis, flexible camera control, and native 3D reconstruction.</p>
+        </article>
+        <article class="state-card appearance-card">
+          <div class="state-symbol" aria-hidden="true">✦</div>
+          <p class="state-number">03 · Appearance</p>
+          <h3>Appearance World State</h3>
+          <p>High-fidelity visual content that remains coherent as the camera moves through a generated world.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="explore" class="world-section">
+      <div class="section-shell">
+        <div class="section-heading light-heading">
+          <div>
+            <p class="section-kicker">Interactive 3D world explorer</p>
+            <h2>Move through the world, not just around an image</h2>
+          </div>
+          <p>Explore representative scene point clouds through the same three world-state views. Drag to orbit, scroll to zoom, and right-drag to move the scene.</p>
+        </div>
+
+        <div class="world-app">
+          <aside class="world-sidebar">
+            <p class="control-label">Scene</p>
+            <div class="scene-list" role="tablist" aria-label="Scene samples">
+              <button class="scene-button active" type="button" role="tab" aria-selected="true" data-scene="living">
+                <span class="scene-index">01</span>
+                <span><strong>Living Room</strong><small>Indoor · layered depth</small></span>
+              </button>
+              <button class="scene-button" type="button" role="tab" aria-selected="false" data-scene="stairs">
+                <span class="scene-index">02</span>
+                <span><strong>Staircase</strong><small>Indoor · vertical motion</small></span>
+              </button>
+              <button class="scene-button" type="button" role="tab" aria-selected="false" data-scene="kitchen">
+                <span class="scene-index">03</span>
+                <span><strong>Kitchen</strong><small>Indoor · dense geometry</small></span>
+              </button>
+            </div>
+
+            <p class="control-label state-control-label">World state</p>
+            <div class="state-switch" role="tablist" aria-label="World-state rendering">
+              <button class="state-button active" type="button" role="tab" aria-selected="true" data-state="appearance"><i></i>Appearance</button>
+              <button class="state-button" type="button" role="tab" aria-selected="false" data-state="geometry"><i></i>Geometry</button>
+              <button class="state-button" type="button" role="tab" aria-selected="false" data-state="physics"><i></i>Physics</button>
+            </div>
+
+            <div class="scene-facts" aria-live="polite">
+              <div><span>Points</span><strong id="point-count">—</strong></div>
+              <div><span>State</span><strong id="state-label">Appearance</strong></div>
+              <div><span>Gravity</span><strong>−Y</strong></div>
+            </div>
+          </aside>
+
+          <div class="canvas-panel">
+            <canvas id="point-cloud" aria-label="Interactive 3D point cloud of a living room" tabindex="0"></canvas>
+            <div class="canvas-topbar">
+              <span class="live-dot"><i></i> Interactive point cloud</span>
+              <button id="reset-view" type="button" aria-label="Reset camera view">Reset view</button>
+            </div>
+            <div class="axis-widget" aria-hidden="true">
+              <span class="axis-y">Y</span>
+              <span class="axis-x">X</span>
+              <span class="axis-z">Z</span>
+            </div>
+            <p class="gesture-hint"><span>Drag</span> orbit · <span>Scroll</span> zoom · <span>Right-drag</span> move</p>
+          </div>
+        </div>
+        <p class="interaction-note">Interactive interface inspired by <a href="https://haofeixu.github.io/pointdit/">PointDiT</a>; the viewer is implemented locally for this project page.</p>
+      </div>
+    </section>
+
+    <section id="method" class="section-shell method-section">
+      <div class="section-heading">
+        <div>
+          <p class="section-kicker">Unified architecture</p>
+          <h2>Native world states, learned in one framework</h2>
+        </div>
+        <p>Puffin-World combines a geometry-aligned vision encoder, an LLM, a diffusion model, and a lightweight connector. It supports understanding, generation, and reconstruction without relying on task-specific external geometry modules.</p>
+      </div>
+      <figure class="paper-figure framed-figure">
+        <img loading="lazy" src="assets/framework.webp" alt="Puffin-World network architecture" width="1800" height="819">
+        <figcaption>The unified network produces understanding results and native physics, appearance, and geometry world states.</figcaption>
+      </figure>
+
+      <div class="method-grid">
+        <article>
+          <span class="method-tag">9-channel condition</span>
+          <h3>Omni-Camera Representation</h3>
+          <p>A gravity-aware absolute perspective field is paired with ray-based relative geometry, enabling precise control over camera intrinsics, orientation, and trajectory.</p>
+        </article>
+        <article>
+          <span class="method-tag">Long-horizon consistency</span>
+          <h3>Physics Propagation</h3>
+          <p>The model propagates physical constraints through generated trajectories, improving visual consistency and preserving gravity under challenging rotations and long camera motion.</p>
+        </article>
+        <article>
+          <span class="method-tag">Unified training</span>
+          <h3>Understanding + Generation</h3>
+          <p>Causal reasoning tokens and asymmetric diffusion attention let the same model interpret camera geometry and synthesize world-consistent observations.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="capabilities-section">
+      <div class="section-shell">
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker">Four capability families</p>
+            <h2>A complete loop from perception to interaction</h2>
+          </div>
+        </div>
+        <div class="capability-grid">
+          <article><span>01</span><h3>Physical-World Perception</h3><p>Understands camera parameters, spatial relationships, and the physical principles behind an observation.</p></article>
+          <article><span>02</span><h3>Free-Viewpoint Simulation</h3><p>Generates observations from explicit camera poses across roll, pitch, yaw, and compound motion.</p></article>
+          <article><span>03</span><h3>3D World Modeling</h3><p>Supports image-to-3D, text-to-3D, long rotations, native states, and direct 3D reconstruction.</p></article>
+          <article><span>04</span><h3>Closed-Loop Applications</h3><p>Enables interleaved conversation, world exploration, and self-calibrated interaction with generated environments.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="results" class="section-shell results-section">
+      <div class="section-heading">
+        <div>
+          <p class="section-kicker">Evaluation highlights</p>
+          <h2>Precise camera control with strong visual quality</h2>
+        </div>
+        <p>On Puffin-Cam-Bench, Puffin-World combines low angular error with competitive image fidelity. It also achieves the best median camera errors and the majority of AUC metrics across four camera-understanding benchmarks.</p>
+      </div>
+
+      <div class="metrics-grid">
+        <article><strong>0.84°</strong><span>Median up-vector error</span></article>
+        <article><strong>1.26°</strong><span>Median latitude error</span></article>
+        <article><strong>0.79°</strong><span>Median gravity error</span></article>
+        <article><strong>75.93</strong><span>FID on Puffin-Cam-Bench</span></article>
+      </div>
+
+      <figure class="paper-figure comparison-figure">
+        <img loading="lazy" src="assets/free-viewpoint.webp" alt="Free-viewpoint spatial simulation comparison across image generation models" width="1800" height="955">
+        <figcaption>Free-viewpoint text-to-image generation. The rightmost column shows Puffin-World results; angular values closer to 0° indicate better spatial alignment.</figcaption>
+      </figure>
+
+      <div class="propagation-card">
+        <div>
+          <p class="section-kicker">Physics propagation</p>
+          <h3>More consistent long trajectories</h3>
+          <p>Physics propagation improves reconstruction quality and camera alignment together, rather than trading one for the other.</p>
+        </div>
+        <div class="propagation-metrics" aria-label="Physics propagation metrics">
+          <span><small>PSNR</small><strong>19.87 → 20.54</strong></span>
+          <span><small>SSIM</small><strong>0.62 → 0.67</strong></span>
+          <span><small>LPIPS ↓</small><strong>0.23 → 0.21</strong></span>
+          <span><small>Roll error ↓</small><strong>1.94° → 1.76°</strong></span>
+          <span><small>Pitch error ↓</small><strong>5.14° → 4.75°</strong></span>
+        </div>
+      </div>
+
+      <figure class="paper-figure modeling-figure modeling-gallery">
+        <img loading="lazy" src="assets/modeling-rotation.webp" alt="Puffin-World long and extreme camera rotation results" width="1800" height="680">
+        <img loading="lazy" src="assets/modeling-trajectory.webp" alt="Puffin-World compound motion and camera trajectory results" width="1800" height="816">
+        <img loading="lazy" src="assets/modeling-text.webp" alt="Puffin-World text-driven 3D world generation results" width="1800" height="858">
+        <figcaption>Qualitative 3D world modeling: controllable trajectories, image-to-3D and text-to-3D generation, native world states, and reconstruction.</figcaption>
+      </figure>
+    </section>
+
+    <section id="data" class="data-section">
+      <div class="section-shell">
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker">Scaling with Puffin-16M</p>
+            <h2>From isolated views to diverse 3D trajectories</h2>
+          </div>
+          <p>Puffin-16M combines dense camera-aware visual supervision with trajectory data that covers challenging pitch, yaw, roll, and compound motion.</p>
+        </div>
+        <div class="data-stats">
+          <article><strong>15M</strong><span>vision–language–camera triplets</span></article>
+          <article><strong>1M</strong><span>diverse camera trajectories</span></article>
+          <article><strong>28</strong><span>curated public datasets</span></article>
+          <article><strong>44.5M</strong><span>camera-labeled images</span></article>
+        </div>
+        <figure class="paper-figure dataset-figure">
+          <img loading="lazy" src="assets/dataset.webp" alt="Overview of Puffin-16M camera-aware images and trajectory data" width="1800" height="1013">
+        </figure>
+        <div class="center-actions">
+          <a class="pill primary" href="https://huggingface.co/datasets/KangLiao/Puffin-16M">Explore Puffin-16M on Hugging Face <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-shell citation-section">
+      <div class="section-heading compact-heading">
+        <div>
+          <p class="section-kicker">Citation</p>
+          <h2>BibTeX</h2>
+        </div>
+      </div>
+      <div class="bibtex-wrap">
+        <pre id="bibtex">@article{liao2026puffinworld,
+  title   = {Puffin-World: Scaling a Unified Multimodal Model with Native 3D World States},
+  author  = {Liao, Kang and Luo, Yihang and Wu, Xiao-Ming and Jin, Linyi and Wu, Size and Lin, Chunyu and Zhao, Yao and Wang, Fei and Li, Wei and Loy, Chen Change},
+  journal = {Preprint},
+  year    = {2026}
+}</pre>
+        <button id="copy-bibtex" type="button">Copy BibTeX</button>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="section-shell footer-inner">
+      <div class="footer-brand">
+        <img src="assets/puffin-world-logo.webp" alt="" width="48" height="48">
+        <div><strong>Puffin-World</strong><span>Native 3D World States</span></div>
+      </div>
+      <p>Website adapted from the <a href="https://kangliao929.github.io/projects/puffin/">Puffin</a> project template. Interactive 3D presentation inspired by <a href="https://haofeixu.github.io/pointdit/">PointDiT</a>.</p>
+    </div>
+  </footer>
+
+  <script src="pointcloud.js"></script>
+</body>
+</html>
