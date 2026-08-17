@@ -402,6 +402,12 @@ const motionAxisShort: Record<TrajectorySample["type"], string> = {
   yaw: "Y",
 };
 
+const trajectoryDisplayOrders = {
+  pitch: [1, 2, 9, 5, 6, 11, 7, 8, 12],
+  yaw: [3, 6, 12, 7, 1, 9, 5, 8, 11],
+  roll: [1, 2, 9, 3, 4, 5, 7, 8, 12],
+} satisfies Record<TrajectorySample["type"], readonly number[]>;
+
 const mosaicRatios = [
   { className: "ratio-1-1", label: "1:1" },
   { className: "ratio-3-2", label: "3:2" },
@@ -431,21 +437,10 @@ export default function Home() {
   const view = views[activeView];
   const capability = capabilities[activeCapability];
   const currentCamSample = camSamples[activeCamSample];
-  const sortedTrajectories = trajectorySamples
-    .filter((item) => item.type === trajectoryType)
-    .sort((a, b) => {
-      if (trajectoryType === "yaw") {
-        const fullCircleOrder = Number(b.pattern === "full_circle") - Number(a.pattern === "full_circle");
-        if (fullCircleOrder !== 0) return fullCircleOrder;
-      }
-      return a.order - b.order;
-    });
-  const originalTrajectories = sortedTrajectories.filter((item) => item.order <= 8);
-  const addedTrajectories = sortedTrajectories.filter((item) => item.order > 8);
-  const visibleTrajectories = originalTrajectories.flatMap((item, index) => {
-    const rowAddition = index % 2 === 1 ? addedTrajectories[Math.floor(index / 2)] : undefined;
-    return rowAddition ? [item, rowAddition] : [item];
-  });
+  const currentTrajectories = trajectorySamples.filter((item) => item.type === trajectoryType);
+  const visibleTrajectories = trajectoryDisplayOrders[trajectoryType]
+    .map((order) => currentTrajectories.find((item) => item.order === order))
+    .filter((item): item is TrajectorySample => Boolean(item));
   const activeTrajectoryTab = trajectoryTabs.find((item) => item.id === trajectoryType)!;
 
   useEffect(() => {
@@ -799,7 +794,7 @@ export default function Home() {
             <span>B / 90-FRAME CAMERA TRAJECTORIES</span>
             <h3>Puffin-Traj-1M</h3>
           </div>
-          <p>36 sequences · 4× offline-enhanced previews · 12 per motion axis</p>
+          <p>27 sequences · 4× offline-enhanced previews · 9 per motion axis</p>
         </div>
 
         <div className="trajectory-gallery" id="trajectory-gallery">
@@ -814,7 +809,7 @@ export default function Home() {
               >
                 <span><i aria-hidden="true">{motionAxisShort[tab.id]}</i>{tab.label}</span>
                 <small>{tab.description}</small>
-                <b>{trajectorySamples.filter((sample) => sample.type === tab.id).length || 12} SEQS</b>
+                <b>{trajectoryDisplayOrders[tab.id].length} SEQS</b>
               </button>
             ))}
           </div>
