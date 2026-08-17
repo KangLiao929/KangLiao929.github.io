@@ -26,7 +26,7 @@ body {
 }
 a { color: var(--blue); text-decoration: none; }
 a:hover { color: var(--blue-dark); }
-img { display: block; max-width: 100%; }
+img { display: block; max-width: 100%; height: auto; }
 button { font: inherit; }
 .section-shell { width: min(var(--max), calc(100% - 48px)); margin: 0 auto; }
 
