@@ -48,13 +48,13 @@ const capabilities = [
     id: "understanding",
     number: "01",
     tag: "PERCEIVE",
-    title: "Camera Understanding",
+    title: "Camera-to-World Understanding",
     short: "Read the camera behind an image",
     description:
-      "Estimate roll, pitch, vertical field-of-view, and camera height while connecting geometric cues to photographic language.",
+      "Estimate roll, pitch, and vertical field-of-view, while connecting geometric cues to photographic language.",
     image: assetPath("/images/gallery-understand.png"),
-    prompt: "Describe the scene and infer the camera state.",
-    output: "Low-position view · pitch +18.2° · vFoV 82°",
+    //prompt: "Describe the scene and infer the camera state.",
+    //output: "Low-position view · pitch +18.2° · vFoV 82°",
     color: "blue",
   },
   {
