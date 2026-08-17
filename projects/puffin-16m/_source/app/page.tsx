@@ -53,8 +53,8 @@ const capabilities = [
     description:
       "Estimate roll, pitch, and vertical field-of-view, while connecting geometric cues to photographic language.",
     image: assetPath("/images/gallery-understand.png"),
-    prompt: "Describe the scene and infer the camera state.",
-    output: "Low-position view · pitch +18.2° · vFoV 82°",
+    prompt: "Image",
+    output: "Scene + Camera",
     color: "blue",
   },
   {
@@ -66,8 +66,8 @@ const capabilities = [
     description:
       "Generate scenes from text while steering viewpoint, orientation, and field-of-view with camera prompts.",
     image: assetPath("/images/gallery-generate.png"),
-    prompt: "A coastal road at golden hour · roll −12° · vFoV 74°",
-    output: "Text + camera → image",
+    prompt: "Scene + Camera",
+    output: "Image",
     color: "coral",
   },
   {
@@ -77,10 +77,10 @@ const capabilities = [
     title: "World Exploration",
     short: "Move beyond the initial view",
     description:
-      "Generate spatially consistent target views from an initial image and a requested camera motion, enabling cross-view exploration.",
+      "Generate spatially consistent target views from an initial image and a conditioned camera trajectory, enabling cross-view world exploration.",
     image: assetPath("/images/gallery-world.png"),
-    prompt: "Initial view + orbit right 24° + pitch −6°",
-    output: "Image + camera → target view",
+    prompt: "Image + Camera",
+    output: "3D",
     color: "blue",
   },
 ];
@@ -937,7 +937,7 @@ export default function Home() {
             <span>{capability.number} / 03</span>
             <h3>{capability.title}</h3>
             <p>{capability.description}</p>
-            <a href="https://kangliao929.github.io/projects/puffin/" target="_blank" rel="noreferrer">
+            <a href="https://kangliao929.github.io/projects/puffin-world/" target="_blank" rel="noreferrer">
               Explore the project <b>↗</b>
             </a>
           </aside>
