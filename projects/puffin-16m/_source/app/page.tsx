@@ -51,7 +51,7 @@ const capabilities = [
     title: "Camera Understanding",
     short: "Read the camera behind an image",
     description:
-      "Estimate roll, pitch, vertical field-of-view, and camera height while connecting geometric cues to photographic language.",
+      "Estimate roll, pitch, and vertical field-of-view, while connecting geometric cues to photographic language.",
     image: assetPath("/images/gallery-understand.png"),
     prompt: "Describe the scene and infer the camera state.",
     output: "Low-position view · pitch +18.2° · vFoV 82°",
@@ -886,8 +886,9 @@ export default function Home() {
         <div className="section-heading model-heading">
           <h2>Think with the camera, not just the pixels.</h2>
           <p>
-            Puffin brings understanding and generation into one camera-centric
-            multimodal framework, then extends that foundation to cross-view tasks.
+            Trained on Puffin-16M, our Puffin-World model brings unified understanding
+            and generation into one multimodal framework, then extends that foundation
+            to 3D world modeling tasks;
           </p>
         </div>
 
