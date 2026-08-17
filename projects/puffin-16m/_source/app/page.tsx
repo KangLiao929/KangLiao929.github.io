@@ -945,13 +945,13 @@ export default function Home() {
 
         <div className="model-variants" aria-label="Puffin model variants">
           <div>
-            <span>01</span><strong>Puffin-Base</strong><small>Unified foundation</small>
+            <span>01</span><strong>Puffin-World-Base</strong><small>Comprehensive Capability</small>
           </div>
           <div>
-            <span>02</span><strong>Puffin-Thinking</strong><small>Camera reasoning</small>
+            <span>02</span><strong>Puffin-World-Pro</strong><small>Powerful Generation</small>
           </div>
           <div>
-            <span>03</span><strong>Puffin-Instruct</strong><small>Cross-view interactions</small>
+            <span>03</span><strong>Puffin-World-Caption</strong><small>Expert Model</small>
           </div>
         </div>
       </section>
