@@ -560,7 +560,7 @@ export default function Home() {
         <div className="hero-copy">
           <p className="eyebrow"><span /> Camera-centric multimodal intelligence</p>
           <h1>
-            Build the world.
+            See and build the world.
             <br />
             From any <em>view.</em>
           </h1>
