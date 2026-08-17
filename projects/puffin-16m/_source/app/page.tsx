@@ -562,7 +562,7 @@ export default function Home() {
           <h1>
             See and build the world.
             <br />
-            From any <em>views.</em>
+            From any <em>view.</em>
           </h1>
           <p className="hero-intro">
             16.5 million samples with precise camera-to-world annotations, built for
@@ -636,8 +636,8 @@ export default function Home() {
         <div className="metrics-rail" aria-label="Dataset highlights">
           <div><span className="metric-icon coral">▧</span><p><b>16.5M</b><small>total samples</small></p></div>
           <div><span className="metric-icon blue">◎</span><p><b>Precise</b><small>camera parameters</small></p></div>
-          <div><span className="metric-icon coral">◇</span><p><b>Understanding</b><small>+ generation</small></p></div>
-          <div><span className="metric-icon blue">◉</span><p><b>90 frames</b><small>per trajectory</small></p></div>
+          <div><span className="metric-icon coral">◇</span><p><b>Multimodality</b><small>Vision-Language-Camera</small></p></div>
+          <div><span className="metric-icon blue">◉</span><p><b>Unified</b><small>Format</small></p></div>
         </div>
       </section>
 
