@@ -968,7 +968,7 @@ export default function Home() {
             <h2>Scale Extension</h2>
           </div>
           <div className="scale-intro-copy">
-            <strong>Top-1 physics perception, unlocked by scale.</strong>
+            <strong>Top-1 physical world perception, unlocked by scale.</strong>
             <p>
               Training Puffin-World on Puffin-16M turns camera-to-world understanding
               into a reliable physical perception capability—estimating roll, pitch,
@@ -1129,7 +1129,7 @@ export default function Home() {
         </div>
         <div className="resources-hero">
           <div>
-            <h2>Ready to think<br />with camera?</h2>
+            <h2>Ready to see and build<br />the world from any view?</h2>
             <p>
               Download either part or the complete dataset from Hugging Face.
               The release includes sharded archives, indices, captions, and dense camera annotations.
@@ -1169,7 +1169,7 @@ export default function Home() {
         <div className="citation-block">
           <div>
             <span>CITATION</span>
-            <p>If Puffin supports your research, please cite the paper.</p>
+            <p>If Puffin-16M and the Puffin model series support your research, please cite our paper.</p>
           </div>
           <pre>{citation}</pre>
           <button onClick={() => copyText(citation, "citation")}>
