@@ -83,6 +83,9 @@ h1 { margin: 0; font-size: clamp(52px, 8vw, 86px); line-height: .98; letter-spac
 .lead-copy { max-width: 900px; margin: 72px auto 42px; text-align: center; }
 .lead-copy h2, .section-heading h2, .compact-heading h2 { margin: 0; font-size: clamp(34px, 4.6vw, 53px); line-height: 1.12; letter-spacing: -.045em; }
 .lead-copy > p:last-child { margin: 22px auto 0; max-width: 830px; color: #555e6e; font-size: 19px; }
+.overview-figure { margin: 0 0 42px; overflow: hidden; border: 1px solid var(--line); border-radius: 20px; background: #fff; box-shadow: 0 16px 48px rgba(24, 39, 67, .07); }
+.overview-figure img { width: 100%; height: auto; }
+.overview-figure figcaption { border-top: 1px solid var(--line); }
 .state-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
 .state-card { position: relative; min-height: 264px; padding: 28px; overflow: hidden; border: 1px solid var(--line); border-radius: var(--radius); background: #fff; }
 .state-card::before { content: ""; position: absolute; inset: auto -35px -50px auto; width: 160px; height: 160px; border-radius: 50%; opacity: .12; }
