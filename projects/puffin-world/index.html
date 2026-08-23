@@ -327,7 +327,7 @@
         <div>
           <p class="section-kicker">Physics propagation</p>
           <h3>More consistent long trajectories</h3>
-          <p>Physics propagation improves reconstruction quality and camera alignment together, rather than trading one for the other.</p>
+          <p>Physics propagation anchors all views to a shared gravity-aligned frame, improving reconstruction quality and camera alignment together. The qualitative ablation below compares generated views with and without PP using up-vector error, revealing reduced horizon drift and more stable camera orientation.</p>
         </div>
         <div class="propagation-metrics" aria-label="Physics propagation metrics">
           <span><small>PSNR</small><strong>19.87 → 20.54</strong></span>
@@ -337,6 +337,11 @@
           <span><small>Pitch error ↓</small><strong>5.14° → 4.75°</strong></span>
         </div>
       </div>
+
+      <figure class="paper-figure propagation-figure">
+        <img loading="lazy" src="assets/physics-propagation-ablation.webp" alt="Qualitative ablation comparing generated camera trajectories with and without physics propagation using up-vector error" width="1800" height="1444">
+        <figcaption>Qualitative ablation of physics propagation. Each pair compares generation with and without PP using up-vector error; lower values and greener vectors indicate better gravity alignment.</figcaption>
+      </figure>
     </section>
 
     <section id="data" class="data-section">

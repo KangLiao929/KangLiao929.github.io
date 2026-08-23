@@ -149,8 +149,8 @@ h1 { margin: 0; font-size: clamp(52px, 8vw, 86px); line-height: .98; letter-spac
 .interaction-note a { color: #96ceff; }
 
 .method-section, .results-section, .citation-section { padding: 110px 0; }
-.framed-figure, .comparison-figure, .modeling-figure, .dataset-figure { overflow: hidden; border: 1px solid var(--line); border-radius: 20px; background: #fff; box-shadow: 0 16px 50px rgba(24, 39, 67, .07); }
-.framed-figure img, .comparison-figure img, .modeling-figure img, .dataset-figure img { width: 100%; }
+.framed-figure, .comparison-figure, .modeling-figure, .dataset-figure, .propagation-figure { overflow: hidden; border: 1px solid var(--line); border-radius: 20px; background: #fff; box-shadow: 0 16px 50px rgba(24, 39, 67, .07); }
+.framed-figure img, .comparison-figure img, .modeling-figure img, .dataset-figure img, .propagation-figure img { width: 100%; }
 figcaption { padding: 13px 18px 16px; color: var(--muted); background: #fff; font-size: 12px; line-height: 1.55; }
 .method-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 36px; }
 .method-grid article { padding: 26px 4px 0; border-top: 2px solid var(--ink); }
@@ -202,6 +202,7 @@ figcaption { padding: 13px 18px 16px; color: var(--muted); background: #fff; fon
 .metrics-grid article { padding: 26px 18px; border: 1px solid var(--line); border-radius: 16px; text-align: center; background: #fff; }
 .metrics-grid strong { display: block; color: var(--blue); font-size: 32px; line-height: 1.1; letter-spacing: -.04em; }
 .metrics-grid span { display: block; margin-top: 8px; color: var(--muted); font-size: 12px; }
+.propagation-figure { margin: 0; }
 .propagation-card { display: grid; grid-template-columns: .75fr 1.25fr; gap: 55px; margin: 36px 0; padding: 34px; border-radius: 22px; color: #fff; background: var(--ink); }
 .propagation-card h3 { margin: 0; font-size: 28px; letter-spacing: -.03em; }
 .propagation-card p:last-child { margin: 10px 0 0; color: #aab3c2; font-size: 14px; }
