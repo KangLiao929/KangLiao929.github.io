@@ -290,6 +290,18 @@ a {
   transform: translateY(-2px);
 }
 
+.button-world {
+  color: var(--ink);
+  background: var(--blue);
+  border-color: var(--blue);
+}
+
+.button-world:hover,
+.button-world:focus-visible {
+  background: #9bd9ff;
+  transform: translateY(-2px);
+}
+
 .button-secondary {
   color: var(--cream);
   background: rgba(10, 10, 9, 0.65);

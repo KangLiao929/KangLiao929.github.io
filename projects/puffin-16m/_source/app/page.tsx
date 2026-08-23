@@ -573,6 +573,14 @@ export default function Home() {
               Explore the dataset <span aria-hidden="true">↓</span>
             </a>
             <a
+              className="button button-world"
+              href="https://kangliao929.github.io/projects/puffin-world/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Explore Puffin-World <span aria-hidden="true">↗</span>
+            </a>
+            <a
               className="button button-secondary"
               href="https://huggingface.co/datasets/KangLiao/Puffin-16M"
               target="_blank"
@@ -1161,8 +1169,8 @@ export default function Home() {
           <a href="https://arxiv.org/abs/2510.08673" target="_blank" rel="noreferrer">
             <span>PUBLICATION</span><strong>Paper</strong><p>Thinking with Camera · ICLR 2026</p><b>↗</b>
           </a>
-          <a href="https://kangliao929.github.io/projects/puffin/" target="_blank" rel="noreferrer">
-            <span>OVERVIEW</span><strong>Project page</strong><p>Method, results, and applications</p><b>↗</b>
+          <a href="https://kangliao929.github.io/projects/puffin-world/" target="_blank" rel="noreferrer">
+            <span>MODEL</span><strong>Puffin-World</strong><p>Unified understanding, generation, and 3D world modeling</p><b>↗</b>
           </a>
         </div>
 
