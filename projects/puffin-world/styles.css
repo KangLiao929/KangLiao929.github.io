@@ -175,8 +175,8 @@ figcaption { padding: 13px 18px 16px; color: var(--muted); background: #fff; fon
 .benchmark-table th, .benchmark-table td { padding: 10px 9px; border-right: 1px solid #edf0f4; border-bottom: 1px solid #edf0f4; text-align: center; white-space: nowrap; }
 .benchmark-table thead th { color: #26354c; background: #eef4fb; font-size: 11px; font-weight: 800; letter-spacing: .025em; }
 .benchmark-table thead tr:first-child th { padding-top: 13px; padding-bottom: 13px; color: #174a95; background: #e4eef9; font-size: 12px; }
-.benchmark-table thead th:first-child { position: sticky; left: 0; z-index: 4; width: 110px; min-width: 110px; }
-.benchmark-table thead th:nth-child(2) { position: sticky; left: 110px; z-index: 4; width: 150px; min-width: 150px; }
+.benchmark-table thead tr:first-child th:first-child { position: sticky; left: 0; z-index: 4; width: 110px; min-width: 110px; }
+.benchmark-table thead tr:first-child th:nth-child(2) { position: sticky; left: 110px; z-index: 4; width: 150px; min-width: 150px; }
 .benchmark-table tbody:last-child tr:last-child > * { border-bottom: 0; }
 .benchmark-table tr > *:last-child { border-right: 0; }
 .benchmark-table tbody + tbody tr:first-child > * { border-top: 2px solid #cbd6e4; }
@@ -296,8 +296,8 @@ footer { border-top: 1px solid var(--line); background: #fafbfc; }
   .table-heading h3 { font-size: 22px; }
   .benchmark-table { min-width: 1220px; font-size: 12px; }
   .benchmark-table th, .benchmark-table td { padding: 9px 7px; }
-  .benchmark-table thead th:first-child, .dataset-cell { width: 90px; min-width: 90px; }
-  .benchmark-table thead th:nth-child(2), .method-cell { left: 90px; width: 140px; min-width: 140px; }
+  .benchmark-table thead tr:first-child th:first-child, .dataset-cell { width: 90px; min-width: 90px; }
+  .benchmark-table thead tr:first-child th:nth-child(2), .method-cell { left: 90px; width: 140px; min-width: 140px; }
   .propagation-card { padding: 24px 20px; }
   .propagation-metrics { grid-template-columns: 1fr; }
   .bibtex-wrap pre { padding: 62px 20px 24px; font-size: 11px; }
