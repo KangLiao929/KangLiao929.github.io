@@ -89,6 +89,14 @@
         <a class="pill" href="https://huggingface.co/collections/KangLiao/puffin-world">
           <span class="pill-icon" aria-hidden="true">🤗</span> HF Collection
         </a>
+        <a class="pill" href="supplementary.html">
+          <svg class="pill-supp-icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+            <rect x="4" y="5" width="14" height="12" rx="2.5" fill="none" stroke="currentColor" stroke-width="1.7"></rect>
+            <path d="M7 14l3.1-3 2.4 2 2.2-2.2 3.3 3.4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"></path>
+            <path d="M8 2.8h10.5A2.5 2.5 0 0 1 21 5.3V14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path>
+            <circle cx="8.3" cy="8.5" r="1.1" fill="currentColor"></circle>
+          </svg> Supplementary Results
+        </a>
       </div>
     </section>
 
@@ -290,6 +298,32 @@
         <figcaption>Free-viewpoint text-to-image generation. The rightmost column shows Puffin-World results; angular values closer to 0° indicate better spatial alignment.</figcaption>
       </figure>
 
+      <div class="results-divider results-subsection-divider" role="presentation"></div>
+
+      <div class="section-heading world-modeling-heading">
+        <div>
+          <p class="section-kicker">3D World Modeling Results</p>
+          <h2>Build coherent worlds across viewpoints</h2>
+        </div>
+        <p>Puffin-World extends single-view generation to multi-view world modeling with explicit camera trajectories. It supports image-to-3D and text-to-3D generation, large rotations, compound motion, native appearance–geometry–physics prediction, and direct 3D reconstruction.</p>
+      </div>
+
+      <figure class="paper-figure modeling-figure">
+        <img loading="lazy" src="assets/figure6-3d-world-modeling.webp" alt="Qualitative results of Puffin-World 3D world modeling across image-to-3D, text-to-3D, camera control, native world states, and reconstruction" width="1800" height="2234">
+        <figcaption>Figure 6. Qualitative results of 3D world modeling. Red boxes indicate model inputs; the remaining views and native world states are generated or predicted by Puffin-World.</figcaption>
+      </figure>
+
+      <div class="supplementary-inline-cta">
+        <a class="pill" href="supplementary.html">
+          <svg class="pill-supp-icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+            <rect x="4" y="5" width="14" height="12" rx="2.5" fill="none" stroke="currentColor" stroke-width="1.7"></rect>
+            <path d="M7 14l3.1-3 2.4 2 2.2-2.2 3.3 3.4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"></path>
+            <path d="M8 2.8h10.5A2.5 2.5 0 0 1 21 5.3V14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path>
+            <circle cx="8.3" cy="8.5" r="1.1" fill="currentColor"></circle>
+          </svg> Supplementary Results
+        </a>
+      </div>
+
       <div class="propagation-card">
         <div>
           <p class="section-kicker">Physics propagation</p>
@@ -304,13 +338,6 @@
           <span><small>Pitch error ↓</small><strong>5.14° → 4.75°</strong></span>
         </div>
       </div>
-
-      <figure class="paper-figure modeling-figure modeling-gallery">
-        <img loading="lazy" src="assets/modeling-rotation.webp" alt="Puffin-World long and extreme camera rotation results" width="1800" height="680">
-        <img loading="lazy" src="assets/modeling-trajectory.webp" alt="Puffin-World compound motion and camera trajectory results" width="1800" height="816">
-        <img loading="lazy" src="assets/modeling-text.webp" alt="Puffin-World text-driven 3D world generation results" width="1800" height="858">
-        <figcaption>Qualitative 3D world modeling: controllable trajectories, image-to-3D and text-to-3D generation, native world states, and reconstruction.</figcaption>
-      </figure>
     </section>
 
     <section id="data" class="data-section">
@@ -332,7 +359,7 @@
           <img loading="lazy" src="assets/dataset.webp" alt="Overview of Puffin-16M camera-aware images and trajectory data" width="1800" height="1013">
         </figure>
         <div class="center-actions">
-          <a class="pill primary" href="https://huggingface.co/datasets/KangLiao/Puffin-16M">Explore Puffin-16M on Hugging Face <span aria-hidden="true">↗</span></a>
+          <a class="pill primary" href="https://kangliao929.github.io/projects/puffin-16m/">Explore Puffin-16M <span aria-hidden="true">↗</span></a>
         </div>
       </div>
     </section>
