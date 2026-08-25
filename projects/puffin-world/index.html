@@ -186,19 +186,19 @@
             <div class="world-stage-grid">
               <div class="world-state-stack" aria-label="Native world-state results">
                 <article class="world-state-card appearance-state">
-                  <video id="state-appearance" muted loop autoplay playsinline preload="metadata" aria-label="Appearance world-state video for the outdoor park"></video>
+                  <video id="state-appearance" src="assets/explorer/scene-01/appearance.mp4" muted loop autoplay playsinline preload="metadata" aria-label="Appearance world-state video for the outdoor park"></video>
                   <div><span class="state-dot"></span><strong>Appearance world state</strong><small>Generated RGB trajectory</small></div>
                 </article>
                 <article class="world-state-card gravity-state">
-                  <video id="state-gravity" muted loop autoplay playsinline preload="metadata" aria-label="Gravity physics world-state video for the outdoor park"></video>
+                  <video id="state-gravity" src="assets/explorer/scene-01/gravity.mp4" muted loop autoplay playsinline preload="metadata" aria-label="Gravity physics world-state video for the outdoor park"></video>
                   <div><span class="state-dot"></span><strong>Physics world state</strong><small>Gravity / up direction</small></div>
                 </article>
                 <article class="world-state-card latitude-state">
-                  <video id="state-latitude" muted loop autoplay playsinline preload="metadata" aria-label="Latitude physics world-state video for the outdoor park"></video>
+                  <video id="state-latitude" src="assets/explorer/scene-01/latitude.mp4" muted loop autoplay playsinline preload="metadata" aria-label="Latitude physics world-state video for the outdoor park"></video>
                   <div><span class="state-dot"></span><strong>Physics world state</strong><small>Latitude / horizon alignment</small></div>
                 </article>
                 <article class="world-state-card geometry-state">
-                  <video id="state-geometry" muted loop autoplay playsinline preload="metadata" aria-label="Geometry world-state video for the outdoor park"></video>
+                  <video id="state-geometry" src="assets/explorer/scene-01/geometry.mp4" muted loop autoplay playsinline preload="metadata" aria-label="Geometry world-state video for the outdoor park"></video>
                   <div><span class="state-dot"></span><strong>Geometry world state</strong><small>Dense depth trajectory</small></div>
                 </article>
               </div>
@@ -431,14 +431,6 @@
     </div>
   </footer>
 
-  <script type="importmap">
-    {
-      "imports": {
-        "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js",
-        "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"
-      }
-    }
-  </script>
-  <script type="module" src="pointcloud.js"></script>
+  <script defer src="pointcloud.js"></script>
 </body>
 </html>
