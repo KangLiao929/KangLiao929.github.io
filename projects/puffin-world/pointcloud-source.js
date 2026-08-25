@@ -28,7 +28,13 @@ import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
     "scene-02": { name: "Kitchen", short: "kitchen", points: "670K points", model: `${root}/scene-02/reconstruction.glb` },
     "scene-03": { name: "Living Room", short: "living room", points: "565K points", model: `${root}/scene-03/reconstruction.glb` },
     "scene-04": { name: "Sunlit Bedroom", short: "sunlit bedroom", points: "779K points", model: `${root}/scene-04/reconstruction.glb` },
-    "scene-05": { name: "Bedroom", short: "bedroom", points: "647K points", model: `${root}/scene-05/reconstruction.glb` }
+    "scene-05": { name: "Bedroom", short: "bedroom", points: "647K points", model: `${root}/scene-05/reconstruction.glb` },
+    "scene-06": { name: "Home Office", short: "home office", points: "763K points", model: `${root}/scene-06/reconstruction.glb` },
+    "scene-07": { name: "Blue Bedroom", short: "blue bedroom", points: "695K points", model: `${root}/scene-07/reconstruction.glb` },
+    "scene-08": { name: "Classic Lounge", short: "classic lounge", points: "623K points", model: `${root}/scene-08/reconstruction.glb` },
+    "scene-09": { name: "Fireplace Room", short: "fireplace room", points: "648K points", model: `${root}/scene-09/reconstruction.glb` },
+    "scene-10": { name: "Children's Room", short: "children's room", points: "680K points", model: `${root}/scene-10/reconstruction.glb` },
+    "scene-11": { name: "Primary Bedroom", short: "primary bedroom", points: "744K points", model: `${root}/scene-11/reconstruction.glb` }
   };
   const stateNames = {
     appearance: "Appearance",
