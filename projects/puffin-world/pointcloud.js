@@ -6,19 +6,20 @@ const explorer = document.querySelector(".world-app");
 
 if (explorer) {
   const canvas = document.getElementById("point-cloud");
-  const video = document.getElementById("world-state-video");
   const viewport = document.getElementById("world-viewport");
   const sceneLabel = document.getElementById("scene-label");
-  const stateLabel = document.getElementById("state-label");
   const outputLabel = document.getElementById("output-label");
-  const modeLabel = document.getElementById("viewer-mode-label");
-  const caption = document.getElementById("world-state-caption");
+  const pointCountLabel = document.getElementById("point-count-label");
   const resetButton = document.getElementById("reset-view");
-  const gestureHint = document.getElementById("gesture-hint");
-  const axisWidget = document.querySelector(".axis-widget");
   const loading = document.getElementById("viewer-loading");
   const loadingText = loading.querySelector("span");
   const progressBar = document.getElementById("viewer-progress");
+  const videos = {
+    appearance: document.getElementById("state-appearance"),
+    gravity: document.getElementById("state-gravity"),
+    latitude: document.getElementById("state-latitude"),
+    geometry: document.getElementById("state-geometry")
+  };
 
   const root = "assets/explorer";
   const scenes = {
@@ -28,42 +29,21 @@ if (explorer) {
     "scene-04": { name: "Sunlit Bedroom", short: "sunlit bedroom", points: "779K points", model: `${root}/scene-04/reconstruction.glb` },
     "scene-05": { name: "Bedroom", short: "bedroom", points: "647K points", model: `${root}/scene-05/reconstruction.glb` }
   };
-
-  const states = {
-    reconstruction: {
-      label: "3D Reconstruction",
-      mode: "Interactive 3D reconstruction",
-      caption: "Interact with the reconstructed point cloud to inspect the generated world from free viewpoints."
-    },
-    appearance: {
-      label: "Appearance",
-      mode: "Appearance world state",
-      caption: "The appearance world state presents the generated RGB trajectory across the controlled viewpoints."
-    },
-    gravity: {
-      label: "Gravity",
-      mode: "Physics world state · gravity",
-      caption: "The gravity-aligned physics world state visualizes the propagated up direction throughout the trajectory."
-    },
-    latitude: {
-      label: "Latitude",
-      mode: "Physics world state · latitude",
-      caption: "The latitude physics world state exposes absolute camera elevation relative to the real-world horizon."
-    },
-    geometry: {
-      label: "Geometry",
-      mode: "Geometry world state",
-      caption: "The geometry world state encodes the generated scene structure as a dense depth trajectory."
-    }
+  const stateNames = {
+    appearance: "Appearance",
+    gravity: "Gravity physics",
+    latitude: "Latitude physics",
+    geometry: "Geometry"
   };
 
   let activeScene = "scene-01";
-  let activeState = "reconstruction";
   let activeModel = null;
   let activeModelScene = null;
   let modelBounds = null;
   let loadToken = 0;
+  let mediaToken = 0;
   let explorerVisible = true;
+  let lastMediaSync = 0;
 
   const threeScene = new THREE.Scene();
   const camera = new THREE.PerspectiveCamera(45, 1, .01, 1000);
@@ -81,10 +61,38 @@ if (explorer) {
   canvas.addEventListener("contextmenu", (event) => event.preventDefault());
 
   const loader = new GLTFLoader();
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+  const sway = {
+    active: false,
+    baseAngle: 0,
+    radius: 1,
+    height: 0,
+    startedAt: 0,
+    lastInteraction: performance.now()
+  };
 
-  function videoPath(sceneKey, stateKey) {
-    return `${root}/${sceneKey}/${stateKey}.mp4`;
+  function markInteraction() {
+    sway.active = false;
+    sway.lastInteraction = performance.now();
   }
+
+  function captureSwayAnchor(now = performance.now()) {
+    const offset = camera.position.clone().sub(controls.target);
+    sway.baseAngle = Math.atan2(offset.x, offset.z);
+    sway.radius = Math.max(.01, Math.hypot(offset.x, offset.z));
+    sway.height = offset.y;
+    sway.startedAt = now;
+  }
+
+  controls.addEventListener("start", markInteraction);
+  controls.addEventListener("end", () => {
+    markInteraction();
+    captureSwayAnchor();
+  });
+  resetButton.addEventListener("click", () => {
+    fitModel();
+    markInteraction();
+  });
 
   function showLoading(message, progress = 0) {
     loadingText.textContent = message;
@@ -132,6 +140,7 @@ if (explorer) {
     controls.minDistance = radius * .08;
     controls.maxDistance = radius * 12;
     controls.update();
+    captureSwayAnchor();
     renderer.render(threeScene, camera);
   }
 
@@ -156,12 +165,6 @@ if (explorer) {
   }
 
   function loadModel(sceneKey) {
-    if (activeModel && activeModelScene === sceneKey) {
-      hideLoading();
-      fitModel();
-      return;
-    }
-
     const token = ++loadToken;
     clearModel();
     showLoading("Loading 3D reconstruction", 4);
@@ -181,6 +184,7 @@ if (explorer) {
         modelBounds = preparePointCloud(activeModel);
         threeScene.add(activeModel);
         fitModel();
+        markInteraction();
         hideLoading();
       },
       (event) => {
@@ -196,12 +200,34 @@ if (explorer) {
     );
   }
 
-  function loadVideo(sceneKey, stateKey) {
-    showLoading(`Loading ${states[stateKey].label.toLowerCase()} state`, 24);
-    video.pause();
-    video.src = videoPath(sceneKey, stateKey);
-    video.load();
-    if (explorerVisible) video.play().catch(() => {});
+  function pauseVideos() {
+    Object.values(videos).forEach((video) => video.pause());
+  }
+
+  function syncAndPlayVideos() {
+    const list = Object.values(videos);
+    const masterTime = Number.isFinite(list[0].currentTime) ? list[0].currentTime : 0;
+    list.forEach((video, index) => {
+      if (index && Math.abs(video.currentTime - masterTime) > .08) video.currentTime = masterTime;
+      video.play().catch(() => {});
+    });
+  }
+
+  async function loadVideos(sceneKey) {
+    const token = ++mediaToken;
+    pauseVideos();
+    const ready = Object.entries(videos).map(([state, video]) => new Promise((resolve) => {
+      const finish = () => resolve();
+      video.addEventListener("loadeddata", finish, { once: true });
+      video.addEventListener("error", finish, { once: true });
+      video.src = `${root}/${sceneKey}/${state}.mp4`;
+      video.setAttribute("aria-label", `${stateNames[state]} world-state video for the ${scenes[sceneKey].short}`);
+      video.load();
+    }));
+    await Promise.all(ready);
+    if (token !== mediaToken || activeScene !== sceneKey) return;
+    Object.values(videos).forEach((video) => { video.currentTime = 0; });
+    if (explorerVisible) syncAndPlayVideos();
   }
 
   function updateButtons() {
@@ -210,72 +236,20 @@ if (explorer) {
       button.classList.toggle("active", selected);
       button.setAttribute("aria-selected", String(selected));
     });
-    document.querySelectorAll(".state-button").forEach((button) => {
-      const selected = button.dataset.state === activeState;
-      button.classList.toggle("active", selected);
-      button.setAttribute("aria-selected", String(selected));
-    });
-  }
-
-  function updateInterface() {
-    const sceneData = scenes[activeScene];
-    const stateData = states[activeState];
-    const isReconstruction = activeState === "reconstruction";
-
-    updateButtons();
-    sceneLabel.textContent = sceneData.name;
-    stateLabel.textContent = stateData.label;
-    outputLabel.textContent = isReconstruction ? `${sceneData.points} · GLB` : "2 s trajectory · MP4";
-    modeLabel.lastChild.textContent = ` ${stateData.mode}`;
-    caption.textContent = stateData.caption;
-    canvas.setAttribute("aria-label", `Interactive 3D reconstruction of the ${sceneData.short}`);
-    video.setAttribute("aria-label", `${stateData.label} world-state video for the ${sceneData.short}`);
-
-    canvas.hidden = !isReconstruction;
-    video.hidden = isReconstruction;
-    resetButton.hidden = !isReconstruction;
-    axisWidget.hidden = !isReconstruction;
-    gestureHint.hidden = !isReconstruction;
-
-    if (isReconstruction) {
-      video.pause();
-      loadModel(activeScene);
-    } else {
-      loadVideo(activeScene, activeState);
-    }
   }
 
   function setScene(sceneKey) {
-    if (!scenes[sceneKey]) return;
-    if (sceneKey !== activeScene && activeModelScene !== sceneKey) {
-      ++loadToken;
-      clearModel();
-    }
+    if (!scenes[sceneKey] || sceneKey === activeScene && activeModelScene === sceneKey) return;
     activeScene = sceneKey;
-    updateInterface();
+    const sceneData = scenes[sceneKey];
+    updateButtons();
+    sceneLabel.textContent = sceneData.name;
+    outputLabel.textContent = sceneData.points;
+    pointCountLabel.textContent = sceneData.points;
+    canvas.setAttribute("aria-label", `Interactive 3D reconstruction of the ${sceneData.short}`);
+    loadVideos(sceneKey);
+    loadModel(sceneKey);
   }
-
-  function setState(stateKey) {
-    if (!states[stateKey]) return;
-    activeState = stateKey;
-    updateInterface();
-  }
-
-  video.addEventListener("loadeddata", () => {
-    if (activeState !== "reconstruction") {
-      hideLoading();
-      if (explorerVisible) video.play().catch(() => {});
-    }
-  });
-  video.addEventListener("error", () => {
-    if (activeState === "reconstruction") return;
-    loadingText.textContent = "Unable to load this world state";
-    progressBar.style.width = "0";
-  });
-
-  document.querySelectorAll(".scene-button").forEach((button) => button.addEventListener("click", () => setScene(button.dataset.scene)));
-  document.querySelectorAll(".state-button").forEach((button) => button.addEventListener("click", () => setState(button.dataset.state)));
-  resetButton.addEventListener("click", fitModel);
 
   function resize() {
     const rect = viewport.getBoundingClientRect();
@@ -287,30 +261,50 @@ if (explorer) {
     if (activeModel) renderer.render(threeScene, camera);
   }
 
+  document.querySelectorAll(".scene-button").forEach((button) => button.addEventListener("click", () => setScene(button.dataset.scene)));
   new ResizeObserver(resize).observe(viewport);
   new IntersectionObserver(([entry]) => {
     explorerVisible = entry.isIntersecting;
-    if (activeState !== "reconstruction") {
-      if (explorerVisible) video.play().catch(() => {});
-      else video.pause();
-    }
+    if (explorerVisible) syncAndPlayVideos();
+    else pauseVideos();
   }, { rootMargin: "120px 0px" }).observe(explorer);
 
-  function animate() {
+  function animate(now) {
     requestAnimationFrame(animate);
-    if (!explorerVisible || activeState !== "reconstruction" || !activeModel) return;
+    if (!explorerVisible || !activeModel) return;
+
     controls.update();
+    if (!reducedMotion.matches && now - sway.lastInteraction > 1700) {
+      if (!sway.active) {
+        sway.active = true;
+        captureSwayAnchor(now);
+      }
+      const angle = sway.baseAngle + Math.sin((now - sway.startedAt) * .0008) * .032;
+      camera.position.x = controls.target.x + Math.sin(angle) * sway.radius;
+      camera.position.z = controls.target.z + Math.cos(angle) * sway.radius;
+      camera.position.y = controls.target.y + sway.height;
+      camera.lookAt(controls.target);
+    }
+
+    if (now - lastMediaSync > 1200) {
+      lastMediaSync = now;
+      const master = videos.appearance.currentTime;
+      Object.values(videos).slice(1).forEach((video) => {
+        if (Math.abs(video.currentTime - master) > .1) video.currentTime = master;
+      });
+    }
     renderer.render(threeScene, camera);
   }
 
   resize();
-  updateInterface();
-  animate();
+  updateButtons();
+  loadVideos(activeScene);
+  loadModel(activeScene);
+  requestAnimationFrame(animate);
 
   window.__puffinWorldViewer = {
-    getState: () => ({ scene: activeScene, worldState: activeState, modelLoaded: activeModelScene === activeScene }),
+    getState: () => ({ scene: activeScene, modelLoaded: activeModelScene === activeScene, videos: Object.values(videos).map((video) => video.currentSrc) }),
     setScene,
-    setState,
     resetView: fitModel
   };
 }

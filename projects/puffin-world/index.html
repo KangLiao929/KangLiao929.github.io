@@ -146,7 +146,7 @@
             <p class="section-kicker">Interactive 3D world explorer</p>
             <h2>Move through the world, not just around an image</h2>
           </div>
-          <p>Explore five generated worlds through their reconstructed 3D point clouds and four native world-state views: appearance, gravity, latitude, and geometry.</p>
+          <p>Switch between five generated worlds to inspect appearance, gravity, latitude, and geometry together with the corresponding interactive 3D reconstruction.</p>
         </div>
 
         <div class="world-app">
@@ -177,39 +177,57 @@
 
             <div class="scene-facts" aria-live="polite">
               <div><span>Example</span><strong id="scene-label">Outdoor Park</strong></div>
-              <div><span>View</span><strong id="state-label">3D Reconstruction</strong></div>
-              <div><span>Output</span><strong id="output-label">459K points · GLB</strong></div>
+              <div><span>Outputs</span><strong>4 states + 3D</strong></div>
+              <div><span>Reconstruction</span><strong id="output-label">459K points</strong></div>
             </div>
           </aside>
 
           <div class="explorer-main">
-            <div class="state-switch" role="tablist" aria-label="World-state views">
-              <button class="state-button active" type="button" role="tab" aria-selected="true" aria-controls="world-viewport" data-state="reconstruction"><i></i><span><strong>3D Reconstruction</strong><small>Interactive GLB</small></span></button>
-              <button class="state-button" type="button" role="tab" aria-selected="false" aria-controls="world-viewport" data-state="appearance"><i></i><span><strong>Appearance</strong><small>RGB world state</small></span></button>
-              <button class="state-button" type="button" role="tab" aria-selected="false" aria-controls="world-viewport" data-state="gravity"><i></i><span><strong>Gravity</strong><small>Physics world state</small></span></button>
-              <button class="state-button" type="button" role="tab" aria-selected="false" aria-controls="world-viewport" data-state="latitude"><i></i><span><strong>Latitude</strong><small>Physics world state</small></span></button>
-              <button class="state-button" type="button" role="tab" aria-selected="false" aria-controls="world-viewport" data-state="geometry"><i></i><span><strong>Geometry</strong><small>Depth world state</small></span></button>
-            </div>
+            <div class="world-stage-grid">
+              <div class="world-state-stack" aria-label="Native world-state results">
+                <article class="world-state-card appearance-state">
+                  <video id="state-appearance" muted loop autoplay playsinline preload="metadata" aria-label="Appearance world-state video for the outdoor park"></video>
+                  <div><span class="state-dot"></span><strong>Appearance world state</strong><small>Generated RGB trajectory</small></div>
+                </article>
+                <article class="world-state-card gravity-state">
+                  <video id="state-gravity" muted loop autoplay playsinline preload="metadata" aria-label="Gravity physics world-state video for the outdoor park"></video>
+                  <div><span class="state-dot"></span><strong>Physics world state</strong><small>Gravity / up direction</small></div>
+                </article>
+                <article class="world-state-card latitude-state">
+                  <video id="state-latitude" muted loop autoplay playsinline preload="metadata" aria-label="Latitude physics world-state video for the outdoor park"></video>
+                  <div><span class="state-dot"></span><strong>Physics world state</strong><small>Latitude / horizon alignment</small></div>
+                </article>
+                <article class="world-state-card geometry-state">
+                  <video id="state-geometry" muted loop autoplay playsinline preload="metadata" aria-label="Geometry world-state video for the outdoor park"></video>
+                  <div><span class="state-dot"></span><strong>Geometry world state</strong><small>Dense depth trajectory</small></div>
+                </article>
+              </div>
 
-            <div class="canvas-panel" id="world-viewport">
-              <canvas id="point-cloud" aria-label="Interactive 3D reconstruction of the outdoor park" tabindex="0"></canvas>
-              <video id="world-state-video" muted loop autoplay playsinline preload="metadata" hidden aria-label="Appearance world-state video for the outdoor park"></video>
-              <div class="viewer-loading" id="viewer-loading" aria-live="polite">
-                <span>Loading 3D reconstruction</span>
-                <div><i id="viewer-progress"></i></div>
+              <div class="reconstruction-panel">
+                <div class="reconstruction-heading">
+                  <div><span class="state-dot"></span><strong>3D Reconstruction</strong><small>Interactive colored point cloud</small></div>
+                  <span id="point-count-label">459K points</span>
+                </div>
+                <div class="canvas-panel" id="world-viewport">
+                  <canvas id="point-cloud" aria-label="Interactive 3D reconstruction of the outdoor park" tabindex="0"></canvas>
+                  <div class="viewer-loading" id="viewer-loading" aria-live="polite">
+                    <span>Loading 3D reconstruction</span>
+                    <div><i id="viewer-progress"></i></div>
+                  </div>
+                  <div class="canvas-topbar">
+                    <span class="live-dot"><i></i> Interactive 3D reconstruction</span>
+                    <button id="reset-view" type="button" aria-label="Reset 3D camera view">Reset view</button>
+                  </div>
+                  <div class="axis-widget" aria-hidden="true">
+                    <span class="axis-y">Y</span>
+                    <span class="axis-x">X</span>
+                    <span class="axis-z">Z</span>
+                  </div>
+                  <p class="gesture-hint"><span>Drag</span> orbit · <span>Scroll</span> zoom · <span>Right-drag</span> move</p>
+                </div>
+                <p class="world-state-caption">The reconstruction gently sweeps left and right while idle; interact at any time to inspect the world freely.</p>
               </div>
-              <div class="canvas-topbar">
-                <span class="live-dot" id="viewer-mode-label"><i></i> Interactive 3D reconstruction</span>
-                <button id="reset-view" type="button" aria-label="Reset 3D camera view">Reset view</button>
-              </div>
-              <div class="axis-widget" aria-hidden="true">
-                <span class="axis-y">Y</span>
-                <span class="axis-x">X</span>
-                <span class="axis-z">Z</span>
-              </div>
-              <p class="gesture-hint" id="gesture-hint"><span>Drag</span> orbit · <span>Scroll</span> zoom · <span>Right-drag</span> move</p>
             </div>
-            <p class="world-state-caption" id="world-state-caption">Interact with the reconstructed point cloud to inspect the generated world from free viewpoints.</p>
           </div>
         </div>
       </div>
