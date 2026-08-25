@@ -8,8 +8,6 @@ import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
 
   const canvas = document.getElementById("point-cloud");
   const viewport = document.getElementById("world-viewport");
-  const sceneLabel = document.getElementById("scene-label");
-  const outputLabel = document.getElementById("output-label");
   const pointCountLabel = document.getElementById("point-count-label");
   const resetButton = document.getElementById("reset-view");
   const loading = document.getElementById("viewer-loading");
@@ -23,8 +21,8 @@ import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
   };
 
   const root = "assets/explorer";
+  const mediaVersion = "20260825-align";
   const scenes = {
-    "scene-01": { name: "Outdoor Park", short: "outdoor park", points: "459K points", model: `${root}/scene-01/reconstruction.glb` },
     "scene-02": { name: "Kitchen", short: "kitchen", points: "670K points", model: `${root}/scene-02/reconstruction.glb` },
     "scene-03": { name: "Living Room", short: "living room", points: "565K points", model: `${root}/scene-03/reconstruction.glb` },
     "scene-04": { name: "Sunlit Bedroom", short: "sunlit bedroom", points: "779K points", model: `${root}/scene-04/reconstruction.glb` },
@@ -43,7 +41,7 @@ import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
     geometry: "Geometry"
   };
 
-  let activeScene = "scene-01";
+  let activeScene = "scene-02";
   let mediaToken = 0;
   let explorerVisible = true;
   let lastMediaSync = 0;
@@ -72,7 +70,7 @@ import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
       const finish = () => resolve();
       video.addEventListener("loadeddata", finish, { once: true });
       video.addEventListener("error", finish, { once: true });
-      video.src = `${root}/${sceneKey}/${state}.mp4`;
+      video.src = `${root}/${sceneKey}/${state}.mp4?v=${mediaVersion}`;
       video.setAttribute("aria-label", `${stateNames[state]} world-state video for the ${scenes[sceneKey].short}`);
       video.load();
     }));
@@ -95,8 +93,6 @@ import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
     activeScene = sceneKey;
     const sceneData = scenes[sceneKey];
     updateButtons();
-    sceneLabel.textContent = sceneData.name;
-    outputLabel.textContent = sceneData.points;
     pointCountLabel.textContent = sceneData.points;
     canvas.setAttribute("aria-label", `Interactive 3D reconstruction of the ${sceneData.short}`);
     loadVideos(sceneKey);

@@ -142,10 +142,6 @@ h1 { margin: 0; font-size: clamp(52px, 8vw, 86px); line-height: .98; letter-spac
 .reconstruction-heading strong { color: #e5edf8; font-size: 13px; }
 .reconstruction-heading small { margin-top: 2px; color: #748299; font-size: 9px; }
 #point-count-label { flex: 0 0 auto; padding: 5px 8px; border: 1px solid #34415a; border-radius: 999px; color: #8f9db2; font-size: 9px; letter-spacing: .04em; }
-.scene-facts { display: grid; gap: 10px; margin-top: auto; padding-top: 20px; border-top: 1px solid #2a3245; }
-.scene-facts div { display: flex; justify-content: space-between; gap: 12px; font-size: 11px; }
-.scene-facts span { color: #77849a; }
-.scene-facts strong { max-width: 165px; overflow: hidden; color: #b9c5d7; font-weight: 650; text-align: right; text-overflow: ellipsis; white-space: nowrap; }
 .canvas-panel { position: relative; min-width: 0; min-height: 650px; overflow: hidden; background: radial-gradient(circle at 48% 42%, #1b2940 0, #101725 54%, #090e18 100%); }
 #point-cloud { position: absolute; inset: 0; width: 100%; height: 100%; }
 #point-cloud { display: block; cursor: grab; touch-action: none; }
@@ -303,9 +299,6 @@ footer { border-top: 1px solid var(--line); background: #fafbfc; }
   .scene-button:hover { transform: none; }
   .scene-thumb { width: 48px; height: 48px; margin-bottom: 0; }
   .scene-button small { display: block; }
-  .scene-facts { grid-template-columns: repeat(3, 1fr); margin-top: 18px; }
-  .scene-facts div { display: block; }
-  .scene-facts strong { display: block; max-width: none; margin-top: 4px; text-align: left; }
   .explorer-main { padding: 12px; }
   .world-stage-grid { grid-template-columns: 260px minmax(0, 1fr); gap: 12px; }
   .world-state-card { grid-template-columns: minmax(110px, 1fr) 92px; gap: 9px; padding: 7px; }
@@ -339,9 +332,6 @@ footer { border-top: 1px solid var(--line); background: #fafbfc; }
   .scene-button { min-width: 150px; display: flex; padding: 7px; }
   .scene-thumb { width: 48px; height: 48px; margin-bottom: 0; }
   .scene-button small { display: block; }
-  .scene-facts { grid-template-columns: 1fr 1fr; }
-  .scene-facts div:last-child { display: none; }
-  .scene-facts { display: none; }
   .explorer-main { padding: 9px; }
   .world-stage-grid { grid-template-columns: 1fr; gap: 10px; }
   .world-state-stack { grid-template-rows: none; grid-auto-rows: auto; }
