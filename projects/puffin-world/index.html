@@ -146,56 +146,73 @@
             <p class="section-kicker">Interactive 3D world explorer</p>
             <h2>Move through the world, not just around an image</h2>
           </div>
-          <p>Explore representative scene point clouds through the same three world-state views. Drag to orbit, scroll to zoom, and right-drag to move the scene.</p>
+          <p>Explore five generated worlds through their reconstructed 3D point clouds and four native world-state views: appearance, gravity, latitude, and geometry.</p>
         </div>
 
         <div class="world-app">
           <aside class="world-sidebar">
-            <p class="control-label">Scene</p>
-            <div class="scene-list" role="tablist" aria-label="Scene samples">
-              <button class="scene-button active" type="button" role="tab" aria-selected="true" data-scene="living">
-                <span class="scene-index">01</span>
-                <span><strong>Living Room</strong><small>Indoor · layered depth</small></span>
+            <p class="control-label">Generated worlds</p>
+            <div class="scene-list" role="tablist" aria-label="Generated world examples">
+              <button class="scene-button active" type="button" role="tab" aria-selected="true" aria-controls="world-viewport" data-scene="scene-01">
+                <span class="scene-thumb"><img loading="lazy" src="assets/explorer/scene-01/poster.webp" alt="" width="54" height="54"><b>01</b></span>
+                <span><strong>Outdoor Park</strong><small>Open scene · long depth</small></span>
               </button>
-              <button class="scene-button" type="button" role="tab" aria-selected="false" data-scene="stairs">
-                <span class="scene-index">02</span>
-                <span><strong>Staircase</strong><small>Indoor · vertical motion</small></span>
-              </button>
-              <button class="scene-button" type="button" role="tab" aria-selected="false" data-scene="kitchen">
-                <span class="scene-index">03</span>
+              <button class="scene-button" type="button" role="tab" aria-selected="false" aria-controls="world-viewport" data-scene="scene-02">
+                <span class="scene-thumb"><img loading="lazy" src="assets/explorer/scene-02/poster.webp" alt="" width="54" height="54"><b>02</b></span>
                 <span><strong>Kitchen</strong><small>Indoor · dense geometry</small></span>
               </button>
-            </div>
-
-            <p class="control-label state-control-label">World state</p>
-            <div class="state-switch" role="tablist" aria-label="World-state rendering">
-              <button class="state-button active" type="button" role="tab" aria-selected="true" data-state="appearance"><i></i>Appearance</button>
-              <button class="state-button" type="button" role="tab" aria-selected="false" data-state="geometry"><i></i>Geometry</button>
-              <button class="state-button" type="button" role="tab" aria-selected="false" data-state="physics"><i></i>Physics</button>
+              <button class="scene-button" type="button" role="tab" aria-selected="false" aria-controls="world-viewport" data-scene="scene-03">
+                <span class="scene-thumb"><img loading="lazy" src="assets/explorer/scene-03/poster.webp" alt="" width="54" height="54"><b>03</b></span>
+                <span><strong>Living Room</strong><small>Indoor · layered layout</small></span>
+              </button>
+              <button class="scene-button" type="button" role="tab" aria-selected="false" aria-controls="world-viewport" data-scene="scene-04">
+                <span class="scene-thumb"><img loading="lazy" src="assets/explorer/scene-04/poster.webp" alt="" width="54" height="54"><b>04</b></span>
+                <span><strong>Sunlit Bedroom</strong><small>Indoor · bright windows</small></span>
+              </button>
+              <button class="scene-button" type="button" role="tab" aria-selected="false" aria-controls="world-viewport" data-scene="scene-05">
+                <span class="scene-thumb"><img loading="lazy" src="assets/explorer/scene-05/poster.webp" alt="" width="54" height="54"><b>05</b></span>
+                <span><strong>Bedroom</strong><small>Indoor · wide viewpoint</small></span>
+              </button>
             </div>
 
             <div class="scene-facts" aria-live="polite">
-              <div><span>Points</span><strong id="point-count">—</strong></div>
-              <div><span>State</span><strong id="state-label">Appearance</strong></div>
-              <div><span>Gravity</span><strong>−Y</strong></div>
+              <div><span>Example</span><strong id="scene-label">Outdoor Park</strong></div>
+              <div><span>View</span><strong id="state-label">3D Reconstruction</strong></div>
+              <div><span>Output</span><strong id="output-label">459K points · GLB</strong></div>
             </div>
           </aside>
 
-          <div class="canvas-panel">
-            <canvas id="point-cloud" aria-label="Interactive 3D point cloud of a living room" tabindex="0"></canvas>
-            <div class="canvas-topbar">
-              <span class="live-dot"><i></i> Interactive point cloud</span>
-              <button id="reset-view" type="button" aria-label="Reset camera view">Reset view</button>
+          <div class="explorer-main">
+            <div class="state-switch" role="tablist" aria-label="World-state views">
+              <button class="state-button active" type="button" role="tab" aria-selected="true" aria-controls="world-viewport" data-state="reconstruction"><i></i><span><strong>3D Reconstruction</strong><small>Interactive GLB</small></span></button>
+              <button class="state-button" type="button" role="tab" aria-selected="false" aria-controls="world-viewport" data-state="appearance"><i></i><span><strong>Appearance</strong><small>RGB world state</small></span></button>
+              <button class="state-button" type="button" role="tab" aria-selected="false" aria-controls="world-viewport" data-state="gravity"><i></i><span><strong>Gravity</strong><small>Physics world state</small></span></button>
+              <button class="state-button" type="button" role="tab" aria-selected="false" aria-controls="world-viewport" data-state="latitude"><i></i><span><strong>Latitude</strong><small>Physics world state</small></span></button>
+              <button class="state-button" type="button" role="tab" aria-selected="false" aria-controls="world-viewport" data-state="geometry"><i></i><span><strong>Geometry</strong><small>Depth world state</small></span></button>
             </div>
-            <div class="axis-widget" aria-hidden="true">
-              <span class="axis-y">Y</span>
-              <span class="axis-x">X</span>
-              <span class="axis-z">Z</span>
+
+            <div class="canvas-panel" id="world-viewport">
+              <canvas id="point-cloud" aria-label="Interactive 3D reconstruction of the outdoor park" tabindex="0"></canvas>
+              <video id="world-state-video" muted loop autoplay playsinline preload="metadata" hidden aria-label="Appearance world-state video for the outdoor park"></video>
+              <div class="viewer-loading" id="viewer-loading" aria-live="polite">
+                <span>Loading 3D reconstruction</span>
+                <div><i id="viewer-progress"></i></div>
+              </div>
+              <div class="canvas-topbar">
+                <span class="live-dot" id="viewer-mode-label"><i></i> Interactive 3D reconstruction</span>
+                <button id="reset-view" type="button" aria-label="Reset 3D camera view">Reset view</button>
+              </div>
+              <div class="axis-widget" aria-hidden="true">
+                <span class="axis-y">Y</span>
+                <span class="axis-x">X</span>
+                <span class="axis-z">Z</span>
+              </div>
+              <p class="gesture-hint" id="gesture-hint"><span>Drag</span> orbit · <span>Scroll</span> zoom · <span>Right-drag</span> move</p>
             </div>
-            <p class="gesture-hint"><span>Drag</span> orbit · <span>Scroll</span> zoom · <span>Right-drag</span> move</p>
+            <p class="world-state-caption" id="world-state-caption">Interact with the reconstructed point cloud to inspect the generated world from free viewpoints.</p>
           </div>
         </div>
-        </div>
+      </div>
     </section>
 
     <section id="method" class="section-shell method-section">
@@ -396,6 +413,14 @@
     </div>
   </footer>
 
-  <script src="pointcloud.js"></script>
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js",
+        "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"
+      }
+    }
+  </script>
+  <script type="module" src="pointcloud.js"></script>
 </body>
 </html>
