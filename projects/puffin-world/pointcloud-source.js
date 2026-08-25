@@ -144,7 +144,7 @@ import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
     const loader = new GLTFLoader();
     const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
     const IDLE_DELAY = 900;
-    const SWAY_AMPLITUDE = .06;
+    const SWAY_AMPLITUDE = .105;
     const SWAY_SPEED = .001;
     const sway = {
       active: false,
