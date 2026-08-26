@@ -55,6 +55,7 @@ button { font: inherit; }
 .brand-affiliation-divider { height: 26px; }
 .brand-partners { gap: 10px; }
 .brand-partners img { width: auto; max-width: none; object-fit: contain; }
+.brand-mmlab { height: 23px; }
 .brand-ntu { height: 24px; }
 .brand-ace { height: 20px; }
 .brand-partner-divider { height: 18px; }
@@ -349,6 +350,7 @@ footer { border-top: 1px solid var(--line); background: #fafbfc; }
   .brand-puffin { width: 34px; height: 34px; }
   .brand-affiliation-divider { height: 22px; }
   .brand-partners { gap: 7px; }
+  .brand-mmlab { height: 19px; }
   .brand-ntu { height: 20px; }
   .brand-ace { height: 17px; }
   .brand-partner-divider { height: 16px; }
@@ -429,15 +431,16 @@ footer { border-top: 1px solid var(--line); background: #fafbfc; }
 }
 
 @media (max-width: 420px) {
-  .nav-shell { gap: 10px; }
-  .brand { gap: 6px; }
-  .brand-puffin { width: 32px; height: 32px; }
+  .nav-shell { gap: 6px; }
+  .brand { gap: 4px; }
+  .brand-puffin { width: 30px; height: 30px; }
   .brand-affiliation-divider { height: 20px; }
-  .brand-partners { gap: 5px; }
-  .brand-ntu { height: 17px; }
-  .brand-ace { height: 15px; }
+  .brand-partners { gap: 3px; }
+  .brand-mmlab { height: 14px; }
+  .brand-ntu { height: 15px; }
+  .brand-ace { height: 13px; }
   .brand-partner-divider { height: 14px; }
-  .supplementary-page .nav-paper { padding: 7px 10px; font-size: 12px; }
+  .supplementary-page .nav-paper { padding: 7px 8px; font-size: 11px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
