@@ -186,6 +186,7 @@ h1 { margin: 0; font-size: clamp(52px, 8vw, 86px); line-height: .98; letter-spac
 }
 
 .world-gif-showcase:hover .world-gif-track { animation-play-state: paused; }
+.world-gif-note { max-width: 920px; margin: 16px auto 0; padding: 0 8px; color: #96a3b7; font-size: 12px; line-height: 1.6; text-align: center; }
 
 .method-section, .results-section, .citation-section { padding: 110px 0; }
 .framed-figure, .comparison-figure, .modeling-figure, .dataset-figure, .propagation-figure { overflow: hidden; border: 1px solid var(--line); border-radius: 20px; background: #fff; box-shadow: 0 16px 50px rgba(24, 39, 67, .07); }
@@ -375,6 +376,7 @@ footer { border-top: 1px solid var(--line); background: #fafbfc; }
   .world-gif-marquee { height: 112px; border-radius: 11px; }
   .world-gif-sequence { gap: 7px; padding-right: 7px; }
   .world-gif-item { border-radius: 9px; }
+  .world-gif-note { margin-top: 12px; padding: 0 4px; font-size: 11px; line-height: 1.55; }
   .capability-grid, .metrics-grid, .data-stats { grid-template-columns: 1fr; }
   .capability-grid article { min-height: 195px; }
   .metrics-grid { grid-template-columns: repeat(2, 1fr); }
