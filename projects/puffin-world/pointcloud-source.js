@@ -261,7 +261,8 @@ import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
       const size = modelBounds.getSize(new THREE.Vector3());
       const radius = Math.max(size.length() * .5, .1);
       const fov = THREE.MathUtils.degToRad(camera.fov);
-      const distance = radius / Math.sin(fov * .5) * 1.08;
+      const fitPadding = constrainedDevice ? 1.08 : 1;
+      const distance = radius / Math.sin(fov * .5) * fitPadding;
       const direction = new THREE.Vector3(.82, .28, 1).normalize();
 
       controls.target.copy(center);

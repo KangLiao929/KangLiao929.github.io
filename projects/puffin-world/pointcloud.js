@@ -4080,7 +4080,8 @@ void main() {
       const size = modelBounds.getSize(new C());
       const radius = Math.max(size.length() * .5, .1);
       const fov = Zi.degToRad(camera.fov);
-      const distance = radius / Math.sin(fov * .5) * 1.08;
+      const fitPadding = constrainedDevice ? 1.08 : 1;
+      const distance = radius / Math.sin(fov * .5) * fitPadding;
       const direction = new C(.82, .28, 1).normalize();
 
       controls.target.copy(center);
