@@ -6,6 +6,10 @@ import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
   const explorer = document.querySelector(".world-app");
   if (!explorer) return;
 
+  const mobileViewer = window.matchMedia("(max-width: 640px), (pointer: coarse)").matches;
+  const deviceMemory = Number(navigator.deviceMemory) || 0;
+  const constrainedDevice = mobileViewer || deviceMemory > 0 && deviceMemory <= 4;
+
   const canvas = document.getElementById("point-cloud");
   const viewport = document.getElementById("world-viewport");
   const pointCountLabel = document.getElementById("point-count-label");
@@ -44,8 +48,10 @@ import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
   let activeScene = "scene-02";
   let mediaToken = 0;
   let explorerVisible = true;
+  let pointViewerVisible = false;
   let lastMediaSync = 0;
   let pointCloudViewer = null;
+  let pointCloudInitAttempted = false;
 
   function pauseVideos() {
     Object.values(videos).forEach((video) => video.pause());
@@ -77,7 +83,7 @@ import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
     await Promise.all(ready);
     if (token !== mediaToken || activeScene !== sceneKey) return;
     Object.values(videos).forEach((video) => { video.currentTime = 0; });
-    if (explorerVisible && !document.hidden) syncAndPlayVideos();
+    if (explorerVisible && !document.hidden && !(mobileViewer && pointViewerVisible)) syncAndPlayVideos();
   }
 
   function updateButtons() {
@@ -100,20 +106,40 @@ import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
   }
 
   document.querySelectorAll(".scene-button").forEach((button) => button.addEventListener("click", () => setScene(button.dataset.scene)));
-  new IntersectionObserver(([entry]) => {
-    explorerVisible = entry.isIntersecting;
-    pointCloudViewer?.setVisible(explorerVisible);
-    if (explorerVisible && !document.hidden) syncAndPlayVideos();
-    else pauseVideos();
-  }, { rootMargin: "120px 0px" }).observe(explorer);
+  if ("IntersectionObserver" in window) {
+    new IntersectionObserver(([entry]) => {
+      explorerVisible = entry.isIntersecting;
+      pointCloudViewer?.setVisible(explorerVisible && (!mobileViewer || pointViewerVisible));
+      if (explorerVisible && !document.hidden && !(mobileViewer && pointViewerVisible)) syncAndPlayVideos();
+      else pauseVideos();
+    }, { rootMargin: "120px 0px" }).observe(explorer);
+
+    new IntersectionObserver(([entry]) => {
+      pointViewerVisible = entry.isIntersecting;
+      if (mobileViewer) {
+        pointCloudViewer?.setVisible(explorerVisible && pointViewerVisible);
+        if (pointViewerVisible) {
+          pauseVideos();
+          initializePointCloudViewer();
+        } else if (explorerVisible && !document.hidden) {
+          syncAndPlayVideos();
+        }
+      }
+    }, { rootMargin: "260px 0px", threshold: .01 }).observe(viewport);
+  } else {
+    explorerVisible = true;
+    pointViewerVisible = true;
+  }
+
   document.addEventListener("visibilitychange", () => {
-    if (document.hidden) pauseVideos();
+    pointCloudViewer?.setVisible(!document.hidden && explorerVisible && (!mobileViewer || pointViewerVisible));
+    if (document.hidden || mobileViewer && pointViewerVisible) pauseVideos();
     else if (explorerVisible) syncAndPlayVideos();
   });
 
   function mediaLoop(now) {
     requestAnimationFrame(mediaLoop);
-    if (!explorerVisible || document.hidden || now - lastMediaSync < 1200) return;
+    if (!explorerVisible || document.hidden || mobileViewer && pointViewerVisible || now - lastMediaSync < 1200) return;
     lastMediaSync = now;
     const master = videos.appearance.currentTime;
     Object.values(videos).slice(1).forEach((video) => {
@@ -124,8 +150,21 @@ import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
   function createPointCloudViewer() {
     const threeScene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(45, 1, .01, 1000);
-    const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true, powerPreference: "high-performance" });
-    renderer.setClearColor(0x000000, 0);
+
+    function buildRenderer() {
+      const primaryOptions = constrainedDevice
+        ? { canvas, antialias: false, alpha: false, powerPreference: "low-power" }
+        : { canvas, antialias: true, alpha: true, powerPreference: "high-performance" };
+      try {
+        return new THREE.WebGLRenderer(primaryOptions);
+      } catch (primaryError) {
+        console.warn("Retrying Puffin-World 3D viewer with compatibility settings", primaryError);
+        return new THREE.WebGLRenderer({ canvas, antialias: false, alpha: false, powerPreference: "default" });
+      }
+    }
+
+    const renderer = buildRenderer();
+    renderer.setClearColor(0xffffff, 1);
     renderer.outputColorSpace = THREE.SRGBColorSpace;
 
     const controls = new OrbitControls(camera, canvas);
@@ -157,6 +196,9 @@ import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
     let modelBounds = null;
     let loadToken = 0;
     let viewerVisible = true;
+    let contextLost = false;
+    let lastRender = 0;
+    const frameInterval = constrainedDevice ? 1000 / 30 : 0;
 
     function captureSwayAnchor(now = performance.now()) {
       const offset = camera.position.clone().sub(controls.target);
@@ -245,7 +287,7 @@ import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
         disposeMaterial(node.material);
         node.material = new THREE.PointsMaterial({
           color: hasVertexColors ? 0xffffff : 0xb8d5f1,
-          size: Math.max(.0055, diagonal * .00145),
+          size: Math.max(.0055, diagonal * (constrainedDevice ? .00165 : .00145)),
           sizeAttenuation: true,
           vertexColors: hasVertexColors,
           transparent: false,
@@ -293,20 +335,42 @@ import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
 
     function resize() {
       const rect = viewport.getBoundingClientRect();
-      if (!rect.width || !rect.height) return;
-      renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
-      renderer.setSize(rect.width, rect.height, false);
-      camera.aspect = rect.width / rect.height;
+      if (!rect.width || !rect.height || contextLost) return;
+      const width = Math.max(1, Math.floor(rect.width));
+      const height = Math.max(1, Math.floor(rect.height));
+      renderer.setPixelRatio(constrainedDevice ? 1 : Math.min(window.devicePixelRatio || 1, 2));
+      renderer.setSize(width, height, false);
+      camera.aspect = width / height;
       camera.updateProjectionMatrix();
       if (activeModel) renderer.render(threeScene, camera);
     }
 
+    canvas.addEventListener("webglcontextlost", (event) => {
+      event.preventDefault();
+      contextLost = true;
+      viewerVisible = false;
+      showLoading("Restoring 3D reconstruction", 0);
+    }, { passive: false });
+
+    canvas.addEventListener("webglcontextrestored", () => {
+      contextLost = false;
+      viewerVisible = explorerVisible && (!mobileViewer || pointViewerVisible);
+      resize();
+      if (activeModel) fitModel(true);
+      else loadScene(activeScene);
+    });
+
     resetButton.addEventListener("click", () => fitModel(false));
-    new ResizeObserver(resize).observe(viewport);
+    if ("ResizeObserver" in window) new ResizeObserver(resize).observe(viewport);
+    else window.addEventListener("resize", resize, { passive: true });
+    window.visualViewport?.addEventListener("resize", resize, { passive: true });
+    window.addEventListener("orientationchange", () => setTimeout(resize, 120), { passive: true });
 
     function animate(now) {
       requestAnimationFrame(animate);
-      if (!viewerVisible || !activeModel || document.hidden) return;
+      if (!viewerVisible || !activeModel || document.hidden || contextLost) return;
+      if (frameInterval && now - lastRender < frameInterval) return;
+      lastRender = now;
 
       const idle = !reducedMotion.matches && !sway.interacting && now - sway.lastInteraction >= IDLE_DELAY;
       if (idle) {
@@ -331,23 +395,42 @@ import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
       loadScene,
       modelLoaded: () => activeModelScene === activeScene,
       resetView: () => fitModel(false),
-      setVisible: (visible) => { viewerVisible = visible; }
+      setVisible: (visible) => { viewerVisible = visible; },
+      resize
     };
+  }
+
+  function initializePointCloudViewer() {
+    if (pointCloudViewer || pointCloudInitAttempted) return;
+    pointCloudInitAttempted = true;
+    try {
+      pointCloudViewer = createPointCloudViewer();
+      pointCloudViewer.setVisible(explorerVisible && (!mobileViewer || pointViewerVisible));
+      pointCloudViewer.loadScene(activeScene);
+    } catch (error) {
+      console.error("Puffin-World 3D viewer initialization failed", error);
+      loadingText.textContent = "3D viewer unavailable · enable WebGL to continue";
+      progressBar.style.width = "0";
+      loading.classList.remove("is-hidden");
+    }
   }
 
   updateButtons();
   loadVideos(activeScene);
   requestAnimationFrame(mediaLoop);
 
-  try {
-    pointCloudViewer = createPointCloudViewer();
-    pointCloudViewer.loadScene(activeScene);
-  } catch (error) {
-    console.error("Puffin-World 3D viewer initialization failed", error);
-    loadingText.textContent = "3D viewer unavailable · enable WebGL to continue";
+  if (mobileViewer) {
+    loadingText.textContent = "Preparing mobile 3D reconstruction";
     progressBar.style.width = "0";
-    loading.classList.remove("is-hidden");
+    if (pointViewerVisible || !("IntersectionObserver" in window)) initializePointCloudViewer();
+  } else {
+    initializePointCloudViewer();
   }
+
+  window.addEventListener("pageshow", () => {
+    if (mobileViewer && pointViewerVisible) initializePointCloudViewer();
+    pointCloudViewer?.resize();
+  });
 
   window.__puffinWorldViewer = {
     getState: () => ({
