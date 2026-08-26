@@ -142,24 +142,24 @@ h1 { margin: 0; font-size: clamp(52px, 8vw, 86px); line-height: .98; letter-spac
 .reconstruction-heading strong { color: #e5edf8; font-size: 13px; }
 .reconstruction-heading small { margin-top: 2px; color: #748299; font-size: 9px; }
 #point-count-label { flex: 0 0 auto; padding: 5px 8px; border: 1px solid #34415a; border-radius: 999px; color: #8f9db2; font-size: 9px; letter-spacing: .04em; }
-.canvas-panel { position: relative; min-width: 0; min-height: 650px; overflow: hidden; background: radial-gradient(circle at 48% 42%, #1b2940 0, #101725 54%, #090e18 100%); }
+.canvas-panel { position: relative; min-width: 0; min-height: 650px; overflow: hidden; background: #fff; }
 #point-cloud { position: absolute; inset: 0; width: 100%; height: 100%; }
 #point-cloud { display: block; cursor: grab; touch-action: none; }
 #point-cloud:active { cursor: grabbing; }
 #point-cloud:focus-visible { outline: 2px solid #64b9ff; outline-offset: -4px; }
-.viewer-loading { position: absolute; inset: 0; z-index: 4; display: grid; place-content: center; gap: 10px; color: #aebbd0; background: rgba(10,16,27,.9); font-size: 11px; font-weight: 700; letter-spacing: .08em; text-align: center; text-transform: uppercase; transition: opacity .24s ease; }
+.viewer-loading { position: absolute; inset: 0; z-index: 4; display: grid; place-content: center; gap: 10px; color: #4b5b70; background: rgba(255,255,255,.94); font-size: 11px; font-weight: 700; letter-spacing: .08em; text-align: center; text-transform: uppercase; transition: opacity .24s ease; }
 .viewer-loading.is-hidden { opacity: 0; pointer-events: none; }
-.viewer-loading div { width: min(220px, 48vw); height: 3px; overflow: hidden; border-radius: 999px; background: #273249; }
+.viewer-loading div { width: min(220px, 48vw); height: 3px; overflow: hidden; border-radius: 999px; background: #dce3ec; }
 .viewer-loading i { width: 0; height: 100%; display: block; border-radius: inherit; background: linear-gradient(90deg, #4b9eff, #70d2f4); transition: width .15s ease; }
 .canvas-topbar { position: absolute; top: 18px; left: 20px; right: 20px; display: flex; justify-content: space-between; align-items: center; pointer-events: none; }
-.live-dot { color: #9daac0; font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+.live-dot { color: #53647a; font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
 .live-dot i { width: 7px; height: 7px; display: inline-block; margin-right: 7px; border-radius: 50%; background: #55cc90; box-shadow: 0 0 12px #55cc90; }
-#reset-view { padding: 7px 11px; border: 1px solid #35415a; border-radius: 9px; color: #aeb9ca; background: rgba(17, 25, 41, .76); font-size: 11px; cursor: pointer; pointer-events: auto; }
-#reset-view:hover { color: #fff; border-color: #5c6c88; }
-.gesture-hint { position: absolute; left: 50%; bottom: 18px; transform: translateX(-50%); margin: 0; padding: 7px 12px; border: 1px solid rgba(75, 89, 114, .75); border-radius: 999px; color: #718097; background: rgba(12, 18, 31, .75); font-size: 10px; white-space: nowrap; backdrop-filter: blur(5px); pointer-events: none; }
-.gesture-hint span { color: #bbc6d7; }
-.axis-widget { position: absolute; right: 26px; bottom: 26px; width: 68px; height: 68px; opacity: .72; pointer-events: none; }
-.axis-widget::before, .axis-widget::after { content: ""; position: absolute; left: 33px; bottom: 18px; width: 28px; height: 1px; background: #7387a8; transform-origin: left center; }
+#reset-view { padding: 7px 11px; border: 1px solid #c8d1dd; border-radius: 9px; color: #45566d; background: rgba(255,255,255,.86); font-size: 11px; cursor: pointer; pointer-events: auto; box-shadow: 0 4px 14px rgba(35,50,72,.08); }
+#reset-view:hover { color: #17243a; border-color: #8fa0b5; }
+.gesture-hint { position: absolute; left: 50%; bottom: 18px; transform: translateX(-50%); margin: 0; padding: 7px 12px; border: 1px solid rgba(185, 196, 210, .88); border-radius: 999px; color: #718097; background: rgba(255,255,255,.82); font-size: 10px; white-space: nowrap; backdrop-filter: blur(5px); pointer-events: none; box-shadow: 0 4px 14px rgba(35,50,72,.07); }
+.gesture-hint span { color: #34455d; }
+.axis-widget { position: absolute; right: 26px; bottom: 26px; width: 68px; height: 68px; opacity: .82; pointer-events: none; }
+.axis-widget::before, .axis-widget::after { content: ""; position: absolute; left: 33px; bottom: 18px; width: 28px; height: 1px; background: #65778f; transform-origin: left center; }
 .axis-widget::after { transform: rotate(-140deg); }
 .axis-widget .axis-y { position: absolute; left: 31px; bottom: 18px; width: 1px; height: 42px; color: #76c99f; border-left: 1px solid currentColor; font-size: 9px; padding: 0 0 0 4px; }
 .axis-x, .axis-z { position: absolute; color: #8ec8ff; font-size: 9px; }
