@@ -46,8 +46,18 @@ button { font: inherit; }
   align-items: center;
   gap: 30px;
 }
-.brand { display: inline-flex; align-items: center; gap: 10px; color: var(--ink); font-weight: 760; letter-spacing: -.02em; }
-.brand img { width: 38px; height: 38px; object-fit: contain; }
+.brand { min-width: 0; display: inline-flex; align-items: center; gap: 12px; color: var(--ink); font-weight: 760; letter-spacing: -.02em; }
+.brand-project, .brand-partners { min-width: 0; display: inline-flex; flex: 0 0 auto; align-items: center; }
+.brand-project { gap: 10px; }
+.brand-name { white-space: nowrap; }
+.brand-puffin { width: 38px; height: 38px; flex: 0 0 auto; object-fit: contain; }
+.brand-affiliation-divider, .brand-partner-divider { width: 1px; flex: 0 0 auto; background: #d9dee8; }
+.brand-affiliation-divider { height: 26px; }
+.brand-partners { gap: 10px; }
+.brand-partners img { width: auto; max-width: none; object-fit: contain; }
+.brand-ntu { height: 24px; }
+.brand-ace { height: 20px; }
+.brand-partner-divider { height: 18px; }
 .nav-links { display: flex; align-items: center; gap: 26px; margin-left: auto; }
 .nav-links a { color: #3f4654; font-size: 14px; font-weight: 600; }
 .nav-links a:hover { color: var(--blue); }
@@ -278,7 +288,9 @@ footer { border-top: 1px solid var(--line); background: #fafbfc; }
 .footer-brand strong, .footer-brand span { display: block; }
 .footer-brand strong { letter-spacing: -.02em; }
 .footer-brand span { color: var(--muted); font-size: 12px; }
-.footer-inner > p { max-width: 590px; margin: 0; color: var(--muted); font-size: 12px; text-align: right; }
+.footer-meta { max-width: 590px; display: flex; flex-direction: column; align-items: flex-end; gap: 3px; text-align: right; }
+.footer-meta p { margin: 0; color: var(--muted); font-size: 12px; }
+.footer-back-to-top { font-size: 13px; font-weight: 720; }
 
 .pill-supp-icon { width: 18px; height: 18px; flex: 0 0 auto; }
 .results-subsection-divider { margin: 86px 0; }
@@ -331,8 +343,15 @@ footer { border-top: 1px solid var(--line); background: #fafbfc; }
 @media (max-width: 640px) {
   body { font-size: 16px; }
   .section-shell { width: min(100% - 28px, var(--max)); }
-  .nav-shell { width: calc(100% - 24px); height: 60px; }
-  .brand img { width: 34px; height: 34px; }
+  .nav-shell { width: calc(100% - 24px); height: 60px; gap: 12px; }
+  .brand { gap: 8px; }
+  .brand-project { gap: 7px; }
+  .brand-puffin { width: 34px; height: 34px; }
+  .brand-affiliation-divider { height: 22px; }
+  .brand-partners { gap: 7px; }
+  .brand-ntu { height: 20px; }
+  .brand-ace { height: 17px; }
+  .brand-partner-divider { height: 16px; }
   .hero { padding: 50px 0 48px; }
   .hero-logo { width: 92px; height: 92px; }
   .subtitle { font-size: 27px; }
@@ -402,7 +421,23 @@ footer { border-top: 1px solid var(--line); background: #fafbfc; }
   .propagation-metrics { grid-template-columns: 1fr; }
   .bibtex-wrap pre { padding: 62px 20px 24px; font-size: 11px; }
   .footer-inner { padding: 34px 0; display: block; }
-  .footer-inner > p { margin-top: 22px; text-align: left; }
+  .footer-meta { margin-top: 22px; align-items: flex-start; text-align: left; }
+}
+
+@media (max-width: 520px) {
+  .brand-name { display: none; }
+}
+
+@media (max-width: 420px) {
+  .nav-shell { gap: 10px; }
+  .brand { gap: 6px; }
+  .brand-puffin { width: 32px; height: 32px; }
+  .brand-affiliation-divider { height: 20px; }
+  .brand-partners { gap: 5px; }
+  .brand-ntu { height: 17px; }
+  .brand-ace { height: 15px; }
+  .brand-partner-divider { height: 14px; }
+  .supplementary-page .nav-paper { padding: 7px 10px; font-size: 12px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
