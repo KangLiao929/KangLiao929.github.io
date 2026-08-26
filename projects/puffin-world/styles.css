@@ -359,8 +359,10 @@ footer { border-top: 1px solid var(--line); background: #fafbfc; }
   .world-state-card video { width: 116px; }
   .world-state-card strong { font-size: 12px; }
   .world-state-card small { font-size: 10px; }
+  .reconstruction-panel { grid-template-rows: auto auto auto; }
   .reconstruction-heading { min-height: 58px; padding: 10px 12px; }
-  .canvas-panel { min-height: 430px; }
+  .canvas-panel { width: 100%; height: clamp(360px, 115vw, 430px); min-height: 0; contain: layout paint; }
+  #point-cloud { min-width: 1px; min-height: 1px; }
   .canvas-topbar { top: 13px; left: 13px; right: 13px; }
   .live-dot { max-width: 72%; overflow: hidden; font-size: 9px; text-overflow: ellipsis; white-space: nowrap; }
   .axis-widget { right: 15px; bottom: 20px; transform: scale(.8); }
