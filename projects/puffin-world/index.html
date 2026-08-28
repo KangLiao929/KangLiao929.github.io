@@ -10,10 +10,10 @@
   <meta property="og:image" content="https://raw.githubusercontent.com/KangLiao929/Puffin/main/Puffin-World/assets/Puffin-World-logo_transparent.png">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:image" content="https://raw.githubusercontent.com/KangLiao929/Puffin/main/Puffin-World/assets/Puffin-World-logo_transparent.png">
-  <title>Puffin-World · Native 3D World States</title>
+  <title>Puffin-World · Scaling with Native 3D World States</title>
   <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/KangLiao929/Puffin/main/Puffin-World/assets/Puffin-World-logo_transparent.png">
   <link rel="apple-touch-icon" href="https://raw.githubusercontent.com/KangLiao929/Puffin/main/Puffin-World/assets/Puffin-World-logo_transparent.png">
-  <link rel="stylesheet" href="styles.css?v=20260826-mmlab-brand-logo">
+  <link rel="stylesheet" href="styles.css?v=20260828-applications-datasets">
 </head>
 <body>
   <header class="site-header">
@@ -476,24 +476,19 @@
         </a>
       </div>
 
-      <div class="propagation-card">
+      <div class="results-divider results-subsection-divider" role="presentation"></div>
+
+      <div class="section-heading applications-heading">
         <div>
-          <p class="section-kicker">Physics propagation</p>
-          <h3>More consistent long trajectories</h3>
-          <p>Physics propagation anchors all views to a shared gravity-aligned frame, improving reconstruction quality and camera alignment together. The qualitative ablation below compares generated views with and without PP using up-vector error, revealing reduced horizon drift and more stable camera orientation.</p>
+          <p class="section-kicker">Closed-Loop Applications</p>
+          <h2>Perceive, reason, and explore in a closed loop</h2>
         </div>
-        <div class="propagation-metrics" aria-label="Physics propagation metrics">
-          <span><small>PSNR</small><strong>19.87 → 20.54</strong></span>
-          <span><small>SSIM</small><strong>0.62 → 0.67</strong></span>
-          <span><small>LPIPS ↓</small><strong>0.23 → 0.21</strong></span>
-          <span><small>Roll error ↓</small><strong>1.94° → 1.76°</strong></span>
-          <span><small>Pitch error ↓</small><strong>5.14° → 4.75°</strong></span>
-        </div>
+        <p>Puffin-World combines world understanding and generation within one model to support mimic world exploration and self-calibrated world exploration.</p>
       </div>
 
-      <figure class="paper-figure propagation-figure">
-        <img loading="lazy" src="assets/physics-propagation-ablation.webp" alt="Qualitative ablation comparing generated camera trajectories with and without physics propagation using up-vector error" width="1800" height="1042">
-        <figcaption>Qualitative ablation of physics propagation. Each pair compares generation with and without PP using up-vector error; lower values and greener vectors indicate better gravity alignment.</figcaption>
+      <figure class="paper-figure framed-figure applications-figure">
+        <img loading="lazy" src="assets/figure7-applications.webp?v=20260828-paper-sections" alt="Mimic world exploration and self-calibrated world exploration with Puffin-World" width="2400" height="975">
+        <figcaption>Fig. 7. Closed-loop applications of Puffin-World. Mimic world exploration follows a prescribed camera trajectory, while self-calibrated world exploration reasons about the current physical state and predicts corrective camera actions.</figcaption>
       </figure>
     </section>
 
@@ -517,6 +512,21 @@
         </figure>
         <div class="center-actions">
           <a class="pill primary" href="https://kangliao929.github.io/projects/puffin-16m/">Explore Puffin-16M <span aria-hidden="true">↗</span></a>
+        </div>
+        <div class="data-intelligence">
+          <div class="section-heading">
+            <div>
+              <p class="section-kicker">Large-Scale Camera Grounding</p>
+              <h2>Towards Large-Scale Spatial Intelligence and Physical AI</h2>
+            </div>
+            <p>Puffin-World annotates roll, pitch, and vertical field-of-view for 28 widely used datasets—22 single-image datasets and six sequential or 3D Absolute-Camera datasets—yielding approximately 44.5M camera-grounded images.</p>
+          </div>
+          <a class="release-figure-link" href="https://huggingface.co/collections/KangLiao/puffin-world" aria-label="Open the Puffin-World Hugging Face collection containing all released camera-annotated datasets">
+            <figure class="paper-figure dataset-figure release-figure">
+              <img loading="lazy" src="assets/figure8-public-datasets.webp?v=20260828-paper-sections" alt="Overview of 28 public datasets annotated with camera parameters by Puffin-World" width="2200" height="949">
+              <figcaption>Fig. 8. Overview of 28 public datasets annotated by Puffin-World, covering approximately 44.5M images. All camera-annotated datasets shown here are released in our Hugging Face collection. <span class="release-link-cue">Open collection ↗</span></figcaption>
+            </figure>
+          </a>
         </div>
       </div>
     </section>
@@ -544,7 +554,7 @@
     <div class="section-shell footer-inner">
       <div class="footer-brand">
         <img src="assets/puffin-world-logo.webp" alt="" width="48" height="48">
-        <div><strong>Puffin-World</strong><span>Native 3D World States</span></div>
+        <div><strong>Puffin-World</strong><span>Scaling with Native 3D World States</span></div>
       </div>
       <div class="footer-meta">
         <a class="footer-back-to-top" href="#top">Back to top ↑</a>

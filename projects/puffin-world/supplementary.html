@@ -10,7 +10,7 @@
   <meta property="og:image" content="https://raw.githubusercontent.com/KangLiao929/Puffin/main/Puffin-World/assets/Puffin-World-logo_transparent.png">
   <title>Puffin-World · Supplementary Results</title>
   <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/KangLiao929/Puffin/main/Puffin-World/assets/Puffin-World-logo_transparent.png">
-  <link rel="stylesheet" href="styles.css?v=20260826-mmlab-brand-logo">
+  <link rel="stylesheet" href="styles.css?v=20260828-applications-datasets">
 </head>
 <body class="supplementary-page">
   <header class="site-header">
@@ -101,16 +101,44 @@
       </div>
     </section>
 
-    <section class="section-shell supp-result">
+    <section id="physics-propagation" class="section-shell supp-result">
       <div class="supp-result-heading">
-        <p class="section-kicker">Native 3D World States</p>
-        <h2>Appearance, geometry, physics, and reconstruction</h2>
-        <p>Puffin-World jointly predicts visual appearance, depth-based geometry, and gravity-aware physics. The generated observations can then be consolidated into clear and spatially coherent 3D reconstructions.</p>
+        <p class="section-kicker">Physics Propagation</p>
+        <h2>Ground long trajectories in a consistent physical frame</h2>
+        <p>Physics propagation transfers the absolute physical state from the reference view across relative camera motion, reducing horizon drift and improving both visual fidelity and camera alignment.</p>
       </div>
-      <figure class="paper-figure supp-figure">
-        <img loading="lazy" src="assets/supplementary/figure16-world-states-reconstruction.webp" alt="Native appearance, geometry, and physics states with 3D reconstruction" width="1800" height="2021">
-        <figcaption>More qualitative results of 3D world modeling. Each example shows native appearance, geometry, and physics states together with the reconstructed 3D scene.</figcaption>
+      <div class="propagation-card">
+        <div>
+          <p class="section-kicker">Physics Propagation</p>
+          <h3>More consistent long trajectories</h3>
+          <p>Anchoring all views to a shared gravity-aligned frame improves reconstruction quality and camera alignment across challenging motions.</p>
+        </div>
+        <div class="propagation-metrics" aria-label="Physics propagation metrics">
+          <span><small>PSNR</small><strong>19.87 → 20.54</strong></span>
+          <span><small>SSIM</small><strong>0.62 → 0.67</strong></span>
+          <span><small>LPIPS ↓</small><strong>0.23 → 0.21</strong></span>
+          <span><small>Roll error ↓</small><strong>1.94° → 1.76°</strong></span>
+          <span><small>Pitch error ↓</small><strong>5.14° → 4.75°</strong></span>
+        </div>
+      </div>
+      <figure class="paper-figure propagation-figure supp-propagation-figure">
+        <img loading="lazy" src="assets/physics-propagation-ablation.webp" alt="Qualitative ablation comparing generated camera trajectories with and without physics propagation using up-vector error" width="1800" height="1042">
+        <figcaption>Qualitative ablation of physics propagation. Each pair compares generation with and without PP using up-vector error; lower values and greener vectors indicate better gravity alignment.</figcaption>
       </figure>
+    </section>
+
+    <section class="supp-result-band">
+      <div class="section-shell supp-result">
+        <div class="supp-result-heading">
+          <p class="section-kicker">Scaling with Native 3D World States</p>
+          <h2>Appearance, geometry, physics, and reconstruction</h2>
+          <p>Puffin-World jointly predicts visual appearance, depth-based geometry, and gravity-aware physics. The generated observations can then be consolidated into clear and spatially coherent 3D reconstructions.</p>
+        </div>
+        <figure class="paper-figure supp-figure">
+          <img loading="lazy" src="assets/supplementary/figure16-world-states-reconstruction.webp" alt="Native appearance, geometry, and physics states with 3D reconstruction" width="1800" height="2021">
+          <figcaption>More qualitative results of 3D world modeling. Each example shows native appearance, geometry, and physics states together with the reconstructed 3D scene.</figcaption>
+        </figure>
+      </div>
     </section>
 
     <section class="supp-return">
@@ -131,7 +159,7 @@
       </div>
       <div class="footer-meta">
         <a class="footer-back-to-top" href="#top">Back to top ↑</a>
-        <p><a href="./">Puffin-World project page</a> · Native 3D World States</p>
+        <p><a href="./">Puffin-World project page</a> · Scaling with Native 3D World States</p>
       </div>
     </div>
   </footer>

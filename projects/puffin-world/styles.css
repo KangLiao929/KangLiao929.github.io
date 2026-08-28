@@ -91,7 +91,7 @@ h1 { margin: 0; font-size: clamp(52px, 8vw, 86px); line-height: .98; letter-spac
 .hero-figure img { width: 100%; }
 .teaser-stack { padding: clamp(8px, 1.5vw, 17px); }
 .teaser-stack img { border-radius: 12px; }
-.teaser-stack img + img { margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--line); }
+.teaser-stack img + img { margin-top: 10px; }
 .lead-copy { max-width: 900px; margin: 72px auto 42px; text-align: center; }
 .lead-copy h2, .section-heading h2, .compact-heading h2 { margin: 0; font-size: clamp(34px, 4.6vw, 53px); line-height: 1.12; letter-spacing: -.045em; }
 .lead-copy > p:last-child { margin: 22px auto 0; max-width: 830px; color: #555e6e; font-size: 19px; }
@@ -275,6 +275,14 @@ figcaption { padding: 13px 18px 16px; color: var(--muted); background: #fff; fon
 .data-stats strong { color: var(--ink); font-size: 38px; line-height: 1; letter-spacing: -.05em; }
 .data-stats span { margin-top: 13px; color: var(--muted); font-size: 13px; line-height: 1.4; }
 .center-actions { margin-top: 26px; text-align: center; }
+.applications-figure { margin: 0; }
+.data-intelligence { margin-top: 86px; padding-top: 86px; border-top: 1px solid var(--line); }
+.release-figure-link { display: block; color: inherit; text-decoration: none; }
+.release-figure { transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease; }
+.release-figure-link:hover .release-figure { transform: translateY(-2px); border-color: #b4ccef; box-shadow: 0 20px 56px rgba(24, 39, 67, .12); }
+.release-figure-link:focus-visible { outline: 3px solid rgba(35, 104, 196, .28); outline-offset: 5px; border-radius: 20px; }
+.release-link-cue { color: var(--blue); font-weight: 800; white-space: nowrap; }
+.supp-propagation-figure { margin: 0; }
 
 .compact-heading { grid-template-columns: 1fr; margin-bottom: 24px; }
 .bibtex-wrap { position: relative; overflow: hidden; border: 1px solid #2c3445; border-radius: 18px; background: #151b28; }
@@ -363,6 +371,7 @@ footer { border-top: 1px solid var(--line); background: #fafbfc; }
   .hero-actions { gap: 8px; }
   .pill { min-height: 42px; padding: 8px 14px; font-size: 13px; }
   .teaser-section { padding-bottom: 72px; }
+  .data-intelligence { margin-top: 62px; padding-top: 62px; }
   .hero-figure { border-radius: 14px; }
   .lead-copy { margin: 54px auto 32px; }
   .lead-copy > p:last-child { font-size: 17px; }
