@@ -284,29 +284,21 @@ figcaption { padding: 13px 18px 16px; color: var(--muted); background: #fff; fon
 .release-link-cue { color: var(--blue); font-weight: 800; white-space: nowrap; }
 .supp-propagation-figure { margin: 0; }
 
-.paper-gallery-section { padding: 110px 0 0; }
+.paper-gallery-section { padding: 86px 0 0; }
+.paper-gallery-section + .citation-section { padding-top: 72px; }
 .paper-gallery {
   margin: 0;
-  overflow-x: auto;
-  overflow-y: hidden;
+  overflow: hidden;
   border: 1px solid var(--line);
-  border-radius: 20px;
+  border-radius: 16px;
   background: #fff;
-  box-shadow: 0 16px 50px rgba(24, 39, 67, .07);
-  scrollbar-width: thin;
-  scrollbar-color: #c8d0dc transparent;
-  scrollbar-gutter: stable;
+  box-shadow: 0 12px 38px rgba(24, 39, 67, .065);
 }
-.paper-gallery:focus-visible { outline: 3px solid rgba(35, 104, 196, .28); outline-offset: 4px; }
 .paper-gallery img {
   display: block;
-  width: auto;
-  max-width: none;
-  height: clamp(240px, 26vw, 360px);
+  width: 100%;
+  height: auto;
 }
-.paper-gallery::-webkit-scrollbar { height: 8px; }
-.paper-gallery::-webkit-scrollbar-thumb { border-radius: 999px; background: #c8d0dc; }
-.paper-gallery::-webkit-scrollbar-track { background: transparent; }
 
 .compact-heading { grid-template-columns: 1fr; margin-bottom: 24px; }
 .bibtex-wrap { position: relative; overflow: hidden; border: 1px solid #2c3445; border-radius: 18px; background: #151b28; }
@@ -401,9 +393,9 @@ footer { border-top: 1px solid var(--line); background: #fafbfc; }
   .lead-copy > p:last-child { font-size: 17px; }
   .lead-copy h2, .section-heading h2, .compact-heading h2 { font-size: 34px; }
   .world-section, .method-section, .results-section, .citation-section, .data-section, .capabilities-section { padding: 72px 0; }
-  .paper-gallery-section { padding-top: 72px; }
-  .paper-gallery { border-radius: 14px; }
-  .paper-gallery img { height: 230px; }
+  .paper-gallery-section { padding-top: 56px; }
+  .paper-gallery-section + .citation-section { padding-top: 56px; }
+  .paper-gallery { border-radius: 12px; }
   .world-app { min-height: 0; border-radius: 17px; }
   .world-sidebar { padding: 19px 14px 16px; }
   .scene-list { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 3px; scrollbar-width: thin; }
