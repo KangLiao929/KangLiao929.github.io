@@ -13,7 +13,7 @@
   <title>Puffin-World · Scaling with Native 3D World States</title>
   <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/KangLiao929/Puffin/main/Puffin-World/assets/Puffin-World-logo_transparent.png">
   <link rel="apple-touch-icon" href="https://raw.githubusercontent.com/KangLiao929/Puffin/main/Puffin-World/assets/Puffin-World-logo_transparent.png">
-  <link rel="stylesheet" href="styles.css?v=20260831-paper-gallery-eight-pages">
+  <link rel="stylesheet" href="styles.css?v=20260903-demo-video">
 </head>
 <body>
   <header class="site-header">
@@ -114,10 +114,11 @@
     </section>
 
     <section id="overview" class="section-shell teaser-section">
-      <figure class="paper-figure hero-figure teaser-stack">
-        <img src="assets/teaser-perception.webp?v=20260828-paper-update" alt="Puffin-World physical-world perception and free-viewpoint spatial simulation" width="1800" height="763">
-        <img src="assets/teaser-generation.webp?v=20260828-paper-update" alt="Puffin-World long-trajectory, extreme-rotation and text-driven world generation" width="1800" height="861">
-        <img src="assets/teaser-world-states.webp?v=20260828-paper-update" alt="Puffin-World native appearance, geometry and physics states with 3D reconstruction" width="1800" height="767">
+      <figure class="paper-figure hero-figure demo-video-frame">
+        <video autoplay muted loop playsinline controls preload="metadata" poster="assets/puffin-world-demo-poster.webp" aria-label="Puffin-World research demo video">
+          <source src="assets/puffin-world-demo-1080p.mp4" type="video/mp4">
+          Your browser does not support embedded video. <a href="assets/puffin-world-demo-1080p.mp4">Open the Puffin-World demo video</a>.
+        </video>
       </figure>
       <div class="lead-copy">
         <p class="section-kicker">Beyond pixels, toward worlds</p>
@@ -401,6 +402,14 @@
           <article><span>03</span><h3>3D World Modeling</h3><p>Supports image-to-3D, text-to-3D, long rotations, native states, and direct 3D reconstruction.</p></article>
           <article><span>04</span><h3>Closed-Loop Applications</h3><p>Enables interleaved conversation, world exploration, and self-calibrated interaction with generated environments.</p></article>
         </div>
+        <div class="capability-overview-copy">
+          <p>Together, these capability families let Puffin-World perceive, simulate, and build coherent 3D worlds in one unified framework. The overview below highlights representative results across physical understanding, controllable generation, and native 3D world states.</p>
+        </div>
+        <figure class="paper-figure hero-figure teaser-stack capability-overview-figure">
+          <img loading="lazy" src="assets/teaser-perception.webp?v=20260828-paper-update" alt="Puffin-World physical-world perception and free-viewpoint spatial simulation" width="1800" height="763">
+          <img loading="lazy" src="assets/teaser-generation.webp?v=20260828-paper-update" alt="Puffin-World long-trajectory, extreme-rotation and text-driven world generation" width="1800" height="861">
+          <img loading="lazy" src="assets/teaser-world-states.webp?v=20260828-paper-update" alt="Puffin-World native appearance, geometry and physics states with 3D reconstruction" width="1800" height="767">
+        </figure>
       </div>
     </section>
 

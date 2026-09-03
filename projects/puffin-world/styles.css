@@ -89,6 +89,8 @@ h1 { margin: 0; font-size: clamp(52px, 8vw, 86px); line-height: .98; letter-spac
 .paper-figure { margin: 0; }
 .hero-figure { overflow: hidden; border: 1px solid var(--line); border-radius: 24px; background: #fff; box-shadow: 0 22px 60px rgba(28, 42, 68, .09); }
 .hero-figure img { width: 100%; }
+.demo-video-frame { background: #070b12; }
+.demo-video-frame video { width: 100%; height: auto; aspect-ratio: 16 / 9; display: block; object-fit: contain; background: #070b12; }
 .teaser-stack { padding: clamp(8px, 1.5vw, 17px); }
 .teaser-stack img { border-radius: 12px; }
 .teaser-stack img + img { margin-top: 10px; }
@@ -215,6 +217,9 @@ figcaption { padding: 13px 18px 16px; color: var(--muted); background: #fff; fon
 .capability-grid article > span { color: #a8b1c1; font-size: 12px; font-weight: 800; letter-spacing: .12em; }
 .capability-grid h3 { margin: 35px 0 7px; font-size: 23px; letter-spacing: -.025em; }
 .capability-grid p { max-width: 480px; margin: 0; color: var(--muted); font-size: 15px; }
+.capability-overview-copy { max-width: 850px; margin: 48px auto 22px; text-align: center; }
+.capability-overview-copy p { margin: 0; color: #555e6e; font-size: 17px; line-height: 1.7; }
+.capability-overview-figure { margin-top: 0; }
 
 .camera-understanding-block { margin-bottom: 86px; }
 .perception-metrics { margin-bottom: 42px; }
