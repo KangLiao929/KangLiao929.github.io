@@ -418,11 +418,11 @@ const mosaicRatios = [
   { className: "ratio-9-16", label: "9:16" },
 ] as const;
 
-const citation = `@article{liao2025puffin,
-  title={Thinking with Camera: A Unified Multimodal Model for Camera-Centric Understanding and Generation},
-  author={Liao, Kang and Wu, Size and Wu, Zhonghua and Jin, Linyi and Wang, Chao and Wang, Yikai and Wang, Fei and Li, Wei and Loy, Chen Change},
-  journal={arXiv preprint arXiv:2510.08673},
-  year={2025}
+const citation = `@article{liao2026puffinworld,
+  title={Puffin-World: Scaling a Unified Multimodal Model with Native 3D World States},
+  author={Liao, Kang and Luo, Yihang and Wu, Xiao-Ming and Jin, Linyi and Wu, Size and Lin, Chunyu and Zhao, Yao and Wang, Fei and Li, Wei and Loy, Chen Change},
+  journal={arXiv preprint arXiv:2609.04196},
+  year={2026}
 }`;
 
 export default function Home() {
@@ -1166,8 +1166,8 @@ export default function Home() {
           <a href="https://github.com/KangLiao929/Puffin" target="_blank" rel="noreferrer">
             <span>IMPLEMENTATION</span><strong>GitHub</strong><p>Training, inference, and camera tools</p><b>↗</b>
           </a>
-          <a href="https://arxiv.org/abs/2510.08673" target="_blank" rel="noreferrer">
-            <span>PUBLICATION</span><strong>Paper</strong><p>Thinking with Camera · ICLR 2026</p><b>↗</b>
+          <a href="https://arxiv.org/abs/2609.04196" target="_blank" rel="noreferrer">
+            <span>PUBLICATION</span><strong>Paper</strong><p>Puffin-World · arXiv 2026</p><b>↗</b>
           </a>
           <a href="https://kangliao929.github.io/projects/puffin-world/" target="_blank" rel="noreferrer">
             <span>MODEL</span><strong>Puffin-World</strong><p>Unified understanding, generation, and 3D world modeling</p><b>↗</b>
