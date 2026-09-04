@@ -1137,7 +1137,7 @@ export default function Home() {
         </div>
         <div className="resources-hero">
           <div>
-            <h2>Ready to build the world<br />from any view?</h2>
+            <h2>Ready to build<br />the world<br />from any view?</h2>
             <p>
               Download either part or the complete dataset from Hugging Face.
               The release includes sharded archives, indices, captions, and dense camera annotations.
