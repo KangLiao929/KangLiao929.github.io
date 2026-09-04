@@ -79,7 +79,6 @@ export default function ViewportVideo({ src, mobileSrc, label }: ViewportVideoPr
         ref={videoRef}
         loop
         muted
-        autoPlay
         playsInline
         preload="metadata"
         aria-label={label}

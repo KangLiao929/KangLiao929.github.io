@@ -13,13 +13,26 @@ export default function LazyTrajectoryCamera3D({ sample }: { sample: TrajectoryP
   useEffect(() => {
     const element = anchorRef.current;
     if (!element || shouldLoad) return;
+
+    // Chromium can drop the page compositor when the full-grid transparent WebGL
+    // surface is combined with several video decoders. Keep the existing animated
+    // camera fallback there; Safari continues to use the live Three.js view.
+    const isChromium = /\b(?:Chrome|Chromium|CriOS|Edg|OPR)\//.test(navigator.userAgent);
+    if (isChromium) {
+      const sharedCanvas = element
+        .closest(".trajectory-grid")
+        ?.querySelector<HTMLCanvasElement>(".trajectory-camera-layer");
+      if (sharedCanvas) sharedCanvas.hidden = true;
+      return;
+    }
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (!entry.isIntersecting) return;
         setShouldLoad(true);
         observer.disconnect();
       },
-      { rootMargin: "280px 0px", threshold: 0.01 },
+      { rootMargin: "80px 0px", threshold: 0.01 },
     );
     observer.observe(element);
     return () => observer.disconnect();
