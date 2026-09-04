@@ -13,14 +13,13 @@ export default function LazyTrajectoryCamera3D({ sample }: { sample: TrajectoryP
   useEffect(() => {
     const element = anchorRef.current;
     if (!element || shouldLoad) return;
-
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (!entry.isIntersecting) return;
         setShouldLoad(true);
         observer.disconnect();
       },
-      { rootMargin: "80px 0px", threshold: 0.01 },
+      { rootMargin: "280px 0px", threshold: 0.01 },
     );
     observer.observe(element);
     return () => observer.disconnect();

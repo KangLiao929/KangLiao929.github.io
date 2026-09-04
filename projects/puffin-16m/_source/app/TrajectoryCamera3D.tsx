@@ -1,9 +1,8 @@
 "use client";
 
-import { Component, createRef } from "react";
+import { useEffect, useRef } from "react";
 import * as THREE from "three";
 import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
-import { assetPath } from "./assetPath";
 
 type MotionAxis = "roll" | "pitch" | "yaw";
 
@@ -42,7 +41,7 @@ function loadCameraModel() {
   if (!cameraModelPromise) {
     cameraModelPromise = new Promise((resolve, reject) => {
       new GLTFLoader().load(
-        assetPath("/models/camera-01/Camera_01_1k.gltf"),
+        "/models/camera-01/Camera_01_1k.gltf",
         (gltf) => resolve(gltf.scene),
         undefined,
         reject,
@@ -82,26 +81,13 @@ function configureSharedRenderer(host?: HTMLElement) {
   try {
     sharedCanvas = host.querySelector<HTMLCanvasElement>(":scope > .trajectory-camera-layer");
     if (!sharedCanvas) return null;
-    const canvas = sharedCanvas;
-    const context = canvas.getContext("webgl2", {
-      alpha: true,
-      antialias: false,
-      powerPreference: "default",
-      preserveDrawingBuffer: false,
-    });
+    const context = sharedCanvas.getContext("webgl2", { alpha: true, antialias: true, powerPreference: "high-performance" });
     if (!context) {
       webglUnavailable = true;
       sharedCanvas = null;
       return null;
     }
-    sharedRenderer = new THREE.WebGLRenderer({
-      canvas,
-      context,
-      alpha: true,
-      antialias: false,
-      powerPreference: "default",
-      preserveDrawingBuffer: false,
-    });
+    sharedRenderer = new THREE.WebGLRenderer({ canvas: sharedCanvas, context, alpha: true, antialias: true, powerPreference: "high-performance" });
     // A single 1x viewport is crisp enough at this card size and avoids
     // allocating a multi-million-pixel buffer on high-DPI displays.
     sharedRenderer.setPixelRatio(Math.min(window.devicePixelRatio, 1));
@@ -109,24 +95,6 @@ function configureSharedRenderer(host?: HTMLElement) {
     sharedRenderer.toneMapping = THREE.ACESFilmicToneMapping;
     sharedRenderer.toneMappingExposure = 1.22;
     sharedRenderer.autoClear = false;
-
-    canvas.addEventListener(
-      "webglcontextlost",
-      (event) => {
-        event.preventDefault();
-        if (sharedAnimationFrame) cancelAnimationFrame(sharedAnimationFrame);
-        sharedAnimationFrame = 0;
-        canvas.hidden = true;
-        renderEntries.forEach((entry) => {
-          entry.visible = false;
-          entry.element.dataset.modelError = "true";
-        });
-        sharedRenderer = null;
-        sharedCanvas = null;
-        webglUnavailable = true;
-      },
-      { once: true },
-    );
   } catch {
     webglUnavailable = true;
     sharedCanvas = null;
@@ -215,13 +183,11 @@ function makeScene(sample: TrajectoryPose) {
   return { scene, camera, posePivot };
 }
 
-export default class TrajectoryCamera3D extends Component<{ sample: TrajectoryPose }> {
-  private targetRef = createRef<HTMLDivElement>();
-  private disposeScene: (() => void) | null = null;
+export default function TrajectoryCamera3D({ sample }: { sample: TrajectoryPose }) {
+  const targetRef = useRef<HTMLDivElement>(null);
 
-  componentDidMount() {
-    const element = this.targetRef.current;
-    const { sample } = this.props;
+  useEffect(() => {
+    const element = targetRef.current;
     if (!element) return;
     const canvasHost = element.closest<HTMLElement>(".trajectory-grid");
     if (!canvasHost || !ensureSharedLoop(canvasHost)) {
@@ -286,36 +252,23 @@ export default class TrajectoryCamera3D extends Component<{ sample: TrajectoryPo
       element.dataset.modelError = "true";
     });
 
-    this.disposeScene = () => {
+    return () => {
       disposed = true;
       visibilityObserver.disconnect();
       document.removeEventListener("visibilitychange", resumeWhenVisible);
       renderEntries.delete(entry);
     };
-  }
+  }, [sample]);
 
-  componentWillUnmount() {
-    this.disposeScene?.();
-    this.disposeScene = null;
-  }
-
-  render() {
-    const { sample } = this.props;
-    return (
-      <>
-        <div
-          ref={this.targetRef}
-          className="trajectory-camera-canvas"
-          role="img"
-          aria-label={`${sample.type} camera pose rendered with a fixed optical center`}
-        />
-        <img
-          className="trajectory-camera-fallback"
-          src={assetPath("/models/camera-01/camera-fallback.webp")}
-          alt=""
-          aria-hidden="true"
-        />
-      </>
-    );
-  }
+  return (
+    <>
+      <div
+        ref={targetRef}
+        className="trajectory-camera-canvas"
+        role="img"
+        aria-label={`${sample.type} camera pose rendered with a fixed optical center`}
+      />
+      <img className="trajectory-camera-fallback" src="/models/camera-01/camera-fallback.webp" alt="" aria-hidden="true" />
+    </>
+  );
 }
