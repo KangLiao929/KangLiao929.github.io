@@ -1,0 +1,25 @@
+<aside class="homepage-sidebar" aria-label="Profile">
+    <img class="profile-img" src="assets/images/Kang.jpg" alt="Kang Liao">
+    <h1>Kang Liao <span lang="zh">廖康</span></h1>
+
+    <div class="profile-links">
+        {% if site.email %}
+        <a href="mailto: {{kang.liao@ntu.edu.sg}}">
+            <i class="fa fa-envelope" aria-hidden="true"></i>
+            <span>{{ site.email }}</span>
+        </a>
+        {% endif %}
+        {% if site.website_github %}
+        <a href="https://github.com/KangLiao929" target="_blank" rel="noopener noreferrer">
+            <i class="fa fa-github" aria-hidden="true"></i>
+            <span>{{ site.website_github }}</span>
+        </a>
+        {% endif %}
+        {% if site.website_google %}
+        <a href="https://scholar.google.com/citations?user=YmmfEBwAAAAJ&amp;hl=zh-CN" target="_blank" rel="noopener noreferrer">
+            <i class="fa fa-graduation-cap" aria-hidden="true"></i>
+            <span>{{ site.website_google }}</span>
+        </a>
+        {% endif %}
+    </div>
+</aside>

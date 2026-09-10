@@ -1,20 +1,16 @@
 <!DOCTYPE html>
-<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
-<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
-<!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->
+<html lang="en">
 {% include head.html %}
-<body>
-    <div class="container">
+<body class="homepage">
+    <div class="homepage-shell">
+        {% include profile.html %}
 
-		<div class="row"> 
-		      
-			 {% include introduction.html %}  
-			 <hr>
-		     {% include publication.html %}
-			 <hr>
-		     {% include award.html %}
-     </div><!--//main-body-->
-
-{% include footer.html %}
+        <main class="homepage-content">
+            {% include introduction.html %}
+            {% include publication.html %}
+            {% include award.html %}
+            {% include footer.html %}
+        </main>
+    </div>
 </body>
 </html>
