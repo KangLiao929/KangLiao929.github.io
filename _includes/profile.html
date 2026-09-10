@@ -4,21 +4,18 @@
 
     <div class="profile-links">
         {% if site.email %}
-        <a href="mailto: {{kang.liao@ntu.edu.sg}}">
+        <a href="mailto:kang.liao@inf.ethz.ch" aria-label="Email" title="Email">
             <i class="fa fa-envelope" aria-hidden="true"></i>
-            <span>{{ site.email }}</span>
         </a>
         {% endif %}
         {% if site.website_github %}
-        <a href="https://github.com/KangLiao929" target="_blank" rel="noopener noreferrer">
+        <a href="https://github.com/KangLiao929" target="_blank" rel="noopener noreferrer" aria-label="GitHub" title="GitHub">
             <i class="fa fa-github" aria-hidden="true"></i>
-            <span>{{ site.website_github }}</span>
         </a>
         {% endif %}
         {% if site.website_google %}
-        <a href="https://scholar.google.com/citations?user=YmmfEBwAAAAJ&amp;hl=zh-CN" target="_blank" rel="noopener noreferrer">
+        <a href="https://scholar.google.com/citations?user=YmmfEBwAAAAJ&amp;hl=zh-CN" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar" title="Google Scholar">
             <i class="fa fa-graduation-cap" aria-hidden="true"></i>
-            <span>{{ site.website_google }}</span>
         </a>
         {% endif %}
     </div>
