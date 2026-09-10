@@ -66,16 +66,19 @@
   white-space: nowrap;
 }
 
-.profile-links {
+.homepage-sidebar .profile-links {
   display: flex;
+  flex-flow: row nowrap;
   align-items: center;
   justify-content: center;
   gap: 15px;
+  width: 100%;
   margin-top: 18px;
 }
 
 .profile-links a {
   display: inline-flex;
+  flex: 0 0 auto;
   align-items: center;
   justify-content: center;
   color: var(--homepage-muted);
@@ -96,6 +99,13 @@
   color: inherit;
   font-size: 20px;
   text-align: center;
+}
+
+.profile-links .social-svg {
+  display: block;
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
 }
 
 .homepage-content {
@@ -322,10 +332,9 @@
   }
 
   .profile-links {
-    flex-flow: row wrap;
+    flex-flow: row nowrap;
     justify-content: center;
-    column-gap: 18px;
-    row-gap: 8px;
+    gap: 15px;
   }
 
   .homepage-content {
